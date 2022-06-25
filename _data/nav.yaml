@@ -1,0 +1,106 @@
+sidebar:
+  - group: 
+    zh: 开始
+    en: Start
+    list:
+      - zh: 快速开始
+        en: Start
+      - zh: 创建应用和KEY
+        en: Get API KEY
+      - zh: 错误状态码
+        en: Status Code
+      - zh: 多语言
+        en: Language
+      - zh: 天气图标
+        en: Icons
+      - zh: 常见城市列表
+        en: Location List
+      - zh: 单位
+        en: Unit
+      - zh: 名词解释
+        en: Glossary
+  - group:
+    zh: API
+    en: API
+    list:
+      - zh: 概述
+        en: Overview
+      - zh: 城市信息搜索
+        en: Geo
+      - zh: 天气预报和实况
+        en: Weather
+      - zh: 分钟级降水
+        en: Minutely
+      - zh: 空气质量
+        en: Air
+      - zh: 灾害预警
+        en: Warning
+      - zh: 生活指数
+        en: Indices
+      - zh: 景区天气
+        en: Weather POI
+      - zh: 历史数据
+        en: Historical
+      - zh: 太阳和月亮
+        en: Astronomy
+  - group:
+    zh: SDK
+    en: SDK
+    list:
+      - zh: 概述
+        en: SDK
+      - zh: iOS SDK
+        en: ios sdk
+      - zh: iOS 数据类属性
+        en: ios Entity
+      - zh: Android SDK
+        en: Android SDK
+      - zh: Android数据类属性
+        en: Android Entity
+      - zh: 下载和更新记录
+        en: Release
+  - group:
+    zh: 天气插件
+    en: Widget
+    list:
+      - zh: 概述
+        en: Widget
+      - zh: iOS天气插件
+        en: iOS Widget
+      - zh: Android天气插件
+        en: Android Widget
+      - zh: H5天气网页/频道页
+        en: Mobile Page
+      - zh: 网页标准插件
+        en: Standard Widget
+      - zh: 网页简约插件
+        en: Simple Widget
+  - group:
+    zh: 天气普拉斯
+    en: OWP
+    list:
+      - zh: 概述
+        en: Overview
+      - zh: iOS 开发文档
+        en: iOS
+      - zh: Android 开发文档
+        en: Android
+  - group: 
+    zh: 代码库
+    en: library
+    list:
+      - zh: 概述
+        en: library
+  - group: 
+    zh: 常见问题
+    en: faq
+    list:
+      - zh: 一般问题
+        en: General
+      - zh: 商业数据和购买
+        en: Buy
+      - zh: 技术和开发
+        en: Technical
+      - zh: 用户和账号
+        en: User
+footer:

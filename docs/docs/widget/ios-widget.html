@@ -1,0 +1,1772 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>iOS天气插件 | 不停的博客</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="iOS天气插件" />
+<meta property="og:locale" content="zh" />
+<meta name="description" content="和风天气免费iOS天气插件SDK，包括实况天气、分钟级降水、空气质量、灾害预警、30天预报、生活指数、台风路径等天气内容，支持在iOS应用任意位置加入天气内容，并可生成天气频道页面。" />
+<meta property="og:description" content="和风天气免费iOS天气插件SDK，包括实况天气、分钟级降水、空气质量、灾害预警、30天预报、生活指数、台风路径等天气内容，支持在iOS应用任意位置加入天气内容，并可生成天气频道页面。" />
+<link rel="canonical" href="http://localhost:4000/docs/widget/ios-widget" />
+<meta property="og:url" content="http://localhost:4000/docs/widget/ios-widget" />
+<meta property="og:site_name" content="不停的博客" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-06-25T09:00:26+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="iOS天气插件" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"DigitalDocument","dateModified":"2022-06-25T09:00:26+00:00","datePublished":"2022-06-25T09:00:26+00:00","description":"和风天气免费iOS天气插件SDK，包括实况天气、分钟级降水、空气质量、灾害预警、30天预报、生活指数、台风路径等天气内容，支持在iOS应用任意位置加入天气内容，并可生成天气频道页面。","headline":"iOS天气插件","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/brand.png"}},"url":"http://localhost:4000/docs/widget/ios-widget"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <meta name="apple-itunes-app" content="app-id=1461458147, app-argument=weather"/>
+    <link rel="stylesheet" href="/assets/css/bootstrap-3.3.7.min.css?v=202009082"/>
+    <link rel="stylesheet" href="/assets/css/style.css?v=202009082"/>
+    <script src="/assets/js/jquery-1.11.0.min.js?v=202009082"></script>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+</head>
+<body>
+
+<header class="navbar-fixed-top">
+  <nav class="container" id="header-nav">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">
+        <img src="/assets/images/logo-white.png?v=202009082" alt="myBlog">
+        <span>不停的博客</span>
+      </a>
+    </div>
+    <ul class="nav navbar-nav navbar-left">
+      <li ><a href="/">首页</a></li>
+      <li ><a href="/work/">工作经历</a></li>
+      <li class="active"><a href="/docs/start/">笔记</a></li>
+      <li><a href="https://github.com/yuanqinghua-star">Github</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-left weather-widget visible-lg visible-md visible-sm">
+    <li>
+      <div id="he-plugin-simple"></div>
+      <script>
+        WIDGET = {
+          CONFIG: {
+            "modules": "20",
+            "background": 5,
+            "tmpColor": "FFFFFF",
+            "tmpSize": "14",
+            "cityColor": "FFFFFF",
+            "citySize": "14",
+            "aqiSize": "14",
+            "weatherIconSize": "18",
+            "alertIconSize": "14",
+            "padding": "0px 0px 0px 0px",
+            "shadow": "0",
+            "language": "zh",
+            "fixed": "false",
+            "vertical": "middle",
+            "horizontal": "center",
+            "key": "acd0fdcab4b9481a98d0f59145420fac"
+          }
+        }
+      </script>
+      <script src="https://widget.heweather.net/simple/static/js/he-simple-common.js?v=1.2"></script>
+    </li>
+  </ul> 
+  </nav>
+</header>
+
+
+<div class="container">
+    <div class="row" id='docs-main'>
+        <aside class="col-sm-3 col-md-3 col-lg-3 hidden-xs">
+  <nav class="navbar navbar-default nav-stacked doc-nav">
+
+    
+    
+
+    <div class="doc-nav-group">
+      <a class="doc-nav-title-link" href="/docs/start/"
+        title="开始">开始</a>
+      <ul class="nav collapse ">
+
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/start/
+          ">快速开始</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/start/get-api-key
+          ">创建应用和KEY</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/start/status-code
+          ">错误状态码</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/start/language
+          ">多语言</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/start/icons
+          ">天气图标</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/start/location-list
+          ">常见城市列表</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/start/unit
+          ">单位</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/start/glossary
+          ">名词解释</a>
+        </li>
+        
+
+      </ul>
+    </div>
+    
+    
+
+    <div class="doc-nav-group">
+      <a class="doc-nav-title-link" href="/docs/api/"
+        title="API">API</a>
+      <ul class="nav collapse ">
+
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/api/overview
+          ">概述</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/api/geo
+          ">城市信息搜索</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/api/weather
+          ">天气预报和实况</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/api/minutely
+          ">分钟级降水</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/api/air
+          ">空气质量</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/api/warning
+          ">灾害预警</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/api/indices
+          ">生活指数</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/api/weather-poi
+          ">景区天气</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/api/historical
+          ">历史数据</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/api/astronomy
+          ">太阳和月亮</a>
+        </li>
+        
+
+      </ul>
+    </div>
+    
+    
+
+    <div class="doc-nav-group">
+      <a class="doc-nav-title-link" href="/docs/sdk/"
+        title="SDK">SDK</a>
+      <ul class="nav collapse ">
+
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/sdk/
+          ">概述</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/sdk/ios-sdk
+          ">iOS SDK</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/sdk/ios-entity
+          ">iOS 数据类属性</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/sdk/android-sdk
+          ">Android SDK</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/sdk/android-entity
+          ">Android数据类属性</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/sdk/release
+          ">下载和更新记录</a>
+        </li>
+        
+
+      </ul>
+    </div>
+    
+    
+
+    <div class="doc-nav-group">
+      <a class="doc-nav-title-link" href="/docs/widget/"
+        title="天气插件">天气插件</a>
+      <ul class="nav collapse in ">
+
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/widget/
+          ">概述</a>
+        </li>
+        
+        
+        
+        
+
+        <li class="active" >
+          <a class="doc-nav-item-link" href="
+          /docs/widget/ios-widget
+          ">iOS天气插件</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/widget/android-widget
+          ">Android天气插件</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/widget/mobile-page
+          ">H5天气网页/频道页</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/widget/standard-widget
+          ">网页标准插件</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/widget/simple-widget
+          ">网页简约插件</a>
+        </li>
+        
+
+      </ul>
+    </div>
+    
+    
+
+    <div class="doc-nav-group">
+      <a class="doc-nav-title-link" href="/docs/owp/"
+        title="天气普拉斯">天气普拉斯</a>
+      <ul class="nav collapse ">
+
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/owp/overview
+          ">概述</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/owp/ios
+          ">iOS 开发文档</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/owp/android
+          ">Android 开发文档</a>
+        </li>
+        
+
+      </ul>
+    </div>
+    
+    
+
+    <div class="doc-nav-group">
+      <a class="doc-nav-title-link" href="/docs/library/"
+        title="代码库">代码库</a>
+      <ul class="nav collapse ">
+
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/library/
+          ">概述</a>
+        </li>
+        
+
+      </ul>
+    </div>
+    
+    
+
+    <div class="doc-nav-group">
+      <a class="doc-nav-title-link" href="/docs/faq/"
+        title="常见问题">常见问题</a>
+      <ul class="nav collapse ">
+
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/faq/general
+          ">一般问题</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/faq/buy
+          ">商业数据和购买</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/faq/technical
+          ">技术和开发</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/faq/user
+          ">用户和账号</a>
+        </li>
+        
+
+      </ul>
+    </div>
+    
+  </nav>
+</aside>
+
+<!-- for mobile -->
+<nav class="navbar navbar-default" id="header-slidebar">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+        data-target="#bs-example-navbar-collapse-1" aria-expanded="false" id="header-slidebar-btn">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">
+        笔记
+      </a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+            aria-expanded="false">开始<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            
+            
+            <li><a href="
+              /docs/start/
+              ">
+                快速开始
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/start/get-api-key
+              ">
+                创建应用和KEY
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/start/status-code
+              ">
+                错误状态码
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/start/language
+              ">
+                多语言
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/start/icons
+              ">
+                天气图标
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/start/location-list
+              ">
+                常见城市列表
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/start/unit
+              ">
+                单位
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/start/glossary
+              ">
+                名词解释
+              </a></li>
+            
+          </ul>
+          
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+            aria-expanded="false">API<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            
+            
+            <li><a href="
+              /docs/api/overview
+              ">
+                概述
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/api/geo
+              ">
+                城市信息搜索
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/api/weather
+              ">
+                天气预报和实况
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/api/minutely
+              ">
+                分钟级降水
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/api/air
+              ">
+                空气质量
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/api/warning
+              ">
+                灾害预警
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/api/indices
+              ">
+                生活指数
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/api/weather-poi
+              ">
+                景区天气
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/api/historical
+              ">
+                历史数据
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/api/astronomy
+              ">
+                太阳和月亮
+              </a></li>
+            
+          </ul>
+          
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+            aria-expanded="false">SDK<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            
+            
+            <li><a href="
+              /docs/sdk/
+              ">
+                概述
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/sdk/ios-sdk
+              ">
+                iOS SDK
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/sdk/ios-entity
+              ">
+                iOS 数据类属性
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/sdk/android-sdk
+              ">
+                Android SDK
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/sdk/android-entity
+              ">
+                Android数据类属性
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/sdk/release
+              ">
+                下载和更新记录
+              </a></li>
+            
+          </ul>
+          
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+            aria-expanded="false">天气插件<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            
+            
+            <li><a href="
+              /docs/widget/
+              ">
+                概述
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/widget/ios-widget
+              ">
+                iOS天气插件
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/widget/android-widget
+              ">
+                Android天气插件
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/widget/mobile-page
+              ">
+                H5天气网页/频道页
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/widget/standard-widget
+              ">
+                网页标准插件
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/widget/simple-widget
+              ">
+                网页简约插件
+              </a></li>
+            
+          </ul>
+          
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+            aria-expanded="false">天气普拉斯<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            
+            
+            <li><a href="
+              /docs/owp/overview
+              ">
+                概述
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/owp/ios
+              ">
+                iOS 开发文档
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/owp/android
+              ">
+                Android 开发文档
+              </a></li>
+            
+          </ul>
+          
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+            aria-expanded="false">代码库<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            
+            
+            <li><a href="
+              /docs/library/
+              ">
+                概述
+              </a></li>
+            
+          </ul>
+          
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+            aria-expanded="false">常见问题<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            
+            
+            <li><a href="
+              /docs/faq/general
+              ">
+                一般问题
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/faq/buy
+              ">
+                商业数据和购买
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/faq/technical
+              ">
+                技术和开发
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/faq/user
+              ">
+                用户和账号
+              </a></li>
+            
+          </ul>
+          
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+        
+            <section class="col-sm-9 col-md-9 col-lg-9 col-xs-12">
+                
+                <div class="docs-header">
+                    <h1>iOS天气插件</h1>
+                    
+                </div>
+                <article class="docs-content">
+                    
+                    <h2 id="版本和更新">版本和更新</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>版本号</th>
+      <th>更新日期</th>
+      <th>获取密钥和下载</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1.0</td>
+      <td>2019-06-11</td>
+      <td><a href="/widget/sdk">下载</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="适配版本">适配版本</h2>
+
+<p>iOS 9.0 及以上</p>
+
+<h2 id="1工程配置">1.工程配置</h2>
+
+<h3 id="手动安装">手动安装</h3>
+
+<ul>
+  <li>1.1 将HeWeather_Plugin.frameWork拖入到工程中</li>
+  <li>1.2 info.plist添加Allow Arbitrary Loads元素，同时设为 YES</li>
+  <li>1.3 本项目依赖于 ‘SDWebImage’ ‘Masonry’请确保您的项目中已经安装这两个类库</li>
+  <li>1.4 sdk需要开启定位权限，请在工程plist.info文件中添加NSLocationAlwaysAndWhenInUseUsageDescription和NSLocationWhenInUseUsageDescription</li>
+</ul>
+
+<h2 id="2调用说明">2.调用说明</h2>
+
+<h3 id="21-在所需位置引入头文件">2.1 在所需位置引入头文件</h3>
+
+<pre><code class="language-objective-c">#import &lt;HeWeather_Plugin/HeWeather_Plugin.h&gt;
+</code></pre>
+
+<h4 id="221-显示横向单排">2.2.1 显示横向单排</h4>
+
+<p><img src="/assets/images/widget-ios-sample1.png" alt="avatar" /></p>
+
+<div class="language-objc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//显示横向单排</span>
+<span class="k">-</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">setHeFengPluginViewTypeHorizontal</span><span class="p">{</span>
+    <span class="n">NSArray</span> <span class="o">*</span><span class="n">typeArray</span> <span class="o">=</span>  <span class="p">@[</span><span class="err">@</span><span class="p">(</span><span class="n">HeFengConfigModelTypeLocation</span><span class="p">),</span>
+                            <span class="err">@</span><span class="p">(</span><span class="n">HeFengConfigModelTypeAlarmIcon</span><span class="p">),</span>
+                            <span class="err">@</span><span class="p">(</span><span class="n">HeFengConfigModelTypeAlarm</span><span class="p">),</span>
+                            <span class="err">@</span><span class="p">(</span><span class="n">HeFengConfigModelTypeTemp</span><span class="p">),</span>
+                            <span class="err">@</span><span class="p">(</span><span class="n">HeFengConfigModelTypeWeatherStateIcon</span><span class="p">),</span>
+                            <span class="err">@</span><span class="p">(</span><span class="n">HeFengConfigModelTypeWeatherState</span><span class="p">),</span>
+                            <span class="err">@</span><span class="p">(</span><span class="n">HeFengConfigModelTypeWindDirIcon</span><span class="p">),</span>
+                            <span class="err">@</span><span class="p">(</span><span class="n">HeFengConfigModelTypeWindSC</span><span class="p">),</span>
+                            <span class="err">@</span><span class="p">(</span><span class="n">HeFengConfigModelTypeAqiTitle</span><span class="p">),</span>
+                            <span class="err">@</span><span class="p">(</span><span class="n">HeFengConfigModelTypeQlty</span><span class="p">),</span>
+                            <span class="err">@</span><span class="p">(</span><span class="n">HeFengConfigModelTypeAqi</span><span class="p">),</span>
+                            <span class="err">@</span><span class="p">(</span><span class="n">HeFengConfigModelTypePcpnIcon</span><span class="p">),</span>
+                            <span class="err">@</span><span class="p">(</span><span class="n">HeFengConfigModelTypePcpn</span><span class="p">),</span>
+                            <span class="p">];</span>
+    <span class="c1">//初始化视图</span>
+    <span class="n">HeFengPluginView</span> <span class="o">*</span><span class="n">view</span> <span class="o">=</span> <span class="p">[[</span><span class="n">HeFengPluginView</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithFrame</span><span class="p">:</span><span class="n">CGRectMake</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span>  <span class="p">[[</span><span class="n">UIApplication</span> <span class="nf">sharedApplication</span><span class="p">]</span> <span class="nf">statusBarFrame</span><span class="p">].</span><span class="n">size</span><span class="p">.</span><span class="n">height</span> <span class="o">+</span> <span class="mi">44</span><span class="p">.</span><span class="n">f</span><span class="p">,</span> <span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="n">frame</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">width</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span> <span class="nf">ViewType</span><span class="p">:</span><span class="n">HeFengPluginViewTypeHorizontal</span> <span class="n">UserKey</span><span class="o">:</span><span class="s">@"用户key"</span> <span class="n">Location</span><span class="o">:</span><span class="s">@"北京"</span><span class="p">];</span>
+    
+    <span class="c1">//视图属性设置</span>
+    <span class="n">NSMutableArray</span> <span class="o">*</span><span class="n">configarray</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSMutableArray</span> <span class="nf">array</span><span class="p">];</span>
+    <span class="p">[</span><span class="n">typeArray</span> <span class="nf">enumerateObjectsUsingBlock</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">id</span>   <span class="n">obj</span><span class="p">,</span> <span class="n">NSUInteger</span> <span class="n">idx</span><span class="p">,</span> <span class="n">BOOL</span> <span class="o">*</span> <span class="n">_Nonnull</span> <span class="n">stop</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">NSMutableArray</span> <span class="o">*</span><span class="n">modelarray</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSMutableArray</span> <span class="nf">array</span><span class="p">];</span>
+        <span class="k">if</span> <span class="p">([</span><span class="n">obj</span> <span class="nf">isKindOfClass</span><span class="p">:[</span><span class="n">NSArray</span> <span class="nf">class</span><span class="p">]])</span> <span class="p">{</span>
+            <span class="p">[</span><span class="n">obj</span> <span class="nf">enumerateObjectsUsingBlock</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">id</span>  <span class="n">_Nonnull</span> <span class="n">arrayobj</span><span class="p">,</span> <span class="n">NSUInteger</span> <span class="n">idx</span><span class="p">,</span> <span class="n">BOOL</span> <span class="o">*</span> <span class="n">_Nonnull</span> <span class="n">stop</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">HeFengConfigModel</span> <span class="o">*</span><span class="n">model</span> <span class="o">=</span> <span class="p">[</span><span class="n">HeFengConfigModel</span> <span class="nf">new</span><span class="p">];</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">idx</span><span class="o">==</span><span class="mi">0</span><span class="o">&amp;&amp;</span><span class="p">[</span><span class="n">arrayobj</span> <span class="nf">integerValue</span><span class="p">]</span><span class="o">==</span><span class="n">HeFengConfigModelTypeTemp</span><span class="o">&amp;&amp;</span><span class="p">[</span><span class="n">obj</span> <span class="nf">count</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="n">model</span><span class="p">.</span><span class="n">textFont</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIFont</span> <span class="nf">systemFontOfSize</span><span class="p">:</span><span class="mi">40</span><span class="p">];</span>
+                <span class="p">}</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">idx</span><span class="o">==</span><span class="mi">0</span><span class="o">&amp;&amp;</span><span class="p">[</span><span class="n">arrayobj</span> <span class="nf">integerValue</span><span class="p">]</span><span class="o">==</span><span class="n">HeFengConfigModelTypeWeatherStateIcon</span><span class="o">&amp;&amp;</span><span class="p">[</span><span class="n">obj</span> <span class="nf">count</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="n">model</span><span class="p">.</span><span class="n">iconSize</span> <span class="o">=</span> <span class="mi">32</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="n">model</span><span class="p">.</span><span class="n">type</span> <span class="o">=</span> <span class="p">[</span><span class="n">arrayobj</span> <span class="nf">integerValue</span><span class="p">];</span>
+                <span class="n">model</span><span class="p">.</span><span class="n">padding</span> <span class="o">=</span> <span class="n">UIEdgeInsetsMake</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">);</span>
+                <span class="p">[</span><span class="n">modelarray</span> <span class="nf">addObject</span><span class="p">:</span><span class="n">model</span><span class="p">];</span>
+            <span class="p">}];</span>
+            <span class="p">[</span><span class="n">configarray</span> <span class="nf">addObject</span><span class="p">:</span><span class="n">modelarray</span><span class="p">];</span>
+        <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+            <span class="n">HeFengConfigModel</span> <span class="o">*</span><span class="n">model</span> <span class="o">=</span> <span class="p">[</span><span class="n">HeFengConfigModel</span> <span class="nf">new</span><span class="p">];</span>
+            <span class="n">model</span><span class="p">.</span><span class="n">type</span> <span class="o">=</span> <span class="p">[</span><span class="n">obj</span> <span class="nf">integerValue</span><span class="p">];</span>
+            <span class="n">model</span><span class="p">.</span><span class="n">padding</span> <span class="o">=</span><span class="n">UIEdgeInsetsMake</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">);</span>
+            <span class="p">[</span><span class="n">configarray</span> <span class="nf">addObject</span><span class="p">:</span><span class="n">model</span><span class="p">];</span>
+        <span class="p">}</span>
+    <span class="p">}];</span>
+    <span class="n">view</span><span class="p">.</span><span class="n">configArray</span> <span class="o">=</span> <span class="n">configarray</span><span class="p">;</span>
+    <span class="n">view</span><span class="p">.</span><span class="n">contentViewAlignmen</span> <span class="o">=</span> <span class="n">HeFengContentViewAlignmentCenter</span><span class="p">;</span>
+    <span class="c1">//    view.themType = HeFengPluginViewThemeTypeAuto;</span>
+    <span class="n">view</span><span class="p">.</span><span class="n">padding</span> <span class="o">=</span> <span class="n">UIEdgeInsetsZero</span><span class="p">;</span>
+    <span class="n">view</span><span class="p">.</span><span class="n">backgroundImageTitle</span> <span class="o">=</span> <span class="s">@""</span><span class="p">;</span>
+    <span class="n">view</span><span class="p">.</span><span class="n">borderColor</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIColor</span> <span class="nf">greenColor</span><span class="p">];</span>
+    <span class="n">view</span><span class="p">.</span><span class="n">borderWidth</span> <span class="o">=</span><span class="mi">2</span><span class="p">;</span>
+    <span class="n">view</span><span class="p">.</span><span class="n">cornerRadius</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="n">view</span><span class="p">.</span><span class="n">isShowBorder</span> <span class="o">=</span> <span class="nb">NO</span><span class="p">;</span>
+    <span class="n">view</span><span class="p">.</span><span class="n">isShowConer</span> <span class="o">=</span> <span class="nb">NO</span><span class="p">;</span>
+    <span class="c1">//拖拽设置</span>
+    <span class="n">view</span><span class="p">.</span><span class="n">dragEnable</span> <span class="o">=</span> <span class="nb">YES</span><span class="p">;</span>
+    <span class="n">view</span><span class="p">.</span><span class="n">freeRect</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="n">frame</span><span class="p">;</span>
+    <span class="n">view</span><span class="p">.</span><span class="n">dragDirection</span> <span class="o">=</span> <span class="n">HeFengPluginViewDragDirectionAny</span><span class="p">;</span>
+    <span class="n">view</span><span class="p">.</span><span class="n">isKeepBounds</span> <span class="o">=</span> <span class="nb">NO</span><span class="p">;</span>
+    <span class="c1">//导航栏设置</span>
+    <span class="c1">//    view.navigationBarBackgroundColor = [UIColor redColor];</span>
+    <span class="c1">//    view.progressColor = [UIColor blueColor];</span>
+    <span class="n">view</span><span class="p">.</span><span class="n">navBarBackImage</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIImage</span> <span class="nf">imageNamed</span><span class="p">:</span><span class="s">@""</span><span class="p">];</span>
+    <span class="n">view</span><span class="p">.</span><span class="n">navBarCloseImage</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIImage</span> <span class="nf">imageNamed</span><span class="p">:</span><span class="s">@""</span><span class="p">];</span>
+    <span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">view</span> <span class="nf">addSubview</span><span class="p">:</span><span class="n">view</span><span class="p">];</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+<h4 id="222-左侧大布局右侧双布局">2.2.2 左侧大布局右侧双布局</h4>
+
+<p><img src="/assets/images/widget-ios-sample2.jpg" alt="sample" /></p>
+
+<div class="language-objc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">-</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">setHeFengPluginViewTypeLeftLarge</span><span class="p">{</span>
+    
+    <span class="n">NSArray</span> <span class="o">*</span><span class="n">typeArray</span> <span class="o">=</span> <span class="p">@[@[</span><span class="err">@</span><span class="p">(</span><span class="n">HeFengConfigModelTypeWeatherStateIcon</span><span class="p">)],</span>
+                           <span class="p">@[</span><span class="err">@</span><span class="p">(</span><span class="n">HeFengConfigModelTypeTemp</span><span class="p">),</span>
+                             <span class="err">@</span><span class="p">(</span><span class="n">HeFengConfigModelTypeAlarmIcon</span><span class="p">),</span>
+                             <span class="err">@</span><span class="p">(</span><span class="n">HeFengConfigModelTypeAlarm</span><span class="p">),</span>
+                             <span class="err">@</span><span class="p">(</span><span class="n">HeFengConfigModelTypeAqiTitle</span><span class="p">),</span>
+                             <span class="err">@</span><span class="p">(</span><span class="n">HeFengConfigModelTypeQlty</span><span class="p">),</span>
+                             <span class="err">@</span><span class="p">(</span><span class="n">HeFengConfigModelTypeAqi</span><span class="p">),</span>
+                             <span class="err">@</span><span class="p">(</span><span class="n">HeFengConfigModelTypeLocation</span><span class="p">)],</span>
+                           <span class="p">@[</span><span class="err">@</span><span class="p">(</span><span class="n">HeFengConfigModelTypeWeatherState</span><span class="p">),</span>
+                             <span class="err">@</span><span class="p">(</span><span class="n">HeFengConfigModelTypeWindDirIcon</span><span class="p">),</span>
+                             <span class="err">@</span><span class="p">(</span><span class="n">HeFengConfigModelTypeWindSC</span><span class="p">),</span>
+                             <span class="err">@</span><span class="p">(</span><span class="n">HeFengConfigModelTypePcpnIcon</span><span class="p">),</span>
+                             <span class="err">@</span><span class="p">(</span><span class="n">HeFengConfigModelTypePcpn</span><span class="p">)]];</span>
+    <span class="c1">//初始化视图</span>
+    <span class="n">HeFengPluginView</span> <span class="o">*</span><span class="n">view</span> <span class="o">=</span> <span class="p">[[</span><span class="n">HeFengPluginView</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithFrame</span><span class="p">:</span><span class="n">CGRectMake</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="n">frame</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">width</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span> <span class="nf">ViewType</span><span class="p">:</span><span class="n">HeFengPluginViewTypeLeftLarge</span> <span class="n">UserKey</span><span class="o">:</span><span class="s">@"用户key"</span> <span class="n">Location</span><span class="o">:</span><span class="s">@"北京"</span><span class="p">];</span>
+    
+    <span class="c1">//视图属性设置</span>
+    <span class="n">NSMutableArray</span> <span class="o">*</span><span class="n">configarray</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSMutableArray</span> <span class="nf">array</span><span class="p">];</span>
+    <span class="p">[</span><span class="n">typeArray</span> <span class="nf">enumerateObjectsUsingBlock</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">id</span>   <span class="n">obj</span><span class="p">,</span> <span class="n">NSUInteger</span> <span class="n">idx</span><span class="p">,</span> <span class="n">BOOL</span> <span class="o">*</span> <span class="n">_Nonnull</span> <span class="n">stop</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">NSMutableArray</span> <span class="o">*</span><span class="n">modelarray</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSMutableArray</span> <span class="nf">array</span><span class="p">];</span>
+        <span class="k">if</span> <span class="p">([</span><span class="n">obj</span> <span class="nf">isKindOfClass</span><span class="p">:[</span><span class="n">NSArray</span> <span class="nf">class</span><span class="p">]])</span> <span class="p">{</span>
+            <span class="p">[</span><span class="n">obj</span> <span class="nf">enumerateObjectsUsingBlock</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">id</span>  <span class="n">_Nonnull</span> <span class="n">arrayobj</span><span class="p">,</span> <span class="n">NSUInteger</span> <span class="n">idx</span><span class="p">,</span> <span class="n">BOOL</span> <span class="o">*</span> <span class="n">_Nonnull</span> <span class="n">stop</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">HeFengConfigModel</span> <span class="o">*</span><span class="n">model</span> <span class="o">=</span> <span class="p">[</span><span class="n">HeFengConfigModel</span> <span class="nf">new</span><span class="p">];</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">idx</span><span class="o">==</span><span class="mi">0</span><span class="o">&amp;&amp;</span><span class="p">[</span><span class="n">arrayobj</span> <span class="nf">integerValue</span><span class="p">]</span><span class="o">==</span><span class="n">HeFengConfigModelTypeTemp</span><span class="o">&amp;&amp;</span><span class="p">[</span><span class="n">obj</span> <span class="nf">count</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="n">model</span><span class="p">.</span><span class="n">textFont</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIFont</span> <span class="nf">systemFontOfSize</span><span class="p">:</span><span class="mi">40</span><span class="p">];</span>
+                <span class="p">}</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">idx</span><span class="o">==</span><span class="mi">0</span><span class="o">&amp;&amp;</span><span class="p">[</span><span class="n">arrayobj</span> <span class="nf">integerValue</span><span class="p">]</span><span class="o">==</span><span class="n">HeFengConfigModelTypeWeatherStateIcon</span><span class="o">&amp;&amp;</span><span class="p">[</span><span class="n">obj</span> <span class="nf">count</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="n">model</span><span class="p">.</span><span class="n">iconSize</span> <span class="o">=</span> <span class="mi">32</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="n">model</span><span class="p">.</span><span class="n">type</span> <span class="o">=</span> <span class="p">[</span><span class="n">arrayobj</span> <span class="nf">integerValue</span><span class="p">];</span>
+                <span class="n">model</span><span class="p">.</span><span class="n">padding</span> <span class="o">=</span> <span class="n">UIEdgeInsetsMake</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">);</span>
+                <span class="p">[</span><span class="n">modelarray</span> <span class="nf">addObject</span><span class="p">:</span><span class="n">model</span><span class="p">];</span>
+            <span class="p">}];</span>
+            <span class="p">[</span><span class="n">configarray</span> <span class="nf">addObject</span><span class="p">:</span><span class="n">modelarray</span><span class="p">];</span>
+        <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+            <span class="n">HeFengConfigModel</span> <span class="o">*</span><span class="n">model</span> <span class="o">=</span> <span class="p">[</span><span class="n">HeFengConfigModel</span> <span class="nf">new</span><span class="p">];</span>
+            <span class="n">model</span><span class="p">.</span><span class="n">type</span> <span class="o">=</span> <span class="p">[</span><span class="n">obj</span> <span class="nf">integerValue</span><span class="p">];</span>
+            <span class="n">model</span><span class="p">.</span><span class="n">padding</span> <span class="o">=</span><span class="n">UIEdgeInsetsMake</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">);</span>
+            <span class="p">[</span><span class="n">configarray</span> <span class="nf">addObject</span><span class="p">:</span><span class="n">model</span><span class="p">];</span>
+        <span class="p">}</span>
+    <span class="p">}];</span>
+    <span class="n">view</span><span class="p">.</span><span class="n">configArray</span> <span class="o">=</span> <span class="n">configarray</span><span class="p">;</span>
+    <span class="n">view</span><span class="p">.</span><span class="n">contentViewAlignmen</span> <span class="o">=</span> <span class="n">HeFengContentViewAlignmentCenter</span><span class="p">;</span>
+    <span class="n">view</span><span class="p">.</span><span class="n">themType</span> <span class="o">=</span> <span class="n">HeFengPluginViewThemeTypeLight</span><span class="p">;</span>
+    <span class="n">view</span><span class="p">.</span><span class="n">padding</span> <span class="o">=</span> <span class="n">UIEdgeInsetsZero</span><span class="p">;</span>
+    <span class="n">view</span><span class="p">.</span><span class="n">backgroundColor</span> <span class="o">=</span> <span class="n">HeFengColorFromRGB</span><span class="p">(</span><span class="mh">0xECECEC</span><span class="p">);</span>
+    <span class="n">view</span><span class="p">.</span><span class="n">backgroundImageTitle</span> <span class="o">=</span> <span class="s">@""</span><span class="p">;</span>
+    <span class="n">view</span><span class="p">.</span><span class="n">borderColor</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIColor</span> <span class="nf">greenColor</span><span class="p">];</span>
+    <span class="n">view</span><span class="p">.</span><span class="n">borderWidth</span> <span class="o">=</span><span class="mi">2</span><span class="p">;</span>
+    <span class="n">view</span><span class="p">.</span><span class="n">cornerRadius</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+    <span class="n">view</span><span class="p">.</span><span class="n">isShowBorder</span> <span class="o">=</span> <span class="nb">NO</span><span class="p">;</span>
+    <span class="n">view</span><span class="p">.</span><span class="n">isShowConer</span> <span class="o">=</span> <span class="nb">YES</span><span class="p">;</span>
+    <span class="c1">//拖拽设置</span>
+    <span class="n">view</span><span class="p">.</span><span class="n">dragEnable</span> <span class="o">=</span> <span class="nb">YES</span><span class="p">;</span>
+    <span class="n">view</span><span class="p">.</span><span class="n">freeRect</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="n">frame</span><span class="p">;</span>
+    <span class="n">view</span><span class="p">.</span><span class="n">dragDirection</span> <span class="o">=</span> <span class="n">HeFengPluginViewDragDirectionAny</span><span class="p">;</span>
+    <span class="n">view</span><span class="p">.</span><span class="n">isKeepBounds</span> <span class="o">=</span> <span class="nb">NO</span><span class="p">;</span>
+    <span class="c1">//导航栏设置</span>
+    <span class="c1">//    view.navigationBarBackgroundColor = [UIColor redColor];</span>
+    <span class="c1">//    view.progressColor = [UIColor blueColor];</span>
+    <span class="n">view</span><span class="p">.</span><span class="n">navBarBackImage</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIImage</span> <span class="nf">imageNamed</span><span class="p">:</span><span class="s">@""</span><span class="p">];</span>
+    <span class="n">view</span><span class="p">.</span><span class="n">navBarCloseImage</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIImage</span> <span class="nf">imageNamed</span><span class="p">:</span><span class="s">@""</span><span class="p">];</span>
+    <span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">view</span> <span class="nf">addSubview</span><span class="p">:</span><span class="n">view</span><span class="p">];</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<h4 id="223-右侧大布局左侧双布局">2.2.3 右侧大布局左侧双布局</h4>
+
+<p><img src="/assets/images/widget-ios-sample3.jpg" alt="sample" /></p>
+
+<div class="language-objc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">-</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">setHeFengPluginViewTypeRightLarge</span><span class="p">{</span>
+    <span class="n">NSArray</span> <span class="o">*</span><span class="n">typeArray</span> <span class="o">=</span> <span class="p">@[</span>
+                           <span class="p">@[</span><span class="err">@</span><span class="p">(</span><span class="n">HeFengConfigModelTypeTemp</span><span class="p">)],</span>
+                           <span class="p">@[</span>
+                               <span class="err">@</span><span class="p">(</span><span class="n">HeFengConfigModelTypeLocation</span><span class="p">),</span>
+                               <span class="err">@</span><span class="p">(</span><span class="n">HeFengConfigModelTypeAqiTitle</span><span class="p">),</span>
+                               <span class="err">@</span><span class="p">(</span><span class="n">HeFengConfigModelTypeQlty</span><span class="p">),</span>
+                               <span class="err">@</span><span class="p">(</span><span class="n">HeFengConfigModelTypeAqi</span><span class="p">),</span>
+                               <span class="err">@</span><span class="p">(</span><span class="n">HeFengConfigModelTypeAlarmIcon</span><span class="p">),</span>
+                               <span class="err">@</span><span class="p">(</span><span class="n">HeFengConfigModelTypeAlarm</span><span class="p">),</span>
+                               <span class="err">@</span><span class="p">(</span><span class="n">HeFengConfigModelTypeWeatherStateIcon</span><span class="p">)],</span>
+                           <span class="p">@[</span>
+                               <span class="err">@</span><span class="p">(</span><span class="n">HeFengConfigModelTypePcpnIcon</span><span class="p">),</span>
+                               <span class="err">@</span><span class="p">(</span><span class="n">HeFengConfigModelTypePcpn</span><span class="p">),</span>
+                               <span class="err">@</span><span class="p">(</span><span class="n">HeFengConfigModelTypeWindDirIcon</span><span class="p">),</span>
+                               <span class="err">@</span><span class="p">(</span><span class="n">HeFengConfigModelTypeWindSC</span><span class="p">),</span>
+                               <span class="err">@</span><span class="p">(</span><span class="n">HeFengConfigModelTypeWeatherState</span><span class="p">)]</span>
+                           <span class="p">];</span>
+    <span class="c1">//初始化视图</span>
+    <span class="n">HeFengPluginView</span> <span class="o">*</span><span class="n">view</span> <span class="o">=</span> <span class="p">[[</span><span class="n">HeFengPluginView</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithFrame</span><span class="p">:</span><span class="n">CGRectMake</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">320</span><span class="p">,</span> <span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="n">frame</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">width</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span> <span class="nf">ViewType</span><span class="p">:</span><span class="n">HeFengPluginViewTypeRightLarge</span> <span class="n">UserKey</span><span class="o">:</span><span class="s">@"用户key"</span> <span class="n">Location</span><span class="o">:</span><span class="s">@"北京"</span><span class="p">];</span>
+    
+    <span class="c1">//视图属性设置</span>
+    <span class="n">NSMutableArray</span> <span class="o">*</span><span class="n">configarray</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSMutableArray</span> <span class="nf">array</span><span class="p">];</span>
+    <span class="p">[</span><span class="n">typeArray</span> <span class="nf">enumerateObjectsUsingBlock</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">id</span>   <span class="n">obj</span><span class="p">,</span> <span class="n">NSUInteger</span> <span class="n">idx</span><span class="p">,</span> <span class="n">BOOL</span> <span class="o">*</span> <span class="n">_Nonnull</span> <span class="n">stop</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">NSMutableArray</span> <span class="o">*</span><span class="n">modelarray</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSMutableArray</span> <span class="nf">array</span><span class="p">];</span>
+        <span class="k">if</span> <span class="p">([</span><span class="n">obj</span> <span class="nf">isKindOfClass</span><span class="p">:[</span><span class="n">NSArray</span> <span class="nf">class</span><span class="p">]])</span> <span class="p">{</span>
+            <span class="p">[</span><span class="n">obj</span> <span class="nf">enumerateObjectsUsingBlock</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">id</span>  <span class="n">_Nonnull</span> <span class="n">arrayobj</span><span class="p">,</span> <span class="n">NSUInteger</span> <span class="n">idx</span><span class="p">,</span> <span class="n">BOOL</span> <span class="o">*</span> <span class="n">_Nonnull</span> <span class="n">stop</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">HeFengConfigModel</span> <span class="o">*</span><span class="n">model</span> <span class="o">=</span> <span class="p">[</span><span class="n">HeFengConfigModel</span> <span class="nf">new</span><span class="p">];</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">idx</span><span class="o">==</span><span class="mi">0</span><span class="o">&amp;&amp;</span><span class="p">[</span><span class="n">arrayobj</span> <span class="nf">integerValue</span><span class="p">]</span><span class="o">==</span><span class="n">HeFengConfigModelTypeTemp</span><span class="o">&amp;&amp;</span><span class="p">[</span><span class="n">obj</span> <span class="nf">count</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="n">model</span><span class="p">.</span><span class="n">textFont</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIFont</span> <span class="nf">systemFontOfSize</span><span class="p">:</span><span class="mi">40</span><span class="p">];</span>
+                    <span class="n">model</span><span class="p">.</span><span class="n">textColor</span> <span class="o">=</span> <span class="n">HeFengColorFromRGB</span><span class="p">(</span><span class="mh">0xFAFAFA</span><span class="p">);</span>
+                <span class="p">}</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">idx</span><span class="o">==</span><span class="mi">0</span><span class="o">&amp;&amp;</span><span class="p">[</span><span class="n">arrayobj</span> <span class="nf">integerValue</span><span class="p">]</span><span class="o">==</span><span class="n">HeFengConfigModelTypeWeatherStateIcon</span><span class="o">&amp;&amp;</span><span class="p">[</span><span class="n">obj</span> <span class="nf">count</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="n">model</span><span class="p">.</span><span class="n">iconSize</span> <span class="o">=</span> <span class="mi">32</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="n">model</span><span class="p">.</span><span class="n">type</span> <span class="o">=</span> <span class="p">[</span><span class="n">arrayobj</span> <span class="nf">integerValue</span><span class="p">];</span>
+                <span class="n">model</span><span class="p">.</span><span class="n">padding</span> <span class="o">=</span> <span class="n">UIEdgeInsetsMake</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">);</span>
+                <span class="n">model</span><span class="p">.</span><span class="n">textColor</span> <span class="o">=</span> <span class="n">HeFengColorFromRGB</span><span class="p">(</span><span class="mh">0xFAFAFA</span><span class="p">);</span>
+                <span class="p">[</span><span class="n">modelarray</span> <span class="nf">addObject</span><span class="p">:</span><span class="n">model</span><span class="p">];</span>
+            <span class="p">}];</span>
+            <span class="p">[</span><span class="n">configarray</span> <span class="nf">addObject</span><span class="p">:</span><span class="n">modelarray</span><span class="p">];</span>
+        <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+            <span class="n">HeFengConfigModel</span> <span class="o">*</span><span class="n">model</span> <span class="o">=</span> <span class="p">[</span><span class="n">HeFengConfigModel</span> <span class="nf">new</span><span class="p">];</span>
+            <span class="n">model</span><span class="p">.</span><span class="n">type</span> <span class="o">=</span> <span class="p">[</span><span class="n">obj</span> <span class="nf">integerValue</span><span class="p">];</span>
+            <span class="n">model</span><span class="p">.</span><span class="n">padding</span> <span class="o">=</span><span class="n">UIEdgeInsetsMake</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">);</span>
+            <span class="n">model</span><span class="p">.</span><span class="n">textColor</span> <span class="o">=</span> <span class="n">HeFengColorFromRGB</span><span class="p">(</span><span class="mh">0xFAFAFA</span><span class="p">);</span>
+            <span class="p">[</span><span class="n">configarray</span> <span class="nf">addObject</span><span class="p">:</span><span class="n">model</span><span class="p">];</span>
+        <span class="p">}</span>
+    <span class="p">}];</span>
+    <span class="n">view</span><span class="p">.</span><span class="n">configArray</span> <span class="o">=</span> <span class="n">configarray</span><span class="p">;</span>
+    <span class="n">view</span><span class="p">.</span><span class="n">contentViewAlignmen</span> <span class="o">=</span> <span class="n">HeFengContentViewAlignmentCenter</span><span class="p">;</span>
+    <span class="n">view</span><span class="p">.</span><span class="n">themType</span> <span class="o">=</span> <span class="n">HeFengPluginViewThemeTypeAuto</span><span class="p">;</span>
+    <span class="n">view</span><span class="p">.</span><span class="n">padding</span> <span class="o">=</span> <span class="n">UIEdgeInsetsZero</span><span class="p">;</span>
+    <span class="n">view</span><span class="p">.</span><span class="n">backgroundColor</span> <span class="o">=</span> <span class="n">HeFengColorFromRGB</span><span class="p">(</span><span class="mh">0xFAFAFA</span><span class="p">);</span>
+    <span class="n">view</span><span class="p">.</span><span class="n">backgroundImageTitle</span> <span class="o">=</span> <span class="s">@""</span><span class="p">;</span>
+    <span class="n">view</span><span class="p">.</span><span class="n">borderColor</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIColor</span> <span class="nf">greenColor</span><span class="p">];</span>
+    <span class="n">view</span><span class="p">.</span><span class="n">borderWidth</span> <span class="o">=</span><span class="mi">2</span><span class="p">;</span>
+    <span class="n">view</span><span class="p">.</span><span class="n">cornerRadius</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+    <span class="n">view</span><span class="p">.</span><span class="n">isShowBorder</span> <span class="o">=</span> <span class="nb">NO</span><span class="p">;</span>
+    <span class="n">view</span><span class="p">.</span><span class="n">isShowConer</span> <span class="o">=</span> <span class="nb">YES</span><span class="p">;</span>
+    <span class="c1">//拖拽设置</span>
+    <span class="n">view</span><span class="p">.</span><span class="n">dragEnable</span> <span class="o">=</span> <span class="nb">YES</span><span class="p">;</span>
+    <span class="n">view</span><span class="p">.</span><span class="n">freeRect</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="n">frame</span><span class="p">;</span>
+    <span class="n">view</span><span class="p">.</span><span class="n">dragDirection</span> <span class="o">=</span> <span class="n">HeFengPluginViewDragDirectionAny</span><span class="p">;</span>
+    <span class="n">view</span><span class="p">.</span><span class="n">isKeepBounds</span> <span class="o">=</span> <span class="nb">NO</span><span class="p">;</span>
+    <span class="c1">//导航栏设置</span>
+    <span class="c1">//    view.navigationBarBackgroundColor = [UIColor redColor];</span>
+    <span class="c1">//    view.progressColor = [UIColor blueColor];</span>
+    <span class="n">view</span><span class="p">.</span><span class="n">navBarBackImage</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIImage</span> <span class="nf">imageNamed</span><span class="p">:</span><span class="s">@""</span><span class="p">];</span>
+    <span class="n">view</span><span class="p">.</span><span class="n">navBarCloseImage</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIImage</span> <span class="nf">imageNamed</span><span class="p">:</span><span class="s">@""</span><span class="p">];</span>
+    <span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">view</span> <span class="nf">addSubview</span><span class="p">:</span><span class="n">view</span><span class="p">];</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<h4 id="224-竖向单排布局">2.2.4 竖向单排布局</h4>
+
+<p><img src="/assets/images/widget-ios-sample4.jpg" alt="sample" /></p>
+
+<div class="language-objc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">-</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">setHeFengPluginViewTypeVertical</span><span class="p">{</span>
+    <span class="n">NSArray</span> <span class="o">*</span><span class="n">typeArray</span> <span class="o">=</span> <span class="p">@[</span><span class="err">@</span><span class="p">(</span><span class="n">HeFengConfigModelTypeLocation</span><span class="p">),</span>
+                           <span class="err">@</span><span class="p">(</span><span class="n">HeFengConfigModelTypeTemp</span><span class="p">),</span>
+                           <span class="err">@</span><span class="p">(</span><span class="n">HeFengConfigModelTypeWeatherStateIcon</span><span class="p">),</span>
+                           <span class="err">@</span><span class="p">(</span><span class="n">HeFengConfigModelTypeWeatherState</span><span class="p">),</span>
+                           <span class="err">@</span><span class="p">(</span><span class="n">HeFengConfigModelTypeWindDirIcon</span><span class="p">),</span>
+                           <span class="err">@</span><span class="p">(</span><span class="n">HeFengConfigModelTypeWindSC</span><span class="p">),</span>
+                           <span class="err">@</span><span class="p">(</span><span class="n">HeFengConfigModelTypeAqiTitle</span><span class="p">),</span>
+                           <span class="err">@</span><span class="p">(</span><span class="n">HeFengConfigModelTypeQlty</span><span class="p">),</span>
+                           <span class="err">@</span><span class="p">(</span><span class="n">HeFengConfigModelTypeAqi</span><span class="p">),</span>
+                           <span class="err">@</span><span class="p">(</span><span class="n">HeFengConfigModelTypeAlarmIcon</span><span class="p">),</span>
+                           <span class="err">@</span><span class="p">(</span><span class="n">HeFengConfigModelTypeAlarm</span><span class="p">),</span>
+                           <span class="err">@</span><span class="p">(</span><span class="n">HeFengConfigModelTypePcpnIcon</span><span class="p">),</span>
+                           <span class="err">@</span><span class="p">(</span><span class="n">HeFengConfigModelTypePcpn</span><span class="p">),</span>
+                           <span class="p">];</span>
+    <span class="c1">//初始化视图</span>
+    <span class="n">HeFengPluginView</span> <span class="o">*</span><span class="n">view</span> <span class="o">=</span> <span class="p">[[</span><span class="n">HeFengPluginView</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithFrame</span><span class="p">:</span><span class="n">CGRectMake</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">420</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span> <span class="nf">ViewType</span><span class="p">:</span><span class="n">HeFengPluginViewTypeVertical</span> <span class="n">UserKey</span><span class="o">:</span><span class="s">@"用户key"</span> <span class="n">Location</span><span class="o">:</span><span class="s">@"武汉"</span><span class="p">];</span>
+    
+    <span class="c1">//视图属性设置</span>
+    <span class="n">NSMutableArray</span> <span class="o">*</span><span class="n">configarray</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSMutableArray</span> <span class="nf">array</span><span class="p">];</span>
+    <span class="p">[</span><span class="n">typeArray</span> <span class="nf">enumerateObjectsUsingBlock</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">id</span>   <span class="n">obj</span><span class="p">,</span> <span class="n">NSUInteger</span> <span class="n">idx</span><span class="p">,</span> <span class="n">BOOL</span> <span class="o">*</span> <span class="n">_Nonnull</span> <span class="n">stop</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">NSMutableArray</span> <span class="o">*</span><span class="n">modelarray</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSMutableArray</span> <span class="nf">array</span><span class="p">];</span>
+        <span class="k">if</span> <span class="p">([</span><span class="n">obj</span> <span class="nf">isKindOfClass</span><span class="p">:[</span><span class="n">NSArray</span> <span class="nf">class</span><span class="p">]])</span> <span class="p">{</span>
+            <span class="p">[</span><span class="n">obj</span> <span class="nf">enumerateObjectsUsingBlock</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">id</span>  <span class="n">_Nonnull</span> <span class="n">arrayobj</span><span class="p">,</span> <span class="n">NSUInteger</span> <span class="n">idx</span><span class="p">,</span> <span class="n">BOOL</span> <span class="o">*</span> <span class="n">_Nonnull</span> <span class="n">stop</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">HeFengConfigModel</span> <span class="o">*</span><span class="n">model</span> <span class="o">=</span> <span class="p">[</span><span class="n">HeFengConfigModel</span> <span class="nf">new</span><span class="p">];</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">idx</span><span class="o">==</span><span class="mi">0</span><span class="o">&amp;&amp;</span><span class="p">[</span><span class="n">arrayobj</span> <span class="nf">integerValue</span><span class="p">]</span><span class="o">==</span><span class="n">HeFengConfigModelTypeTemp</span><span class="o">&amp;&amp;</span><span class="p">[</span><span class="n">obj</span> <span class="nf">count</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="n">model</span><span class="p">.</span><span class="n">textFont</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIFont</span> <span class="nf">systemFontOfSize</span><span class="p">:</span><span class="mi">40</span><span class="p">];</span>
+                <span class="p">}</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">idx</span><span class="o">==</span><span class="mi">0</span><span class="o">&amp;&amp;</span><span class="p">[</span><span class="n">arrayobj</span> <span class="nf">integerValue</span><span class="p">]</span><span class="o">==</span><span class="n">HeFengConfigModelTypeWeatherStateIcon</span><span class="o">&amp;&amp;</span><span class="p">[</span><span class="n">obj</span> <span class="nf">count</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="n">model</span><span class="p">.</span><span class="n">iconSize</span> <span class="o">=</span> <span class="mi">32</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="n">model</span><span class="p">.</span><span class="n">type</span> <span class="o">=</span> <span class="p">[</span><span class="n">arrayobj</span> <span class="nf">integerValue</span><span class="p">];</span>
+                <span class="n">model</span><span class="p">.</span><span class="n">padding</span> <span class="o">=</span><span class="n">UIEdgeInsetsMake</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+                <span class="p">[</span><span class="n">modelarray</span> <span class="nf">addObject</span><span class="p">:</span><span class="n">model</span><span class="p">];</span>
+            <span class="p">}];</span>
+            <span class="p">[</span><span class="n">configarray</span> <span class="nf">addObject</span><span class="p">:</span><span class="n">modelarray</span><span class="p">];</span>
+        <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+            <span class="n">HeFengConfigModel</span> <span class="o">*</span><span class="n">model</span> <span class="o">=</span> <span class="p">[</span><span class="n">HeFengConfigModel</span> <span class="nf">new</span><span class="p">];</span>
+            <span class="n">model</span><span class="p">.</span><span class="n">type</span> <span class="o">=</span> <span class="p">[</span><span class="n">obj</span> <span class="nf">integerValue</span><span class="p">];</span>
+            <span class="n">model</span><span class="p">.</span><span class="n">padding</span> <span class="o">=</span><span class="n">UIEdgeInsetsMake</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+            <span class="p">[</span><span class="n">configarray</span> <span class="nf">addObject</span><span class="p">:</span><span class="n">model</span><span class="p">];</span>
+        <span class="p">}</span>
+    <span class="p">}];</span>
+    <span class="n">view</span><span class="p">.</span><span class="n">configArray</span> <span class="o">=</span> <span class="n">configarray</span><span class="p">;</span>
+    <span class="n">view</span><span class="p">.</span><span class="n">contentViewAlignmen</span> <span class="o">=</span> <span class="n">HeFengContentViewAlignmentCenter</span><span class="p">;</span>
+    <span class="c1">//    view.themType = HeFengPluginViewThemeTypeAuto;</span>
+    <span class="n">view</span><span class="p">.</span><span class="n">padding</span> <span class="o">=</span> <span class="n">UIEdgeInsetsZero</span><span class="p">;</span>
+    <span class="c1">//    view.backgroundColor = HeFengColorFromRGB(0xFAFAFA);</span>
+    <span class="n">view</span><span class="p">.</span><span class="n">backgroundImageTitle</span> <span class="o">=</span> <span class="s">@""</span><span class="p">;</span>
+    <span class="n">view</span><span class="p">.</span><span class="n">borderColor</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIColor</span> <span class="nf">greenColor</span><span class="p">];</span>
+    <span class="n">view</span><span class="p">.</span><span class="n">borderWidth</span> <span class="o">=</span><span class="mi">2</span><span class="p">;</span>
+    <span class="n">view</span><span class="p">.</span><span class="n">cornerRadius</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="n">view</span><span class="p">.</span><span class="n">isShowBorder</span> <span class="o">=</span> <span class="nb">NO</span><span class="p">;</span>
+    <span class="n">view</span><span class="p">.</span><span class="n">isShowConer</span> <span class="o">=</span> <span class="nb">NO</span><span class="p">;</span>
+    <span class="c1">//拖拽设置</span>
+    <span class="n">view</span><span class="p">.</span><span class="n">dragEnable</span> <span class="o">=</span> <span class="nb">YES</span><span class="p">;</span>
+    <span class="n">view</span><span class="p">.</span><span class="n">freeRect</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="n">frame</span><span class="p">;</span>
+    <span class="n">view</span><span class="p">.</span><span class="n">dragDirection</span> <span class="o">=</span> <span class="n">HeFengPluginViewDragDirectionAny</span><span class="p">;</span>
+    <span class="n">view</span><span class="p">.</span><span class="n">isKeepBounds</span> <span class="o">=</span> <span class="nb">NO</span><span class="p">;</span>
+    <span class="c1">//导航栏设置</span>
+    <span class="c1">//    view.navigationBarBackgroundColor = [UIColor redColor];</span>
+    <span class="c1">//    view.progressColor = [UIColor blueColor];</span>
+    <span class="n">view</span><span class="p">.</span><span class="n">navBarBackImage</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIImage</span> <span class="nf">imageNamed</span><span class="p">:</span><span class="s">@""</span><span class="p">];</span>
+    <span class="n">view</span><span class="p">.</span><span class="n">navBarCloseImage</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIImage</span> <span class="nf">imageNamed</span><span class="p">:</span><span class="s">@""</span><span class="p">];</span>
+    <span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">view</span> <span class="nf">addSubview</span><span class="p">:</span><span class="n">view</span><span class="p">];</span>
+    
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<h2 id="3属性方法参照">3.属性方法参照</h2>
+
+<h3 id="31-类初始化方法">3.1 类初始化方法</h3>
+
+<div class="language-objc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+@param frame 视图frame
+@param type 浮窗样式枚举
+@param userKey 用户key 必填
+@param location 城市或地区，可输入以下值：
+1. 城市ID：城市列表
+2. 经纬度格式：经度,纬度（经度在前纬度在后，英文,分隔，十进制格式，北纬东经为正，南纬西经为负
+3. 城市名称，支持中英文和汉语拼音
+4. 城市名称，上级城市 或 省 或 国家，英文,分隔，此方式可以在重名的情况下只获取想要的地区的天气数据，例如 西安,陕西
+5. IP
+6. 根据请求自动判断，根据用户的请求获取IP，通过 IP 定位并获取城市数据
+7. 可为空，系统自动获取当前设备所在经纬度，然后将获取到的经纬度作为location参数调用传location的接口
+@return HeFengPluginView 插件视图
+*/</span>
+<span class="k">+</span><span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithFrame</span><span class="p">:(</span><span class="n">CGRect</span><span class="p">)</span><span class="nv">frame</span> <span class="nf">ViewType</span><span class="p">:(</span><span class="n">HeFengPluginViewType</span><span class="p">)</span><span class="nv">type</span> <span class="nf">UserKey</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">userKey</span> <span class="nf">Location</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">location</span><span class="p">;</span>
+
+<span class="cm">/**
+@param frame 视图frame
+@param type 浮窗样式枚举
+@param userKey 用户key 必填
+@param location 城市或地区，可输入以下值：
+1. 城市ID：城市列表
+2. 经纬度格式：经度,纬度（经度在前纬度在后，英文,分隔，十进制格式，北纬东经为正，南纬西经为负
+3. 可为空，系统自动获取当前设备所在经纬度，然后将获取到的经纬度作为location参数调用传location的接口
+@return HeFengPluginView 插件视图
+*/</span>
+<span class="k">-</span><span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithFrame</span><span class="p">:(</span><span class="n">CGRect</span><span class="p">)</span><span class="nv">frame</span> <span class="nf">ViewType</span><span class="p">:(</span><span class="n">HeFengPluginViewType</span><span class="p">)</span><span class="nv">type</span> <span class="nf">UserKey</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">userKey</span> <span class="nf">Location</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">location</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h4 id="311-hefengpluginviewtype说明">3.1.1 HeFengPluginViewType说明</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>枚举</th>
+      <th>布局样式</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>HeFengPluginViewTypeHorizontal</td>
+      <td>横向水平</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>HeFengPluginViewTypeLeftLarge</td>
+      <td>横向三块布局 单独大布局在左</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>HeFengPluginViewTypeRightLarge</td>
+      <td>横向三块布局 单独大布局在右</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>HeFengPluginViewTypeVertical</td>
+      <td>垂直布局</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="312-location参数说明">3.1.2 location参数说明</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>权限说明</th>
+      <th>代码</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>不传递地址参数</td>
+      <td>自动采用iOS原生定位</td>
+    </tr>
+    <tr>
+      <td>城市ID：城市列表</td>
+      <td>location=CN101010100</td>
+    </tr>
+    <tr>
+      <td>经纬度格式：经度,纬度（经度在前，纬度在后英文,分隔，十进制格式，北纬东经为正，南纬西经为负</td>
+      <td>location=116.40,39.9</td>
+    </tr>
+    <tr>
+      <td>城市名称，城市列表</td>
+      <td>location=北京、 location=北京市、 location=beijing</td>
+    </tr>
+    <tr>
+      <td>城市名称,上级城市 或 省 或 国家，英文逗号分隔，此方式可以在重名的情况下只获取想要的地区的天气数据，例如 西安,陕西</td>
+      <td>location=朝阳,北京、 location=chaoyang,beijing</td>
+    </tr>
+    <tr>
+      <td>IP</td>
+      <td>location=60.194.130.1</td>
+    </tr>
+    <tr>
+      <td>根据请求自动判断，根据用户的请求获取IP，通过 IP 定位并获取城市数据</td>
+      <td>location=auto_ip(固定参数)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="32-属性介绍">3.2 属性介绍</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>属性</th>
+      <th>说明</th>
+      <th>类型</th>
+      <th>默认</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="#configArray">configArray</a></td>
+      <td>视图属性配置数组</td>
+      <td>NSArray</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>contentViewAlignmen</td>
+      <td>内容水平方向显示对齐方式</td>
+      <td><a href="#HeFengContentViewAlignment">HeFengContentViewAlignment</a>（枚举类型）</td>
+      <td>HeFengContentViewAlignmentCenter</td>
+    </tr>
+    <tr>
+      <td>themType</td>
+      <td>主题样式</td>
+      <td><a href="#HeFengPluginViewThemeType">HeFengPluginViewThemeType</a>（枚举类型）</td>
+      <td>无 背景颜色透明</td>
+    </tr>
+    <tr>
+      <td>padding</td>
+      <td>HeFengPluginView的内边距</td>
+      <td>UIEdgeInsets</td>
+      <td>UIEdgeInsetsZero</td>
+    </tr>
+    <tr>
+      <td>backgroundColor</td>
+      <td>视图背景颜色</td>
+      <td>UIColor</td>
+      <td>[UIColor clearColor]</td>
+    </tr>
+    <tr>
+      <td>backgroundImageTitle</td>
+      <td>自定义视图背景图片标题:当themType的值为HeFengPluginViewThemeTypeAuto时设置有效,图片命名规则为白天xxx_code_d，夜晚xxx_code_n 其中code参看和<a href="https://www.heweather.com/documents/condition">风天气状况代码</a> 传入xxx前缀即可</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>NSString</td>
+      <td>无</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>borderColor</td>
+      <td>边框颜色</td>
+      <td>UIColor</td>
+      <td>#F5F5F5</td>
+    </tr>
+    <tr>
+      <td>borderWidth</td>
+      <td>边框宽度</td>
+      <td>CGFloat</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <td>cornerRadius</td>
+      <td>圆角</td>
+      <td>CGFloat</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <td>isShowBorder</td>
+      <td>是否显示边框</td>
+      <td>BOOL</td>
+      <td>YES</td>
+    </tr>
+    <tr>
+      <td>isShowConer</td>
+      <td>是否显示圆角</td>
+      <td>BOOL</td>
+      <td>YES</td>
+    </tr>
+    <tr>
+      <td>dragEnable</td>
+      <td>是不是能拖曳</td>
+      <td>BOOL</td>
+      <td>NO</td>
+    </tr>
+    <tr>
+      <td>freeRect</td>
+      <td>拖拽范围</td>
+      <td>CGRect</td>
+      <td>无</td>
+    </tr>
+    <tr>
+      <td>dragDirection</td>
+      <td>拖拽的方向</td>
+      <td><a href="#HeFengPluginViewDragDirection">HeFengPluginViewDragDirection</a>（枚举类型）</td>
+      <td>HeFengPluginViewDragDirectionAny</td>
+    </tr>
+    <tr>
+      <td>isKeepBounds</td>
+      <td>黏贴边界效果</td>
+      <td>BOOL</td>
+      <td>NO</td>
+    </tr>
+    <tr>
+      <td>navigationBarBackgroundColor</td>
+      <td>导航条背景颜色</td>
+      <td>UIColor</td>
+      <td>[UIColor colorWithRed:6.0/225 green:79.0/225 blue:171.0/225 alpha:1]]</td>
+    </tr>
+    <tr>
+      <td>progressColor</td>
+      <td>进度条颜色</td>
+      <td>UIColor</td>
+      <td>[UIColor greenColor]</td>
+    </tr>
+    <tr>
+      <td>navBarBackImage</td>
+      <td>导航栏返回按钮</td>
+      <td>UIImage</td>
+      <td>使用自带图片</td>
+    </tr>
+    <tr>
+      <td>navBarCloseImage</td>
+      <td>导航栏关闭图片</td>
+      <td>UIImage</td>
+      <td>使用自带图片</td>
+    </tr>
+    <tr>
+      <td>loadCompleted</td>
+      <td>加载完数据后的回调返回视图自适应size</td>
+      <td>HeFengPluginViewLoadCompleted</td>
+      <td>无</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="321-configarray"><span id="configArray">3.2.1 configArray</span></h4>
+
+<ul>
+  <li>此数组用于配置插件内部视图属性如字体，字色等，数组内部可装HeFengConfigModel，也可以嵌套HeFengConfigModel数组用于多个子布局视图的情况。数组添加的顺序决定了控件摆放的顺序。</li>
+  <li>当视图类型为HeFengPluginViewTypeLeftLarge时，configArray[0]内元素会被放在左边大布局上, configArray[1]内元素会被放在右边上部分布局上, configArray[2]内元素会被放在右边下部分布局上</li>
+  <li>当视图类型为HeFengPluginViewTypeRightLarge时，configArray[0]内元素会被放在右边大布局上, configArray[1]内元素会被放在左边上部分布局上, configArray[2]内元素会被放在左边下部分布局上</li>
+  <li>以下是对HeFengConfigModel各个属性的说明。</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>属性</th>
+      <th>说明</th>
+      <th>类型</th>
+      <th>默认</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>textFont</td>
+      <td>文字大小,设置范围6-36</td>
+      <td>UIFont</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td>textAlignment</td>
+      <td>文字对齐样式</td>
+      <td>NSTextAlignment</td>
+      <td>NSTextAlignmentCenter</td>
+    </tr>
+    <tr>
+      <td>textColor</td>
+      <td>文字颜色</td>
+      <td>UIColor</td>
+      <td>#4a4a4a</td>
+    </tr>
+    <tr>
+      <td>airTextColorArray</td>
+      <td>空气质量颜色数组只对 HeFengConfigModelTypeQlty HeFengConfigModelTypeAqi类型有效 数组按顺序存放颜色，对应的顺序为优、良、轻度、中度、重度、严重， 六个等级都要设置才有效否则使用默认</td>
+      <td>NSArray&lt; UIColor*&gt;</td>
+      <td>自带颜色数组</td>
+    </tr>
+    <tr>
+      <td>alarmTextColorArray</td>
+      <td>预警文字颜色数组只对 HeFengConfigModelTypeAlarm类型有效 数组按顺序存放颜色，对应的顺序为白色、蓝色、黄色、橙色、红色， 五个等级都要设置才有效否则使用默认</td>
+      <td>NSArray&lt; UIColor*&gt;</td>
+      <td>自带颜色数组</td>
+    </tr>
+    <tr>
+      <td>iconSize</td>
+      <td>天气状况图片大小，可调范围6-32</td>
+      <td>CGFloat</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td>iconImageTitle</td>
+      <td>自定义图标名:1.自定义天气状况图标名：图片命名规则为白天xxx_code_d，夜晚xxx_code_n 其中code参看<a href="https://www.heweather.com/documents/condition">风天气状况代码</a> 传入xxx前缀即可 2.自定义湿度图片:直接使用图片名 3.自定义风向图片:图片命名规范为xxx_wind_nodirection(无持续风向图标)，xxx_wind_rotate(旋转风图标)，xxx_wind_normal(普通风向图标，图片指向北方即可，内部做了旋转处理)，传入前缀xxx即可</td>
+      <td>NSString</td>
+      <td>无，使用默认图片</td>
+    </tr>
+    <tr>
+      <td>type</td>
+      <td>配置样式的控件类型</td>
+      <td><a href="#HeFengConfigModelType">HeFengConfigModelType</a></td>
+      <td>HeFengConfigModelTypeLocation</td>
+    </tr>
+    <tr>
+      <td>padding</td>
+      <td>子视图与父视图和其他子视图的边距、间距,遵从线性布局 比如横向布局第二个控件距离第一个控件的间距为第二个控件的padding.left，第一个控件的padding.right无效。纵向布局则第二个控件间距第一个控件的底部距离为第二个控件的padding.top，第一个控件的padding.bottom无效</td>
+      <td>UIEdgeInsets</td>
+      <td>UIEdgeInsetsMake(2, 5, 2, 5)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><span id="HeFengConfigModelType"> HeFengConfigModelType </span></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>枚举</th>
+      <th>说明</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>HeFengConfigModelTypeLocation</td>
+      <td>所在城市名称</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>HeFengConfigModelTypeTemp</td>
+      <td>温度</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>HeFengConfigModelTypeWeatherState</td>
+      <td>天气状况文字</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>HeFengConfigModelTypeWeatherStateIcon</td>
+      <td>天气状况图标</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>HeFengConfigModelTypeWindSC</td>
+      <td>风力</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>HeFengConfigModelTypeWindDirIcon</td>
+      <td>风向图标</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>HeFengConfigModelTypeAlarmIcon</td>
+      <td>灾害预警图标</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>HeFengConfigModelTypeAlarm</td>
+      <td>灾害预警</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>HeFengConfigModelTypePcpnIcon</td>
+      <td>分钟降雨图标</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>HeFengConfigModelTypePcpn</td>
+      <td>分钟降雨</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>HeFengConfigModelTypeAqiTitle</td>
+      <td>空气质量文字标题：AQI</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>HeFengConfigModelTypeQlty</td>
+      <td>空气质量等级</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>HeFengConfigModelTypeAqi</td>
+      <td>空气质量</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="322-hefengcontentviewalignment"><span id="HeFengContentViewAlignment">3.2.2 HeFengContentViewAlignment</span></h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>枚举</th>
+      <th>插件内容水平方向显示对齐方式</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>HeFengContentViewAlignmentCenter</td>
+      <td>内容居中</td>
+    </tr>
+    <tr>
+      <td>HeFengContentViewAlignmentTop</td>
+      <td>内容居上</td>
+    </tr>
+    <tr>
+      <td>HeFengContentViewAlignmentLeft</td>
+      <td>内容居左</td>
+    </tr>
+    <tr>
+      <td>HeFengContentViewAlignmentDown</td>
+      <td>内容居下</td>
+    </tr>
+    <tr>
+      <td>HeFengContentViewAlignmentRight</td>
+      <td>内容居右</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="323-hefengpluginviewthemetype"><span id="HeFengPluginViewThemeType">3.2.3 HeFengPluginViewThemeType</span></h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>枚举</th>
+      <th>图标颜色样式</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>HeFengPluginViewThemeTypeAuto</td>
+      <td>随天气变化</td>
+    </tr>
+    <tr>
+      <td>HeFengPluginViewIconTypeLight</td>
+      <td>亮色系</td>
+    </tr>
+    <tr>
+      <td>HeFengPluginViewIconTypeDark</td>
+      <td>暗色系</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="324-hefengpluginviewdragdirection"><span id="HeFengPluginViewDragDirection">3.2.4 HeFengPluginViewDragDirection</span></h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>枚举</th>
+      <th>可拖拽方向</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>HeFengPluginViewDragDirectionAny</td>
+      <td>任意方向</td>
+    </tr>
+    <tr>
+      <td>HeFengPluginViewDragDirectionHorizontal</td>
+      <td>水平方向</td>
+    </tr>
+    <tr>
+      <td>HeFengPluginViewDragDirectionVertical</td>
+      <td>垂直方向</td>
+    </tr>
+  </tbody>
+</table>
+
+
+                    
+                </article>
+            </section>
+            
+    </div>
+</div>
+<script src="/assets/js/bootstrap-3.3.7.min.js"></script>
+<script src="/assets/js/cookie.min.js?v=202009082"></script>
+<!-- <script src="/assets/js/baidu-analysis.js?v=202009082"></script> -->
+
+
+</body>
+</html>

@@ -1,0 +1,1725 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Android天气插件 | 不停的博客</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Android天气插件" />
+<meta property="og:locale" content="zh" />
+<meta name="description" content="免费的和风天气Android天气插件SDK，包括实况天气、分钟级降水、空气质量、灾害预警、30天预报、生活指数、台风路径等天气内容，支持在Android应用任意位置加入天气内容，并可生成天气频道页面。" />
+<meta property="og:description" content="免费的和风天气Android天气插件SDK，包括实况天气、分钟级降水、空气质量、灾害预警、30天预报、生活指数、台风路径等天气内容，支持在Android应用任意位置加入天气内容，并可生成天气频道页面。" />
+<link rel="canonical" href="http://localhost:4000/docs/widget/android-widget" />
+<meta property="og:url" content="http://localhost:4000/docs/widget/android-widget" />
+<meta property="og:site_name" content="不停的博客" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-06-25T09:00:26+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Android天气插件" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"DigitalDocument","dateModified":"2022-06-25T09:00:26+00:00","datePublished":"2022-06-25T09:00:26+00:00","description":"免费的和风天气Android天气插件SDK，包括实况天气、分钟级降水、空气质量、灾害预警、30天预报、生活指数、台风路径等天气内容，支持在Android应用任意位置加入天气内容，并可生成天气频道页面。","headline":"Android天气插件","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/brand.png"}},"url":"http://localhost:4000/docs/widget/android-widget"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <meta name="apple-itunes-app" content="app-id=1461458147, app-argument=weather"/>
+    <link rel="stylesheet" href="/assets/css/bootstrap-3.3.7.min.css?v=202009082"/>
+    <link rel="stylesheet" href="/assets/css/style.css?v=202009082"/>
+    <script src="/assets/js/jquery-1.11.0.min.js?v=202009082"></script>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+</head>
+<body>
+
+<header class="navbar-fixed-top">
+  <nav class="container" id="header-nav">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">
+        <img src="/assets/images/logo-white.png?v=202009082" alt="myBlog">
+        <span>不停的博客</span>
+      </a>
+    </div>
+    <ul class="nav navbar-nav navbar-left">
+      <li ><a href="/">首页</a></li>
+      <li ><a href="/work/">工作经历</a></li>
+      <li class="active"><a href="/docs/start/">笔记</a></li>
+      <li><a href="https://github.com/yuanqinghua-star">Github</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-left weather-widget visible-lg visible-md visible-sm">
+    <li>
+      <div id="he-plugin-simple"></div>
+      <script>
+        WIDGET = {
+          CONFIG: {
+            "modules": "20",
+            "background": 5,
+            "tmpColor": "FFFFFF",
+            "tmpSize": "14",
+            "cityColor": "FFFFFF",
+            "citySize": "14",
+            "aqiSize": "14",
+            "weatherIconSize": "18",
+            "alertIconSize": "14",
+            "padding": "0px 0px 0px 0px",
+            "shadow": "0",
+            "language": "zh",
+            "fixed": "false",
+            "vertical": "middle",
+            "horizontal": "center",
+            "key": "acd0fdcab4b9481a98d0f59145420fac"
+          }
+        }
+      </script>
+      <script src="https://widget.heweather.net/simple/static/js/he-simple-common.js?v=1.2"></script>
+    </li>
+  </ul> 
+  </nav>
+</header>
+
+
+<div class="container">
+    <div class="row" id='docs-main'>
+        <aside class="col-sm-3 col-md-3 col-lg-3 hidden-xs">
+  <nav class="navbar navbar-default nav-stacked doc-nav">
+
+    
+    
+
+    <div class="doc-nav-group">
+      <a class="doc-nav-title-link" href="/docs/start/"
+        title="开始">开始</a>
+      <ul class="nav collapse ">
+
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/start/
+          ">快速开始</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/start/get-api-key
+          ">创建应用和KEY</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/start/status-code
+          ">错误状态码</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/start/language
+          ">多语言</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/start/icons
+          ">天气图标</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/start/location-list
+          ">常见城市列表</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/start/unit
+          ">单位</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/start/glossary
+          ">名词解释</a>
+        </li>
+        
+
+      </ul>
+    </div>
+    
+    
+
+    <div class="doc-nav-group">
+      <a class="doc-nav-title-link" href="/docs/api/"
+        title="API">API</a>
+      <ul class="nav collapse ">
+
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/api/overview
+          ">概述</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/api/geo
+          ">城市信息搜索</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/api/weather
+          ">天气预报和实况</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/api/minutely
+          ">分钟级降水</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/api/air
+          ">空气质量</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/api/warning
+          ">灾害预警</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/api/indices
+          ">生活指数</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/api/weather-poi
+          ">景区天气</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/api/historical
+          ">历史数据</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/api/astronomy
+          ">太阳和月亮</a>
+        </li>
+        
+
+      </ul>
+    </div>
+    
+    
+
+    <div class="doc-nav-group">
+      <a class="doc-nav-title-link" href="/docs/sdk/"
+        title="SDK">SDK</a>
+      <ul class="nav collapse ">
+
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/sdk/
+          ">概述</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/sdk/ios-sdk
+          ">iOS SDK</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/sdk/ios-entity
+          ">iOS 数据类属性</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/sdk/android-sdk
+          ">Android SDK</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/sdk/android-entity
+          ">Android数据类属性</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/sdk/release
+          ">下载和更新记录</a>
+        </li>
+        
+
+      </ul>
+    </div>
+    
+    
+
+    <div class="doc-nav-group">
+      <a class="doc-nav-title-link" href="/docs/widget/"
+        title="天气插件">天气插件</a>
+      <ul class="nav collapse in ">
+
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/widget/
+          ">概述</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/widget/ios-widget
+          ">iOS天气插件</a>
+        </li>
+        
+        
+        
+        
+
+        <li class="active" >
+          <a class="doc-nav-item-link" href="
+          /docs/widget/android-widget
+          ">Android天气插件</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/widget/mobile-page
+          ">H5天气网页/频道页</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/widget/standard-widget
+          ">网页标准插件</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/widget/simple-widget
+          ">网页简约插件</a>
+        </li>
+        
+
+      </ul>
+    </div>
+    
+    
+
+    <div class="doc-nav-group">
+      <a class="doc-nav-title-link" href="/docs/owp/"
+        title="天气普拉斯">天气普拉斯</a>
+      <ul class="nav collapse ">
+
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/owp/overview
+          ">概述</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/owp/ios
+          ">iOS 开发文档</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/owp/android
+          ">Android 开发文档</a>
+        </li>
+        
+
+      </ul>
+    </div>
+    
+    
+
+    <div class="doc-nav-group">
+      <a class="doc-nav-title-link" href="/docs/library/"
+        title="代码库">代码库</a>
+      <ul class="nav collapse ">
+
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/library/
+          ">概述</a>
+        </li>
+        
+
+      </ul>
+    </div>
+    
+    
+
+    <div class="doc-nav-group">
+      <a class="doc-nav-title-link" href="/docs/faq/"
+        title="常见问题">常见问题</a>
+      <ul class="nav collapse ">
+
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/faq/general
+          ">一般问题</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/faq/buy
+          ">商业数据和购买</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/faq/technical
+          ">技术和开发</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/faq/user
+          ">用户和账号</a>
+        </li>
+        
+
+      </ul>
+    </div>
+    
+  </nav>
+</aside>
+
+<!-- for mobile -->
+<nav class="navbar navbar-default" id="header-slidebar">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+        data-target="#bs-example-navbar-collapse-1" aria-expanded="false" id="header-slidebar-btn">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">
+        笔记
+      </a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+            aria-expanded="false">开始<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            
+            
+            <li><a href="
+              /docs/start/
+              ">
+                快速开始
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/start/get-api-key
+              ">
+                创建应用和KEY
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/start/status-code
+              ">
+                错误状态码
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/start/language
+              ">
+                多语言
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/start/icons
+              ">
+                天气图标
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/start/location-list
+              ">
+                常见城市列表
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/start/unit
+              ">
+                单位
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/start/glossary
+              ">
+                名词解释
+              </a></li>
+            
+          </ul>
+          
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+            aria-expanded="false">API<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            
+            
+            <li><a href="
+              /docs/api/overview
+              ">
+                概述
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/api/geo
+              ">
+                城市信息搜索
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/api/weather
+              ">
+                天气预报和实况
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/api/minutely
+              ">
+                分钟级降水
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/api/air
+              ">
+                空气质量
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/api/warning
+              ">
+                灾害预警
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/api/indices
+              ">
+                生活指数
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/api/weather-poi
+              ">
+                景区天气
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/api/historical
+              ">
+                历史数据
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/api/astronomy
+              ">
+                太阳和月亮
+              </a></li>
+            
+          </ul>
+          
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+            aria-expanded="false">SDK<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            
+            
+            <li><a href="
+              /docs/sdk/
+              ">
+                概述
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/sdk/ios-sdk
+              ">
+                iOS SDK
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/sdk/ios-entity
+              ">
+                iOS 数据类属性
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/sdk/android-sdk
+              ">
+                Android SDK
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/sdk/android-entity
+              ">
+                Android数据类属性
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/sdk/release
+              ">
+                下载和更新记录
+              </a></li>
+            
+          </ul>
+          
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+            aria-expanded="false">天气插件<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            
+            
+            <li><a href="
+              /docs/widget/
+              ">
+                概述
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/widget/ios-widget
+              ">
+                iOS天气插件
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/widget/android-widget
+              ">
+                Android天气插件
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/widget/mobile-page
+              ">
+                H5天气网页/频道页
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/widget/standard-widget
+              ">
+                网页标准插件
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/widget/simple-widget
+              ">
+                网页简约插件
+              </a></li>
+            
+          </ul>
+          
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+            aria-expanded="false">天气普拉斯<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            
+            
+            <li><a href="
+              /docs/owp/overview
+              ">
+                概述
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/owp/ios
+              ">
+                iOS 开发文档
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/owp/android
+              ">
+                Android 开发文档
+              </a></li>
+            
+          </ul>
+          
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+            aria-expanded="false">代码库<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            
+            
+            <li><a href="
+              /docs/library/
+              ">
+                概述
+              </a></li>
+            
+          </ul>
+          
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+            aria-expanded="false">常见问题<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            
+            
+            <li><a href="
+              /docs/faq/general
+              ">
+                一般问题
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/faq/buy
+              ">
+                商业数据和购买
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/faq/technical
+              ">
+                技术和开发
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/faq/user
+              ">
+                用户和账号
+              </a></li>
+            
+          </ul>
+          
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+        
+            <section class="col-sm-9 col-md-9 col-lg-9 col-xs-12">
+                
+                <div class="docs-header">
+                    <h1>Android天气插件</h1>
+                    
+                </div>
+                <article class="docs-content">
+                    
+                    <h2 id="版本和更新">版本和更新</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>版本号</th>
+      <th>更新日期</th>
+      <th>获取密钥和下载</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1.1</td>
+      <td>2019-07-11</td>
+      <td><a href="/widget/sdk">下载</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="适配版本">适配版本</h2>
+
+<p>Android 4.0及以上</p>
+
+<h2 id="工程配置">工程配置</h2>
+
+<ul>
+  <li>将Heweather_Plugin.jar导入到工程中，并且引用</li>
+  <li>配置Android Manifest权限</li>
+</ul>
+
+<h3 id="权限列表">权限列表</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>权限说明</th>
+      <th>代码</th>
+      <th>是否必选</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>允许网络连接</td>
+      <td>android.permission.INTERNET</td>
+      <td>必选</td>
+    </tr>
+    <tr>
+      <td>访问设备状态</td>
+      <td>android.permission.REANPHONESTATE</td>
+      <td>可选</td>
+    </tr>
+    <tr>
+      <td>访问WiFi状态</td>
+      <td>android.permission.ACCESSWIFISTATE</td>
+      <td>可选</td>
+    </tr>
+    <tr>
+      <td>访问网络定位</td>
+      <td>android.permission.ACCESSCOARSELOCATION</td>
+      <td>可选 ( 如果用到不传递城市参数的方法，此权限为必选，否则无法使用对应的方法 )</td>
+    </tr>
+    <tr>
+      <td>访问GPS定位</td>
+      <td>android.permission.ACCESSFINELOCATION</td>
+      <td>可选 ( 如果用到不传递城市参数的方法，此权限为必选，否则无法使用对应的方法 )</td>
+    </tr>
+    <tr>
+      <td>悬浮窗权限</td>
+      <td>android.permission.SYSTEMALERTWINDOW</td>
+      <td>可选（如果用到悬浮的控件，此权限必选，否则无法显示悬浮窗）</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="引用库">引用库</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>implementation 'com.squareup.okhttp3:okhttp:3.9.0'(3.9.0+)
+implementation 'com.google.code.gson:gson:2.6.2'(2.6.2+)
+</code></pre></div></div>
+
+<h3 id="混淆">混淆</h3>
+
+<p>请在您的混淆文件中加入如下代码，请注意您引用的版本</p>
+
+<h4 id="排除okhttp">排除OKHTTP</h4>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">-</span><span class="n">dontwarn</span> <span class="n">com</span><span class="o">.</span><span class="na">squareup</span><span class="o">.**</span>
+<span class="o">-</span><span class="n">dontwarn</span> <span class="n">okio</span><span class="o">.**</span>
+<span class="o">-</span><span class="n">keep</span> <span class="kd">public</span> <span class="kd">class</span> <span class="nc">org</span><span class="o">.</span><span class="na">codehaus</span><span class="o">.*</span> <span class="o">{</span> <span class="o">*;</span> <span class="o">}</span>
+<span class="o">-</span><span class="n">keep</span> <span class="kd">public</span> <span class="kd">class</span> <span class="nc">java</span><span class="o">.</span><span class="na">nio</span><span class="o">.*</span> <span class="o">{</span> <span class="o">*;</span> <span class="o">}</span>
+</code></pre></div></div>
+
+<h4 id="排除sdk">排除sdk</h4>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">-</span><span class="n">keep</span> <span class="kd">public</span> <span class="kd">class</span> <span class="nc">com</span><span class="o">.</span><span class="na">heweather</span><span class="o">.</span><span class="na">plugin</span><span class="o">.</span><span class="na">bean</span><span class="o">.**</span> <span class="o">{</span> <span class="o">*;</span> <span class="o">}</span>
+<span class="o">-</span><span class="n">keep</span> <span class="kd">public</span> <span class="kd">class</span> <span class="nc">com</span><span class="o">.</span><span class="na">heweather</span><span class="o">.</span><span class="na">plugin</span><span class="o">.</span><span class="na">view</span><span class="o">.**</span> <span class="o">{</span> <span class="o">*;</span> <span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="调用说明">调用说明</h2>
+
+<h4 id="1初始化用户的key和location">（1）初始化用户的key和location</h4>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="nc">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
+        <span class="n">setContentView</span><span class="o">(</span><span class="no">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">activity_main</span><span class="o">);</span>
+        <span class="cm">/**
+         * 初始化
+         *
+         * @param key   用户的ID
+         * @param location  地址详解，若不传或为空则调用Android源生定位
+         */</span>
+         <span class="nc">HeWeatherConfig</span><span class="o">.</span><span class="na">init</span><span class="o">(</span><span class="s">"key"</span><span class="o">,</span><span class="s">"location"</span><span class="o">);</span>
+    <span class="o">}</span>
+</code></pre></div></div>
+
+<h4 id="2横向布局">（2）横向布局</h4>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="n">com</span><span class="o">.</span><span class="na">heweather</span><span class="o">.</span><span class="na">plugin</span><span class="o">.</span><span class="na">view</span><span class="o">.</span><span class="na">HorizonView</span>
+    <span class="nl">android:</span><span class="n">id</span><span class="o">=</span><span class="s">"@+id/horizon_view"</span>
+    <span class="nl">android:</span><span class="n">layout_width</span><span class="o">=</span><span class="s">"match_parent"</span>
+    <span class="nl">android:</span><span class="n">layout_height</span><span class="o">=</span><span class="s">"60dp"</span> <span class="o">/&gt;</span>
+</code></pre></div></div>
+
+<h4 id="3左侧大布局右侧横向双布局">（3）左侧大布局右侧横向双布局</h4>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="n">com</span><span class="o">.</span><span class="na">heweather</span><span class="o">.</span><span class="na">plugin</span><span class="o">.</span><span class="na">view</span><span class="o">.</span><span class="na">LeftLargeView</span>
+    <span class="nl">android:</span><span class="n">id</span><span class="o">=</span><span class="s">"@+id/ll_view"</span>
+    <span class="nl">android:</span><span class="n">layout_width</span><span class="o">=</span><span class="s">"match_parent"</span>
+    <span class="nl">android:</span><span class="n">layout_height</span><span class="o">=</span><span class="s">"60dp"</span><span class="o">/&gt;</span>
+</code></pre></div></div>
+
+<h4 id="4右侧大布局左侧横向双布局">（4）右侧大布局左侧横向双布局</h4>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="n">com</span><span class="o">.</span><span class="na">heweather</span><span class="o">.</span><span class="na">plugin</span><span class="o">.</span><span class="na">view</span><span class="o">.</span><span class="na">RightLargeView</span>
+        <span class="nl">android:</span><span class="n">id</span><span class="o">=</span><span class="s">"@+id/rl_view"</span>
+        <span class="nl">android:</span><span class="n">layout_width</span><span class="o">=</span><span class="s">"match_parent"</span>
+        <span class="nl">android:</span><span class="n">layout_height</span><span class="o">=</span><span class="s">"60dp"</span><span class="o">/&gt;</span>
+</code></pre></div></div>
+
+<h4 id="5竖直布局">（5）竖直布局</h4>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="n">com</span><span class="o">.</span><span class="na">heweather</span><span class="o">.</span><span class="na">plugin</span><span class="o">.</span><span class="na">view</span><span class="o">.</span><span class="na">VerticalView</span>
+        <span class="nl">android:</span><span class="n">id</span><span class="o">=</span><span class="s">"@+id/vertical_view"</span>
+        <span class="nl">android:</span><span class="n">layout_width</span><span class="o">=</span><span class="s">"75dp"</span>
+        <span class="nl">android:</span><span class="n">layout_height</span><span class="o">=</span><span class="s">"match_parent"</span><span class="o">/&gt;</span>
+</code></pre></div></div>
+
+<h4 id="6设置背景颜色">（6）设置背景颜色</h4>
+
+<blockquote>
+  <p>控件默认背景根据天气变化展示不同的背景图片</p>
+</blockquote>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//取消默认背景</span>
+<span class="n">horizonView</span><span class="o">.</span><span class="na">setDefaultBack</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>
+<span class="c1">//设置布局的背景圆角角度，颜色，边框宽度，边框颜色</span>
+<span class="n">horizonView</span><span class="o">.</span><span class="na">setStroke</span><span class="o">(</span><span class="mi">5</span><span class="o">,</span> <span class="nc">Color</span><span class="o">.</span><span class="na">parseColor</span><span class="o">(</span><span class="s">"#313a44"</span><span class="o">),</span> <span class="mi">1</span><span class="o">,</span> <span class="nc">Color</span><span class="o">.</span><span class="na">BLACK</span><span class="o">);</span>
+</code></pre></div></div>
+
+<h4 id="7显示横向布局">（7）显示横向布局</h4>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//横向布局</span>
+<span class="nc">HorizonView</span> <span class="n">horizonView</span> <span class="o">=</span> <span class="n">findViewById</span><span class="o">(</span><span class="no">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">horizon_view</span><span class="o">);</span>
+<span class="c1">//取消默认背景</span>
+<span class="n">horizonView</span><span class="o">.</span><span class="na">setDefaultBack</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>
+<span class="c1">//设置布局的背景圆角角度，颜色，边框宽度，边框颜色     </span>
+<span class="n">horizonView</span><span class="o">.</span><span class="na">setStroke</span><span class="o">(</span><span class="mi">5</span><span class="o">,</span><span class="nc">Color</span><span class="o">.</span><span class="na">BLUE</span><span class="o">,</span><span class="mi">1</span><span class="o">,</span><span class="nc">Color</span><span class="o">.</span><span class="na">BLUE</span><span class="o">);</span>
+<span class="c1">//添加地址文字描述，第一个参数为文字大小，单位：sp ，第二个参数为文字颜色，默认白色</span>
+<span class="n">horizonView</span><span class="o">.</span><span class="na">addLocation</span><span class="o">(</span><span class="mi">14</span><span class="o">,</span> <span class="nc">Color</span><span class="o">.</span><span class="na">WHITE</span><span class="o">);</span>
+<span class="c1">//添加预警图标，参数为图标大小，单位：dp</span>
+<span class="n">horizonView</span><span class="o">.</span><span class="na">addAlarmIcon</span><span class="o">(</span><span class="mi">14</span><span class="o">);</span>
+<span class="c1">//添加预警文字</span>
+<span class="n">horizonView</span><span class="o">.</span><span class="na">addAlarmTxt</span><span class="o">(</span><span class="mi">14</span><span class="o">);</span>
+<span class="c1">//添加温度描述</span>
+<span class="n">horizonView</span><span class="o">.</span><span class="na">addTemp</span><span class="o">(</span><span class="mi">14</span><span class="o">,</span> <span class="nc">Color</span><span class="o">.</span><span class="na">WHITE</span><span class="o">);</span>
+<span class="c1">//添加天气图标</span>
+<span class="n">horizonView</span><span class="o">.</span><span class="na">addWeatherIcon</span><span class="o">(</span><span class="mi">14</span><span class="o">);</span>
+<span class="c1">//添加天气描述</span>
+<span class="n">horizonView</span><span class="o">.</span><span class="na">addCond</span><span class="o">(</span><span class="mi">14</span><span class="o">,</span> <span class="nc">Color</span><span class="o">.</span><span class="na">WHITE</span><span class="o">);</span>
+<span class="c1">//添加风向图标</span>
+<span class="n">horizonView</span><span class="o">.</span><span class="na">addWindIcon</span><span class="o">(</span><span class="mi">14</span><span class="o">);</span>
+<span class="c1">//添加风力描述</span>
+<span class="n">horizonView</span><span class="o">.</span><span class="na">addWind</span><span class="o">(</span><span class="mi">14</span><span class="o">,</span> <span class="nc">Color</span><span class="o">.</span><span class="na">WHITE</span><span class="o">);</span>
+<span class="c1">//添加文字：AQI</span>
+<span class="n">horizonView</span><span class="o">.</span><span class="na">addAqiText</span><span class="o">(</span><span class="mi">14</span><span class="o">,</span> <span class="nc">Color</span><span class="o">.</span><span class="na">WHITE</span><span class="o">);</span>
+<span class="c1">//添加空气质量描述</span>
+<span class="n">horizonView</span><span class="o">.</span><span class="na">addAqiQlty</span><span class="o">(</span><span class="mi">14</span><span class="o">);</span>
+<span class="c1">//添加空气质量数值描述</span>
+<span class="n">horizonView</span><span class="o">.</span><span class="na">addAqiNum</span><span class="o">(</span><span class="mi">14</span><span class="o">);</span>
+<span class="c1">//添加降雨图标</span>
+<span class="n">horizonView</span><span class="o">.</span><span class="na">addRainIcon</span><span class="o">(</span><span class="mi">14</span><span class="o">);</span>
+<span class="c1">//添加降雨描述</span>
+<span class="n">horizonView</span><span class="o">.</span><span class="na">addRainDetail</span><span class="o">(</span><span class="mi">14</span><span class="o">,</span> <span class="nc">Color</span><span class="o">.</span><span class="na">WHITE</span><span class="o">);</span>
+<span class="c1">//设置控件的对齐方式，默认居中</span>
+<span class="n">horizonView</span><span class="o">.</span><span class="na">setViewGravity</span><span class="o">(</span><span class="nc">HeContent</span><span class="o">.</span><span class="na">GRAVITY_CENTER</span><span class="o">);</span>
+<span class="c1">//设置控件的内边距，默认为0</span>
+<span class="n">horizonView</span><span class="o">.</span><span class="na">setViewPadding</span><span class="o">(</span><span class="mi">10</span><span class="o">,</span><span class="mi">10</span><span class="o">,</span><span class="mi">10</span><span class="o">,</span><span class="mi">10</span><span class="o">);</span>
+<span class="c1">//显示控件</span>
+<span class="n">horizonView</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+</code></pre></div></div>
+
+<h4 id="8显示左侧大布局右侧双布局">（8）显示左侧大布局右侧双布局</h4>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//左侧大布局右侧双布局控件</span>
+<span class="nc">LeftLargeView</span> <span class="n">llView</span> <span class="o">=</span> <span class="n">findViewById</span><span class="o">(</span><span class="no">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">ll_view</span><span class="o">);</span>
+ 
+<span class="c1">//获取左侧大布局</span>
+<span class="nc">LinearLayout</span> <span class="n">leftLayout</span> <span class="o">=</span> <span class="n">llView</span><span class="o">.</span><span class="na">getLeftLayout</span><span class="o">();</span>
+<span class="c1">//获取右上布局</span>
+<span class="nc">LinearLayout</span> <span class="n">rightTopLayout</span> <span class="o">=</span> <span class="n">llView</span><span class="o">.</span><span class="na">getRightTopLayout</span><span class="o">();</span>
+<span class="c1">//获取右下布局</span>
+<span class="nc">LinearLayout</span> <span class="n">rightBottomLayout</span> <span class="o">=</span> <span class="n">llView</span><span class="o">.</span><span class="na">getRightBottomLayout</span><span class="o">();</span>
+ 
+<span class="c1">//设置布局的背景圆角角度（单位：dp），颜色，边框宽度（单位：px），边框颜色</span>
+<span class="n">llView</span><span class="o">.</span><span class="na">setStroke</span><span class="o">(</span><span class="mi">5</span><span class="o">,</span> <span class="nc">Color</span><span class="o">.</span><span class="na">parseColor</span><span class="o">(</span><span class="s">"#313a44"</span><span class="o">),</span> <span class="mi">1</span><span class="o">,</span> <span class="nc">Color</span><span class="o">.</span><span class="na">BLACK</span><span class="o">);</span>
+ 
+<span class="c1">//添加温度描述到左侧大布局</span>
+<span class="c1">//第一个参数为需要加入的布局</span>
+<span class="c1">//第二个参数为文字大小，单位：sp</span>
+<span class="c1">//第三个参数为文字颜色，默认白色</span>
+<span class="n">llView</span><span class="o">.</span><span class="na">addTemp</span><span class="o">(</span><span class="n">leftLayout</span><span class="o">,</span> <span class="mi">40</span><span class="o">,</span> <span class="nc">Color</span><span class="o">.</span><span class="na">WHITE</span><span class="o">);</span>
+<span class="c1">//添加温度图标到右上布局，第二个参数为图标宽高（宽高1：1，单位：dp）</span>
+<span class="n">llView</span><span class="o">.</span><span class="na">addWeatherIcon</span><span class="o">(</span><span class="n">rightTopLayout</span><span class="o">,</span> <span class="mi">14</span><span class="o">);</span>
+<span class="c1">//添加预警图标到右上布局</span>
+<span class="n">llView</span><span class="o">.</span><span class="na">addAlarmIcon</span><span class="o">(</span><span class="n">rightTopLayout</span><span class="o">,</span> <span class="mi">14</span><span class="o">);</span>
+<span class="c1">//添加预警描述到右上布局</span>
+<span class="n">llView</span><span class="o">.</span><span class="na">addAlarmTxt</span><span class="o">(</span><span class="n">rightTopLayout</span><span class="o">,</span> <span class="mi">14</span><span class="o">);</span>
+<span class="c1">//添加文字AQI到右上布局</span>
+<span class="n">llView</span><span class="o">.</span><span class="na">addAqiText</span><span class="o">(</span><span class="n">rightTopLayout</span><span class="o">,</span> <span class="mi">14</span><span class="o">);</span>
+<span class="c1">//添加空气质量到右上布局</span>
+<span class="n">llView</span><span class="o">.</span><span class="na">addAqiQlty</span><span class="o">(</span><span class="n">rightTopLayout</span><span class="o">,</span> <span class="mi">14</span><span class="o">);</span>
+<span class="c1">//添加空气质量数值到右上布局</span>
+<span class="n">llView</span><span class="o">.</span><span class="na">addAqiNum</span><span class="o">(</span><span class="n">rightTopLayout</span><span class="o">,</span> <span class="mi">14</span><span class="o">);</span>
+<span class="c1">//添加地址信息到右上布局</span>
+<span class="n">llView</span><span class="o">.</span><span class="na">addLocation</span><span class="o">(</span><span class="n">rightTopLayout</span><span class="o">,</span> <span class="mi">14</span><span class="o">,</span> <span class="nc">Color</span><span class="o">.</span><span class="na">WHITE</span><span class="o">);</span>
+<span class="c1">//添加天气描述到右下布局</span>
+<span class="n">llView</span><span class="o">.</span><span class="na">addCond</span><span class="o">(</span><span class="n">rightBottomLayout</span><span class="o">,</span> <span class="mi">14</span><span class="o">,</span> <span class="nc">Color</span><span class="o">.</span><span class="na">WHITE</span><span class="o">);</span>
+<span class="c1">//添加风向图标到右下布局</span>
+<span class="n">llView</span><span class="o">.</span><span class="na">addWindIcon</span><span class="o">(</span><span class="n">rightBottomLayout</span><span class="o">,</span> <span class="mi">14</span><span class="o">);</span>
+<span class="c1">//添加风力描述到右下布局</span>
+<span class="n">llView</span><span class="o">.</span><span class="na">addWind</span><span class="o">(</span><span class="n">rightBottomLayout</span><span class="o">,</span> <span class="mi">14</span><span class="o">,</span> <span class="nc">Color</span><span class="o">.</span><span class="na">WHITE</span><span class="o">);</span>
+<span class="c1">//添加降雨图标到右下布局</span>
+<span class="n">llView</span><span class="o">.</span><span class="na">addRainIcon</span><span class="o">(</span><span class="n">rightBottomLayout</span><span class="o">,</span> <span class="mi">14</span><span class="o">);</span>
+<span class="c1">//添加降雨描述到右下布局</span>
+<span class="n">llView</span><span class="o">.</span><span class="na">addRainDetail</span><span class="o">(</span><span class="n">rightBottomLayout</span><span class="o">,</span> <span class="mi">14</span><span class="o">,</span> <span class="nc">Color</span><span class="o">.</span><span class="na">WHITE</span><span class="o">);</span>
+<span class="c1">//设置控件的对齐方式，默认居中</span>
+<span class="n">llView</span><span class="o">.</span><span class="na">setViewGravity</span><span class="o">(</span><span class="nc">HeContent</span><span class="o">.</span><span class="na">GRAVITY_LEFT</span><span class="o">);</span>
+<span class="c1">//显示布局</span>
+<span class="n">llView</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+</code></pre></div></div>
+
+<h4 id="9显示右侧大布局左侧横向双布局">（9）显示右侧大布局左侧横向双布局</h4>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">RightLargeView</span> <span class="n">rlView</span> <span class="o">=</span> <span class="n">findViewById</span><span class="o">(</span><span class="no">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">rl_view</span><span class="o">);</span>
+<span class="c1">//方法参数同（7）左侧大布局右侧双布局</span>
+<span class="nc">LinearLayout</span> <span class="n">rightLayout</span> <span class="o">=</span> <span class="n">rlView</span><span class="o">.</span><span class="na">getRightLayout</span><span class="o">();</span>
+<span class="nc">LinearLayout</span> <span class="n">leftTopLayout</span> <span class="o">=</span> <span class="n">rlView</span><span class="o">.</span><span class="na">getLeftTopLayout</span><span class="o">();</span>
+<span class="nc">LinearLayout</span> <span class="n">leftBottomLayout</span> <span class="o">=</span> <span class="n">rlView</span><span class="o">.</span><span class="na">getLeftBottomLayout</span><span class="o">();</span>
+ 
+<span class="c1">//取消默认背景</span>
+<span class="n">rlView</span><span class="o">.</span><span class="na">setDefaultBack</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>
+<span class="n">rlView</span><span class="o">.</span><span class="na">setStroke</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="nc">Color</span><span class="o">.</span><span class="na">GRAY</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span>  <span class="nc">Color</span><span class="o">.</span><span class="na">WHITE</span><span class="o">);</span>
+<span class="n">rlView</span><span class="o">.</span><span class="na">addLocation</span><span class="o">(</span><span class="n">leftTopLayout</span><span class="o">,</span> <span class="mi">14</span><span class="o">,</span> <span class="nc">Color</span><span class="o">.</span><span class="na">WHITE</span><span class="o">);</span>
+<span class="n">rlView</span><span class="o">.</span><span class="na">addAqiText</span><span class="o">(</span><span class="n">leftTopLayout</span><span class="o">,</span> <span class="mi">14</span><span class="o">);</span>
+<span class="n">rlView</span><span class="o">.</span><span class="na">addAqiQlty</span><span class="o">(</span><span class="n">leftTopLayout</span><span class="o">,</span> <span class="mi">14</span><span class="o">);</span>
+<span class="n">rlView</span><span class="o">.</span><span class="na">addAqiNum</span><span class="o">(</span><span class="n">leftTopLayout</span><span class="o">,</span> <span class="mi">14</span><span class="o">);</span>
+<span class="n">rlView</span><span class="o">.</span><span class="na">addAlarmIcon</span><span class="o">(</span><span class="n">leftTopLayout</span><span class="o">,</span> <span class="mi">14</span><span class="o">);</span>
+<span class="n">rlView</span><span class="o">.</span><span class="na">addAlarmTxt</span><span class="o">(</span><span class="n">leftTopLayout</span><span class="o">,</span> <span class="mi">14</span><span class="o">);</span>
+<span class="n">rlView</span><span class="o">.</span><span class="na">addWeatherIcon</span><span class="o">(</span><span class="n">leftTopLayout</span><span class="o">,</span> <span class="mi">14</span><span class="o">);</span>
+ 
+<span class="n">rlView</span><span class="o">.</span><span class="na">addRainIcon</span><span class="o">(</span><span class="n">leftBottomLayout</span><span class="o">,</span> <span class="mi">14</span><span class="o">);</span>
+<span class="n">rlView</span><span class="o">.</span><span class="na">addRainDetail</span><span class="o">(</span><span class="n">leftBottomLayout</span><span class="o">,</span> <span class="mi">14</span><span class="o">,</span> <span class="nc">Color</span><span class="o">.</span><span class="na">WHITE</span><span class="o">);</span>
+<span class="n">rlView</span><span class="o">.</span><span class="na">addWindIcon</span><span class="o">(</span><span class="n">leftBottomLayout</span><span class="o">,</span> <span class="mi">14</span><span class="o">);</span>
+<span class="n">rlView</span><span class="o">.</span><span class="na">addWind</span><span class="o">(</span><span class="n">leftBottomLayout</span><span class="o">,</span> <span class="mi">14</span><span class="o">,</span> <span class="nc">Color</span><span class="o">.</span><span class="na">WHITE</span><span class="o">);</span>
+<span class="n">rlView</span><span class="o">.</span><span class="na">addCond</span><span class="o">(</span><span class="n">leftBottomLayout</span><span class="o">,</span> <span class="mi">14</span><span class="o">,</span> <span class="nc">Color</span><span class="o">.</span><span class="na">WHITE</span><span class="o">);</span>
+ 
+<span class="n">rlView</span><span class="o">.</span><span class="na">addTemp</span><span class="o">(</span><span class="n">rightLayout</span><span class="o">,</span> <span class="mi">40</span><span class="o">,</span> <span class="nc">Color</span><span class="o">.</span><span class="na">WHITE</span><span class="o">);</span>
+<span class="n">rlView</span><span class="o">.</span><span class="na">setViewGravity</span><span class="o">(</span><span class="nc">HeContent</span><span class="o">.</span><span class="na">GRAVITY_RIGHT</span><span class="o">);</span>
+<span class="n">rlView</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+</code></pre></div></div>
+
+<h4 id="10显示竖直布局">（10）显示竖直布局</h4>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">VerticalView</span> <span class="n">verticalView</span> <span class="o">=</span> <span class="n">findViewById</span><span class="o">(</span><span class="no">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">vertical_view</span><span class="o">);</span>
+<span class="n">verticalView</span><span class="o">.</span><span class="na">setDefaultBack</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>
+<span class="c1">//方法参数同（6）横向布局</span>
+<span class="n">verticalView</span><span class="o">.</span><span class="na">addLocation</span><span class="o">(</span><span class="mi">14</span><span class="o">,</span> <span class="nc">Color</span><span class="o">.</span><span class="na">WHITE</span><span class="o">);</span>
+<span class="n">verticalView</span><span class="o">.</span><span class="na">addTemp</span><span class="o">(</span><span class="mi">14</span><span class="o">,</span> <span class="nc">Color</span><span class="o">.</span><span class="na">WHITE</span><span class="o">);</span>
+<span class="n">verticalView</span><span class="o">.</span><span class="na">addWeatherIcon</span><span class="o">(</span><span class="mi">14</span><span class="o">);</span>
+<span class="n">verticalView</span><span class="o">.</span><span class="na">addCond</span><span class="o">(</span><span class="mi">14</span><span class="o">,</span> <span class="nc">Color</span><span class="o">.</span><span class="na">WHITE</span><span class="o">);</span>
+<span class="n">verticalView</span><span class="o">.</span><span class="na">addWindIcon</span><span class="o">(</span><span class="mi">14</span><span class="o">);</span>
+<span class="n">verticalView</span><span class="o">.</span><span class="na">addWind</span><span class="o">(</span><span class="mi">14</span><span class="o">,</span> <span class="nc">Color</span><span class="o">.</span><span class="na">WHITE</span><span class="o">);</span>
+<span class="n">verticalView</span><span class="o">.</span><span class="na">addAqiText</span><span class="o">(</span><span class="mi">14</span><span class="o">,</span> <span class="nc">Color</span><span class="o">.</span><span class="na">WHITE</span><span class="o">);</span>
+<span class="n">verticalView</span><span class="o">.</span><span class="na">addAqiQlty</span><span class="o">(</span><span class="mi">14</span><span class="o">);</span>
+<span class="n">verticalView</span><span class="o">.</span><span class="na">addAqiNum</span><span class="o">(</span><span class="mi">14</span><span class="o">);</span>
+<span class="n">verticalView</span><span class="o">.</span><span class="na">addAlarmIcon</span><span class="o">(</span><span class="mi">14</span><span class="o">);</span>
+<span class="n">verticalView</span><span class="o">.</span><span class="na">addAlarmTxt</span><span class="o">(</span><span class="mi">14</span><span class="o">);</span>
+<span class="n">verticalView</span><span class="o">.</span><span class="na">addRainIcon</span><span class="o">(</span><span class="mi">14</span><span class="o">);</span>
+<span class="n">verticalView</span><span class="o">.</span><span class="na">addRainDetail</span><span class="o">(</span><span class="mi">14</span><span class="o">,</span> <span class="nc">Color</span><span class="o">.</span><span class="na">WHITE</span><span class="o">);</span>
+<span class="n">verticalView</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+</code></pre></div></div>
+
+<h4 id="11替换天气图标">（11）替换天气图标</h4>
+
+<ol>
+  <li>在文件目录app/src/main下创建资源文件夹assets</li>
+  <li>在app/src/main/assets文件夹放入文件名对应天气代码的图标，文件名：白天是天气代码+d，晚上是天气代码+n后缀为.png，例如：100d.png，100n.png（图标对应关系请参考和风天气官网天气状况代码和图标对应关系 https://www.heweather.com/documents/condition）</li>
+  <li>在初始化的时候调用下列方法</li>
+</ol>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="nc">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
+    <span class="n">setContentView</span><span class="o">(</span><span class="no">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">activity_main</span><span class="o">);</span>
+    <span class="c1">//替换天气图标为本地图标</span>
+    <span class="nc">HeWeatherConfig</span><span class="o">.</span><span class="na">changeWeatherIcon</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h4 id="12使用悬浮控件">（12）使用悬浮控件</h4>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="nc">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
+        <span class="n">setContentView</span><span class="o">(</span><span class="no">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">activity_main</span><span class="o">);</span>
+        <span class="c1">//location若不传或为空则调用Android源生定位</span>
+        <span class="nc">HeWeatherConfig</span><span class="o">.</span><span class="na">init</span><span class="o">(</span><span class="s">"用户key"</span><span class="o">,</span><span class="s">"location"</span><span class="o">);</span>
+        <span class="c1">//初始化悬浮控件</span>
+        <span class="nc">SuspendView</span> <span class="n">suspendView</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">SuspendView</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+        <span class="c1">//显示悬浮控件</span>
+        <span class="n">suspendView</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h4 id="13如需点击控件跳转到h5界面需要在androidmanifestxml配置如下代码">（13）如需点击控件跳转到H5界面需要在AndroidManifest.xml配置如下代码</h4>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;activity</span> <span class="na">android:name=</span><span class="s">"com.heweather.plugin.view.SdkWebViewActivity"</span> <span class="nt">/&gt;</span>
+</code></pre></div></div>
+
+<h2 id="属性方法参照">属性方法参照</h2>
+
+<h3 id="属性介绍">属性介绍</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>属性</th>
+      <th>说明</th>
+      <th>类型</th>
+      <th>默认</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>location</td>
+      <td>地址详解</td>
+      <td>String</td>
+      <td>无</td>
+    </tr>
+    <tr>
+      <td>viewGravity</td>
+      <td>内容显示对齐方式</td>
+      <td>ViewGravity（String类型）</td>
+      <td>center</td>
+    </tr>
+    <tr>
+      <td>padding</td>
+      <td>view的内边距</td>
+      <td>dimension</td>
+      <td>0px</td>
+    </tr>
+    <tr>
+      <td>paddingLeft</td>
+      <td>view的左边距</td>
+      <td>dimension</td>
+      <td>0px</td>
+    </tr>
+    <tr>
+      <td>paddingTop</td>
+      <td>view的上边距</td>
+      <td>dimension</td>
+      <td>0px</td>
+    </tr>
+    <tr>
+      <td>paddingRight</td>
+      <td>view的右边距</td>
+      <td>dimension</td>
+      <td>0px</td>
+    </tr>
+    <tr>
+      <td>paddingBottom</td>
+      <td>view的下边距</td>
+      <td>dimension</td>
+      <td>0px</td>
+    </tr>
+    <tr>
+      <td>viewTextColor</td>
+      <td>view中的字体颜色</td>
+      <td>color</td>
+      <td>Color.WHITE</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="地址详解location参数">地址详解，location参数</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>权限说明</th>
+      <th>代码</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>不传递地址参数</td>
+      <td>自动采用android源生定位</td>
+    </tr>
+    <tr>
+      <td>城市ID：城市列表</td>
+      <td>location=CN101010100</td>
+    </tr>
+    <tr>
+      <td>经纬度格式：经度,纬度（经度在前，纬度在后英文,分隔，十进制格式，北纬东经为正，南纬西经为负</td>
+      <td>location=116.40,39.9</td>
+    </tr>
+    <tr>
+      <td>城市名称，城市列表</td>
+      <td>location=北京、 location=北京市、 location=beijing</td>
+    </tr>
+    <tr>
+      <td>城市名称,上级城市 或 省 或 国家，英文逗号分隔，此方式可以在重名的情况下只获取想要的地区的天气数据，例如 西安,陕西</td>
+      <td>location=朝阳,北京、 location=chaoyang,beijing</td>
+    </tr>
+    <tr>
+      <td>IP</td>
+      <td>location=60.194.130.1</td>
+    </tr>
+    <tr>
+      <td>根据请求自动判断，根据用户的请求获取IP，通过 IP 定位并获取城市数</td>
+      <td>location=auto_ip(固定参数)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="viewgravity">ViewGravity</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>String</th>
+      <th>插件内容水平方向显示对齐方式</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>HeContent.GRAVITY_CENTER</td>
+      <td>内容居中</td>
+    </tr>
+    <tr>
+      <td>HeContent.GRAVITY_LEFT</td>
+      <td>内容居左</td>
+    </tr>
+    <tr>
+      <td>HeContent.GRAVITY_RIGHT</td>
+      <td>内容居右</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="方法介绍">方法介绍</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>方法名</th>
+      <th>参数详解</th>
+      <th>作用</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>HeWeatherConfig.init(“key”);</td>
+      <td>参数1：和风天气提供的key</td>
+      <td>初始化</td>
+    </tr>
+    <tr>
+      <td>HeWeatherConfig.init(“key”, location);</td>
+      <td>参数1：和风天气提供的key 参数2：location（请参照地址详解）</td>
+      <td>初始化</td>
+    </tr>
+    <tr>
+      <td>setDefaultBack(boolean defaultBack)</td>
+      <td>参数1：是否展示默认天气图片背景（true：展示，false：透明背景）</td>
+      <td>设置是否展示默认的图片背景</td>
+    </tr>
+    <tr>
+      <td>HeWeatherConfig.changeWeatherIcon();</td>
+      <td> </td>
+      <td>使用自己配置的天气图标</td>
+    </tr>
+    <tr>
+      <td>setStroke(int radius, int backColor, int strokeWidth, int strokeColor)</td>
+      <td>参数1：圆角大小（单位：dp） 参数2：背景颜色 参数3：边框宽度（单位：px） 参数4：边框颜色</td>
+      <td>设置控件的边框</td>
+    </tr>
+    <tr>
+      <td>setViewGravity(String viewGravity)</td>
+      <td>参数1：控件对齐方式（默认居中）</td>
+      <td>设置控件对齐方式</td>
+    </tr>
+    <tr>
+      <td>setViewPadding(int paddingLeft, int paddingTop, int paddingRight, int paddingBottom)</td>
+      <td>参数1-4：控件左上右下内边距</td>
+      <td>设置控件内边距</td>
+    </tr>
+    <tr>
+      <td>addLocation(int textSize, int textColor)</td>
+      <td>参数1：文字大小（单位：sp） 参数2：文字颜色</td>
+      <td>添加地址描述文字</td>
+    </tr>
+    <tr>
+      <td>addLocation(int textSize, int textColor, int l, int t, int r, int b)</td>
+      <td>参数1：文字大小（单位：sp） 参数2：文字颜色 参数3-6：控件的左上右下内边距</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>addLocation(LinearLayout layout, int textSize, int textColor)</td>
+      <td>参数1：加入此控件的父布局 参数2：文字大小（单位：sp） 参数3：文字颜色</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>addLocation(LinearLayout layout, int textSize, int textColor, int l, int t, int r, int b)</td>
+      <td>参数1：加入此控件的父布局 参数2：文字大小（单位：sp） 参数3：文字颜色 参数4-7：控件的左上右下内边距</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>addTemp(int textSize, int textColor)</td>
+      <td>参数1：文字大小（单位：sp） 参数2：文字颜色</td>
+      <td>添加温度描述</td>
+    </tr>
+    <tr>
+      <td>addTemp(int textSize, int textColor, int l, int t, int r, int b)</td>
+      <td>参数1：文字大小（单位：sp） 参数2：文字颜色 参数3-6：控件的左上右下内边距</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>addTemp(LinearLayout layout, int textSize, int textColor)</td>
+      <td>参数1：加入此控件的父布局 参数2：文字大小（单位：sp） 参数3：文字颜色</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>addTemp(LinearLayout layout, int textSize, int textColor, int l, int t, int r, int b)</td>
+      <td>参数1：加入此控件的父布局 参数2：文字大小（单位：sp） 参数3：文字颜色 参数4-7：控件的左上右下内边距</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>addAqiText(int textSize, int textColor)</td>
+      <td>参数1：文字大小（单位：sp） 参数2：文字颜色</td>
+      <td>添加文字：AQI</td>
+    </tr>
+    <tr>
+      <td>addAqiText(int textSize, int textColor, int l, int t, int r, int b)</td>
+      <td>参数1：文字大小（单位：sp） 参数2：文字颜色 参数3-6：控件的左上右下内边距</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>addAqiText(LinearLayout layout, int textSize)</td>
+      <td>参数1：加入此控件的父布局 参数2：文字大小（单位：sp） 参数3：文字颜色</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>addAqiText(LinearLayout layout, int textSize, int l, int t, int r, int b)</td>
+      <td>参数1：加入此控件的父布局 参数2：文字大小（单位：sp） 参数3：文字颜色 参数4-7：控件的左上右下内边距</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>addWind(int textSize, int textColor)</td>
+      <td>参数1：文字大小（单位：sp） 参数2：文字颜色</td>
+      <td>添加风力描述</td>
+    </tr>
+    <tr>
+      <td>addWind(int textSize, int textColor, int l, int t, int r, int b)</td>
+      <td>参数1：文字大小（单位：sp） 参数2：文字颜色 参数3-6：控件的左上右下内边距</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>addWind(LinearLayout layout, int textSize, int textColor)</td>
+      <td>参数1：加入此控件的父布局 参数2：文字大小（单位：sp） 参数3：文字颜色</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>addWind(LinearLayout layout, int textSize, int textColor, int l, int t, int r, int b)</td>
+      <td>参数1：加入此控件的父布局 参数2：文字大小（单位：sp） 参数3：文字颜 参数4-7：控件的左上右下内边距</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>addCond(int textSize, int textColor)</td>
+      <td>参数1：文字大小（单位：sp） 参数2：文字颜色</td>
+      <td>添加天气描述</td>
+    </tr>
+    <tr>
+      <td>addCond(int size, int textColor, int l, int t, int r, int b)</td>
+      <td>参数1：文字大小（单位：sp） 参数2：文字颜色 参数3-6：控件的左上右下内边距</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>addCond(LinearLayout layout, int textSize, int textColor)</td>
+      <td>参数1：加入此控件的父布局 参数2：文字大小（单位：sp） 参数3：文字颜色</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>addCond(LinearLayout layout, int size, int textColor, int l, int t, int r, int b)</td>
+      <td>参数1：加入此控件的父布局 参数2：文字大小（单位：sp） 参数3：文字颜色 参数4-7：控件的左上右下内边距</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>addRainDetail(int textSize, int textColor)</td>
+      <td>参数1：文字大小（单位：sp） 参数2：文字颜色</td>
+      <td>添加降雨描述</td>
+    </tr>
+    <tr>
+      <td>addRainDetail(int size, int textColor, int l, int t, int r, int b)</td>
+      <td>参数1：文字大小（单位：sp） 参数2：文字颜色 参数3-6：控件的左上右下内边距</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>addRainDetail(LinearLayout layout, int textSize, int textColor)</td>
+      <td>参数1：加入此控件的父布局 参数2：文字大小（单位：sp） 参数3：文字颜色</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>addRainDetail(LinearLayout layout, int size, int textColor, int l, int t, int r, int b)</td>
+      <td>参数1：加入此控件的父布局 参数2：文字大小（单位：sp） 参数3：文字颜色 参数4-7：控件的左上右下内边距</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>addAlarmTxt(int textSize)</td>
+      <td>参数1：文字大小（单位：sp）</td>
+      <td>添加预警文字描述</td>
+    </tr>
+    <tr>
+      <td>addAlarmTxt(int textSize, int l, int t, int r, int b)</td>
+      <td>参数1：文字大小（单位：sp） 参数2-5：控件的左上右下内边距</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>addAlarmTxt(LinearLayout layout, int textSize)</td>
+      <td>参数1：加入此控件的父布局 参数2：文字大小（单位：sp）</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>addAlarmTxt(LinearLayout layout, int textSize, int l, int t, int r, int b)</td>
+      <td>参数1：加入此控件的父布局 参数2：文字大小（单位：sp） 参数3-6：控件的左上右下内边距</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>addAqiQlty(int textSize)</td>
+      <td>参数1：文字大小（单位：sp）</td>
+      <td>添加空气质量文字描述</td>
+    </tr>
+    <tr>
+      <td>addAqiQlty(int textSize, int l, int t, int r, int b)</td>
+      <td>参数1：文字大小（单位：sp） 参数2-5：控件的左上右下内边距</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>addAqiQlty(LinearLayout layout, int textSize)</td>
+      <td>参数1：加入此控件的父布局 参数2：文字大小（单位：sp）</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>addAqiQlty(LinearLayout layout, int textSize, int l, int t, int r, int b)</td>
+      <td>参数1：加入此控件的父布局 参数2：文字大小（单位：sp） 参数3-6：控件的左上右下内边距</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>addAqiNum(int textSize)</td>
+      <td>参数1：文字大小（单位：sp）</td>
+      <td>添加空气质量数值描述</td>
+    </tr>
+    <tr>
+      <td>addAqiNum(int textSize, int l, int t, int r, int b)</td>
+      <td>参数1：文字大小（单位：sp） 参数2-5：控件的左上右下内边距</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>addAqiNum(LinearLayout layout, int textSize)</td>
+      <td>参数1：加入此控件的父布局 参数2：文字大小（单位：sp）</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>addAqiNum(LinearLayout layout, int textSize, int l, int t, int r, int b)</td>
+      <td>参数1：加入此控件的父布局 参数2：文字大小（单位：sp） 参数3-6：控件的左上右下内边距</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>addWeatherIcon(int mWidth)</td>
+      <td>参数1：图标宽高（单位：dp）</td>
+      <td>添加天气图标</td>
+    </tr>
+    <tr>
+      <td>addWeatherIcon(int mWidth, int l, int t, int r, int b)</td>
+      <td>参数1：图标宽高（单位：dp） 参数2-5：控件的左上右下内边距</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>addWeatherIcon(LinearLayout layout, int mWidth)</td>
+      <td>参数1：加入此控件的父布局 参数2：图标宽高（单位：dp）</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>addWeatherIcon(LinearLayout layout, int mWidth, int l, int t, int r, int b)</td>
+      <td>参数1：加入此控件的父布局 参数2：图标宽高（单位：dp） 参数3-6：控件的左上右下内边距</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>addWindIcon(int mWidth)</td>
+      <td>参数1：图标宽高（单位：dp）</td>
+      <td>添加风向图标</td>
+    </tr>
+    <tr>
+      <td>addWindIcon(int mWidth, int l, int t, int r, int b)</td>
+      <td>参数1：图标宽高（单位：dp） 参数2-5：控件的左上右下内边距</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>addWindIcon(LinearLayout layout, int mWidth)</td>
+      <td>参数1：加入此控件的父布局 参数2：图标宽高（单位：dp）</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>addWindIcon(LinearLayout layout, int mWidth, int l, int t, int r, int b)</td>
+      <td>参数1：加入此控件的父布局 参数2：图标宽高（单位：dp） 参数3-6：控件的左上右下内边距</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>addAlarmIcon(int mWidth)</td>
+      <td>参数1：图标宽高（单位：dp）</td>
+      <td>添加预警图标</td>
+    </tr>
+    <tr>
+      <td>addAlarmIcon(int mWidth, int l, int t, int r, int b)</td>
+      <td>参数1：图标宽高（单位：dp） 参数2-5：控件的左上右下内边距</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>addAlarmIcon(LinearLayout layout, int mWidth)</td>
+      <td>参数1：加入此控件的父布局 参数2：图标宽高（单位：dp）</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>addAlarmIcon(LinearLayout layout, int mWidth, int l, int t, int r, int b)</td>
+      <td>参数1：加入此控件的父布局 参数2：图标宽高（单位：dp） 参数3-6：控件的左上右下内边距</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>addRainIcon(int mWidth)</td>
+      <td>参数1：图标宽高（单位：dp）</td>
+      <td>添加降雨图标</td>
+    </tr>
+    <tr>
+      <td>addRainIcon(int mWidth, int l, int t, int r, int b)</td>
+      <td>参数1：图标宽高（单位：dp） 参数2-5：控件的左上右下内边距</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>addRainIcon(LinearLayout layout, int mWidth)</td>
+      <td>参数1：加入此控件的父布局 参数2：图标宽高（单位：dp）</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>addRainIcon(LinearLayout layout, int mWidth, int l, int t, int r, int b)</td>
+      <td>参数1：加入此控件的父布局 参数2：图标宽高（单位：dp） 参数3-6：控件的左上右下内边距</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+                    
+                </article>
+            </section>
+            
+    </div>
+</div>
+<script src="/assets/js/bootstrap-3.3.7.min.js"></script>
+<script src="/assets/js/cookie.min.js?v=202009082"></script>
+<!-- <script src="/assets/js/baidu-analysis.js?v=202009082"></script> -->
+
+
+</body>
+</html>

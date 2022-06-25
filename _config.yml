@@ -1,0 +1,51 @@
+name: 不停的博客
+description: 不停的在线简历和学习笔记
+timezone: Asia/Shanghai
+url: "https://dev.heweather.com"
+lang: zh_CN
+logo: "/assets/images/brand.png"
+attribution: heweather.com
+github: https://github.com/heweather
+output: 
+defaults:
+- scope:
+    path: "pages"
+    type: "pages"
+  values:
+    layout: "html"
+    lang: zh
+- scope:
+    path: "_docs"
+    type: "docs"
+  values:
+    layout: "docs-page"
+    lang: zh
+    seo:
+      type: "DigitalDocument"
+collections:
+  docs:
+    permalink: "/docs/:path"
+    output: true
+  snippets:
+    permalink: "/snippets/:path"
+    output: true
+toc:
+  min_level: 2 # default: 1
+  max_level: 3 # default: 6
+sass:
+  sass_dir: _sass
+  style: compressed
+destination: docs
+exclude:
+- .idea
+- .git
+- .gitignore
+- .sass-cache
+- .jekyll-cache
+- README.md
+
+plugins:
+- jekyll-seo-tag
+- jekyll-sitemap
+- jekyll-toc
+- jekyll-redirect-from

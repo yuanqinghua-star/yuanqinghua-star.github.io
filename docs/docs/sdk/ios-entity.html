@@ -1,0 +1,3615 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>iOS SDK 实体类属性 | 不停的博客</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="iOS SDK 实体类属性" />
+<meta property="og:locale" content="zh" />
+<meta name="description" content="和风天气iOS SDK 实体类属性对照表" />
+<meta property="og:description" content="和风天气iOS SDK 实体类属性对照表" />
+<link rel="canonical" href="http://localhost:4000/docs/sdk/ios-entity" />
+<meta property="og:url" content="http://localhost:4000/docs/sdk/ios-entity" />
+<meta property="og:site_name" content="不停的博客" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-06-25T09:00:26+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="iOS SDK 实体类属性" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"DigitalDocument","dateModified":"2022-06-25T09:00:26+00:00","datePublished":"2022-06-25T09:00:26+00:00","description":"和风天气iOS SDK 实体类属性对照表","headline":"iOS SDK 实体类属性","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/brand.png"}},"url":"http://localhost:4000/docs/sdk/ios-entity"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <meta name="apple-itunes-app" content="app-id=1461458147, app-argument=weather"/>
+    <link rel="stylesheet" href="/assets/css/bootstrap-3.3.7.min.css?v=202009082"/>
+    <link rel="stylesheet" href="/assets/css/style.css?v=202009082"/>
+    <script src="/assets/js/jquery-1.11.0.min.js?v=202009082"></script>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+</head>
+<body>
+
+<header class="navbar-fixed-top">
+  <nav class="container" id="header-nav">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">
+        <img src="/assets/images/logo-white.png?v=202009082" alt="myBlog">
+        <span>不停的博客</span>
+      </a>
+    </div>
+    <ul class="nav navbar-nav navbar-left">
+      <li ><a href="/">首页</a></li>
+      <li ><a href="/work/">工作经历</a></li>
+      <li class="active"><a href="/docs/start/">笔记</a></li>
+      <li><a href="https://github.com/yuanqinghua-star">Github</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-left weather-widget visible-lg visible-md visible-sm">
+    <li>
+      <div id="he-plugin-simple"></div>
+      <script>
+        WIDGET = {
+          CONFIG: {
+            "modules": "20",
+            "background": 5,
+            "tmpColor": "FFFFFF",
+            "tmpSize": "14",
+            "cityColor": "FFFFFF",
+            "citySize": "14",
+            "aqiSize": "14",
+            "weatherIconSize": "18",
+            "alertIconSize": "14",
+            "padding": "0px 0px 0px 0px",
+            "shadow": "0",
+            "language": "zh",
+            "fixed": "false",
+            "vertical": "middle",
+            "horizontal": "center",
+            "key": "acd0fdcab4b9481a98d0f59145420fac"
+          }
+        }
+      </script>
+      <script src="https://widget.heweather.net/simple/static/js/he-simple-common.js?v=1.2"></script>
+    </li>
+  </ul> 
+  </nav>
+</header>
+
+
+<div class="container">
+    <div class="row" id='docs-main'>
+        <aside class="col-sm-3 col-md-3 col-lg-3 hidden-xs">
+  <nav class="navbar navbar-default nav-stacked doc-nav">
+
+    
+    
+
+    <div class="doc-nav-group">
+      <a class="doc-nav-title-link" href="/docs/start/"
+        title="开始">开始</a>
+      <ul class="nav collapse ">
+
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/start/
+          ">快速开始</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/start/get-api-key
+          ">创建应用和KEY</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/start/status-code
+          ">错误状态码</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/start/language
+          ">多语言</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/start/icons
+          ">天气图标</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/start/location-list
+          ">常见城市列表</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/start/unit
+          ">单位</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/start/glossary
+          ">名词解释</a>
+        </li>
+        
+
+      </ul>
+    </div>
+    
+    
+
+    <div class="doc-nav-group">
+      <a class="doc-nav-title-link" href="/docs/api/"
+        title="API">API</a>
+      <ul class="nav collapse ">
+
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/api/overview
+          ">概述</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/api/geo
+          ">城市信息搜索</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/api/weather
+          ">天气预报和实况</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/api/minutely
+          ">分钟级降水</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/api/air
+          ">空气质量</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/api/warning
+          ">灾害预警</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/api/indices
+          ">生活指数</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/api/weather-poi
+          ">景区天气</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/api/historical
+          ">历史数据</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/api/astronomy
+          ">太阳和月亮</a>
+        </li>
+        
+
+      </ul>
+    </div>
+    
+    
+
+    <div class="doc-nav-group">
+      <a class="doc-nav-title-link" href="/docs/sdk/"
+        title="SDK">SDK</a>
+      <ul class="nav collapse in ">
+
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/sdk/
+          ">概述</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/sdk/ios-sdk
+          ">iOS SDK</a>
+        </li>
+        
+        
+        
+        
+
+        <li class="active" >
+          <a class="doc-nav-item-link" href="
+          /docs/sdk/ios-entity
+          ">iOS 数据类属性</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/sdk/android-sdk
+          ">Android SDK</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/sdk/android-entity
+          ">Android数据类属性</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/sdk/release
+          ">下载和更新记录</a>
+        </li>
+        
+
+      </ul>
+    </div>
+    
+    
+
+    <div class="doc-nav-group">
+      <a class="doc-nav-title-link" href="/docs/widget/"
+        title="天气插件">天气插件</a>
+      <ul class="nav collapse ">
+
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/widget/
+          ">概述</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/widget/ios-widget
+          ">iOS天气插件</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/widget/android-widget
+          ">Android天气插件</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/widget/mobile-page
+          ">H5天气网页/频道页</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/widget/standard-widget
+          ">网页标准插件</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/widget/simple-widget
+          ">网页简约插件</a>
+        </li>
+        
+
+      </ul>
+    </div>
+    
+    
+
+    <div class="doc-nav-group">
+      <a class="doc-nav-title-link" href="/docs/owp/"
+        title="天气普拉斯">天气普拉斯</a>
+      <ul class="nav collapse ">
+
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/owp/overview
+          ">概述</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/owp/ios
+          ">iOS 开发文档</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/owp/android
+          ">Android 开发文档</a>
+        </li>
+        
+
+      </ul>
+    </div>
+    
+    
+
+    <div class="doc-nav-group">
+      <a class="doc-nav-title-link" href="/docs/library/"
+        title="代码库">代码库</a>
+      <ul class="nav collapse ">
+
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/library/
+          ">概述</a>
+        </li>
+        
+
+      </ul>
+    </div>
+    
+    
+
+    <div class="doc-nav-group">
+      <a class="doc-nav-title-link" href="/docs/faq/"
+        title="常见问题">常见问题</a>
+      <ul class="nav collapse ">
+
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/faq/general
+          ">一般问题</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/faq/buy
+          ">商业数据和购买</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/faq/technical
+          ">技术和开发</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/faq/user
+          ">用户和账号</a>
+        </li>
+        
+
+      </ul>
+    </div>
+    
+  </nav>
+</aside>
+
+<!-- for mobile -->
+<nav class="navbar navbar-default" id="header-slidebar">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+        data-target="#bs-example-navbar-collapse-1" aria-expanded="false" id="header-slidebar-btn">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">
+        笔记
+      </a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+            aria-expanded="false">开始<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            
+            
+            <li><a href="
+              /docs/start/
+              ">
+                快速开始
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/start/get-api-key
+              ">
+                创建应用和KEY
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/start/status-code
+              ">
+                错误状态码
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/start/language
+              ">
+                多语言
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/start/icons
+              ">
+                天气图标
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/start/location-list
+              ">
+                常见城市列表
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/start/unit
+              ">
+                单位
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/start/glossary
+              ">
+                名词解释
+              </a></li>
+            
+          </ul>
+          
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+            aria-expanded="false">API<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            
+            
+            <li><a href="
+              /docs/api/overview
+              ">
+                概述
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/api/geo
+              ">
+                城市信息搜索
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/api/weather
+              ">
+                天气预报和实况
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/api/minutely
+              ">
+                分钟级降水
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/api/air
+              ">
+                空气质量
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/api/warning
+              ">
+                灾害预警
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/api/indices
+              ">
+                生活指数
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/api/weather-poi
+              ">
+                景区天气
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/api/historical
+              ">
+                历史数据
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/api/astronomy
+              ">
+                太阳和月亮
+              </a></li>
+            
+          </ul>
+          
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+            aria-expanded="false">SDK<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            
+            
+            <li><a href="
+              /docs/sdk/
+              ">
+                概述
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/sdk/ios-sdk
+              ">
+                iOS SDK
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/sdk/ios-entity
+              ">
+                iOS 数据类属性
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/sdk/android-sdk
+              ">
+                Android SDK
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/sdk/android-entity
+              ">
+                Android数据类属性
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/sdk/release
+              ">
+                下载和更新记录
+              </a></li>
+            
+          </ul>
+          
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+            aria-expanded="false">天气插件<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            
+            
+            <li><a href="
+              /docs/widget/
+              ">
+                概述
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/widget/ios-widget
+              ">
+                iOS天气插件
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/widget/android-widget
+              ">
+                Android天气插件
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/widget/mobile-page
+              ">
+                H5天气网页/频道页
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/widget/standard-widget
+              ">
+                网页标准插件
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/widget/simple-widget
+              ">
+                网页简约插件
+              </a></li>
+            
+          </ul>
+          
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+            aria-expanded="false">天气普拉斯<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            
+            
+            <li><a href="
+              /docs/owp/overview
+              ">
+                概述
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/owp/ios
+              ">
+                iOS 开发文档
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/owp/android
+              ">
+                Android 开发文档
+              </a></li>
+            
+          </ul>
+          
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+            aria-expanded="false">代码库<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            
+            
+            <li><a href="
+              /docs/library/
+              ">
+                概述
+              </a></li>
+            
+          </ul>
+          
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+            aria-expanded="false">常见问题<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            
+            
+            <li><a href="
+              /docs/faq/general
+              ">
+                一般问题
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/faq/buy
+              ">
+                商业数据和购买
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/faq/technical
+              ">
+                技术和开发
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/faq/user
+              ">
+                用户和账号
+              </a></li>
+            
+          </ul>
+          
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+        
+        <section class="col-sm-9 col-md-7 col-lg-7 col-xs-12">
+            
+                <div class="docs-header">
+                    <h1>iOS SDK 实体类属性</h1>
+                    
+                </div>
+                <article class="docs-content">
+                    
+                    <h2 id="天气预报和实况">天气预报和实况</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>接口</th>
+      <th>接口代码（枚举）</th>
+      <th>数据类</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>实况天气</td>
+      <td>INQUIRE_TYPE_WEATHER_NOW</td>
+      <td>WeatherBaseClass</td>
+    </tr>
+    <tr>
+      <td>3天预报</td>
+      <td>INQUIRE_TYPE_WEATHER_3D</td>
+      <td>WeatherBaseClass</td>
+    </tr>
+    <tr>
+      <td>7天预报</td>
+      <td>INQUIRE_TYPE_WEATHER_7D</td>
+      <td>WeatherBaseClass</td>
+    </tr>
+    <tr>
+      <td>10天预报</td>
+      <td>INQUIRE_TYPE_WEATHER_10D</td>
+      <td>WeatherBaseClass</td>
+    </tr>
+    <tr>
+      <td>15天预报</td>
+      <td>INQUIRE_TYPE_WEATHER_15D</td>
+      <td>WeatherBaseClass</td>
+    </tr>
+    <tr>
+      <td>24小时预报况</td>
+      <td>INQUIRE_TYPE_WEATHER_24H</td>
+      <td>WeatherBaseClass</td>
+    </tr>
+    <tr>
+      <td>72小时预报况</td>
+      <td>INQUIRE_TYPE_WEATHER_72H</td>
+      <td>WeatherBaseClass</td>
+    </tr>
+    <tr>
+      <td>168小时预报况</td>
+      <td>INQUIRE_TYPE_WEATHER_168H</td>
+      <td>WeatherBaseClass</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="请求参数">请求参数</h4>
+
+<p>请求参数包括必选和可选参数，如不填写可选参数将使用其默认值。</p>
+
+<p><strong>location</strong> <span class="required">必选</span></p>
+
+<p>需要查询地区的<a href="/docs/start/glossary#locationid">LocationID</a>或以逗号分隔的<a href="/docsgetting-started/glossary#coordinate">经度/纬度坐标</a>（十进制），LocationID可通过<a href="#城市查询">城市搜索</a>服务获取。例如： location=101010100 或 location=39.92,116.41</p>
+
+<p><strong>appKey</strong> <span class="required">必选</span></p>
+
+<p>用户认证key，例如 <code class="language-plaintext highlighter-rouge">appKey=123456789ABC</code></p>
+
+<p><strong>lang</strong> <span class="optional">可选</span></p>
+
+<p>多语言设置，支持31种语言，<strong>默认中文</strong>。具体的语言参数值请参考<a href="/docs/start/language">多语言参数值</a>。</p>
+
+<p><strong>unit</strong> <span class="optional">可选</span></p>
+
+<p><a href="/docs/start/unit">度量衡单位参数</a>选择，例如温度选摄氏度或华氏度、公里或英里。<strong>默认公制单位</strong>。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>语言</th>
+      <th>语言代码</th>
+      <th>常量属性</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>公制</td>
+      <td>m</td>
+      <td>UNIT_TYPE_M</td>
+    </tr>
+    <tr>
+      <td>英制</td>
+      <td>i</td>
+      <td>UNIT_TYPE_I</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="示例代码">示例代码</h4>
+
+<div class="language-objc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">HeConfigInstance</span><span class="p">.</span><span class="n">publicID</span> <span class="o">=</span> <span class="s">@"publicID"</span><span class="p">;</span>
+<span class="n">HeConfigInstance</span><span class="p">.</span><span class="n">appKey</span> <span class="o">=</span> <span class="s">@"key"</span><span class="p">;</span>
+<span class="n">HeConfigInstance</span><span class="p">.</span><span class="n">appType</span> <span class="o">=</span> <span class="n">APP_TYPE_BIZ</span><span class="p">;</span>
+<span class="n">HeConfigInstance</span><span class="p">.</span><span class="n">location</span> <span class="o">=</span> <span class="s">@"101010100"</span><span class="p">;</span>
+<span class="n">HeConfigInstance</span><span class="p">.</span><span class="n">lang</span> <span class="o">=</span> <span class="s">@""</span><span class="p">;</span>
+<span class="n">HeConfigInstance</span><span class="p">.</span><span class="n">unit</span> <span class="o">=</span> <span class="s">@""</span><span class="p">;</span>
+<span class="p">[</span><span class="n">HeConfigInstance</span> <span class="nf">weatherWithInquireType</span><span class="p">:</span><span class="n">INQUIRE_TYPE_WEATHER_NOW</span> <span class="nf">WithSuccess</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">WeatherBaseClass</span>  <span class="o">*</span><span class="n">responseObject</span><span class="p">)</span> <span class="p">{</span>
+        
+    <span class="n">NSLog</span><span class="p">(</span><span class="s">@"描述-&gt;%@"</span><span class="p">,[</span><span class="n">responseObject</span> <span class="nf">description</span><span class="p">]);</span>
+        
+<span class="p">}</span> <span class="n">faileureForError</span><span class="o">:^</span><span class="p">(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">NSLog</span><span class="p">(</span><span class="s">@"error-&gt;%@"</span><span class="p">,</span><span class="n">error</span><span class="p">);</span>
+        
+<span class="p">}];</span> 
+</code></pre></div></div>
+
+<h4 id="返回数据">返回数据</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>描述</th>
+      <th>示例值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>code</td>
+      <td>状态码，具体含义请参考<a href="/docs/start/status-code">状态码</a></td>
+      <td>200</td>
+    </tr>
+    <tr>
+      <td>updateTime</td>
+      <td>当前<a href="/docs/getting-started/glossary#updatetime">数据最近更新时间</a></td>
+      <td>2013-12-30T01:45+08:00</td>
+    </tr>
+    <tr>
+      <td>fxLink</td>
+      <td>该城市的天气预报详情自适应网页，可嵌入网站或应用</td>
+      <td>http://hfx.link/ae45</td>
+    </tr>
+    <tr>
+      <td>now.obsTime</td>
+      <td>实况观测时间</td>
+      <td>2013-12-30T01:45+08:00</td>
+    </tr>
+    <tr>
+      <td>now.temp</td>
+      <td>实况温度，默认单位：摄氏度</td>
+      <td>21</td>
+    </tr>
+    <tr>
+      <td>now.feelsLike</td>
+      <td>实况体感温度，默认单位：摄氏度</td>
+      <td>23</td>
+    </tr>
+    <tr>
+      <td>now.icon</td>
+      <td>当前天气状况和图标的代码，图标可通过<a href="/docs/start/icons">天气状况和图标</a>下载</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <td>now.text</td>
+      <td>实况天气状况的文字描述，包括阴晴雨雪等天气状态的描述</td>
+      <td>晴</td>
+    </tr>
+    <tr>
+      <td>now.wind360</td>
+      <td>实况风向360角度</td>
+      <td>305</td>
+    </tr>
+    <tr>
+      <td>now.windDir</td>
+      <td>实况风向</td>
+      <td>西北</td>
+    </tr>
+    <tr>
+      <td>now.windScale</td>
+      <td>实况风力等级</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>now.windSpeed</td>
+      <td>实况风速，公里/小时</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td>now.humidity</td>
+      <td>实况相对湿度，百分比数值</td>
+      <td>40</td>
+    </tr>
+    <tr>
+      <td>now.precip</td>
+      <td>实况降水量，默认单位：毫米</td>
+      <td>1.2</td>
+    </tr>
+    <tr>
+      <td>now.pressure</td>
+      <td>实况大气压强，默认单位：百帕</td>
+      <td>1020</td>
+    </tr>
+    <tr>
+      <td>now.vis</td>
+      <td>实况能见度，默认单位：公里</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td>now.cloud</td>
+      <td>实况云量，百分比数值</td>
+      <td>23</td>
+    </tr>
+    <tr>
+      <td>now.dew</td>
+      <td>实况露点温度</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td>daily.fxDate</td>
+      <td>预报日期</td>
+      <td>2013-05-31</td>
+    </tr>
+    <tr>
+      <td>daily.sunrise</td>
+      <td>日出时间</td>
+      <td>07:34</td>
+    </tr>
+    <tr>
+      <td>daily.sunset</td>
+      <td>日落时间</td>
+      <td>17:21</td>
+    </tr>
+    <tr>
+      <td>daily.moonrise</td>
+      <td>月升时间</td>
+      <td>16:09</td>
+    </tr>
+    <tr>
+      <td>daily.moonset</td>
+      <td>月落时间</td>
+      <td>04:21</td>
+    </tr>
+    <tr>
+      <td>daily.moonPhase</td>
+      <td>月相名称</td>
+      <td>满月</td>
+    </tr>
+    <tr>
+      <td>daily.tempMax</td>
+      <td>预报当天最高温度</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>daily.tempMin</td>
+      <td>预报当天最低温度</td>
+      <td>-5</td>
+    </tr>
+    <tr>
+      <td>daily.iconDay</td>
+      <td>预报白天天气状况的图标代码，图标可通过<a href="/docs/start/icons">天气状况和图标</a>下载</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <td>daily.textDay</td>
+      <td>预报白天天气状况文字描述，包括阴晴雨雪等天气状态的描述</td>
+      <td>晴</td>
+    </tr>
+    <tr>
+      <td>daily.iconNight</td>
+      <td>预报夜间天气状况的图标代码，图标可通过<a href="/docs/start/icons">天气状况和图标</a>下载</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <td>daily.textNight</td>
+      <td>预报晚间天气状况文字描述，包括阴晴雨雪等天气状态的描述</td>
+      <td>晴</td>
+    </tr>
+    <tr>
+      <td>daily.wind360Day</td>
+      <td>预报白天风向360角度</td>
+      <td>305</td>
+    </tr>
+    <tr>
+      <td>daily.windDirDay</td>
+      <td>预报白天风向</td>
+      <td>西北</td>
+    </tr>
+    <tr>
+      <td>daily.windScaleDay</td>
+      <td>预报白天风力等级</td>
+      <td>3-4</td>
+    </tr>
+    <tr>
+      <td>daily.windSpeedDay</td>
+      <td>预报白天风速，公里/小时</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td>daily.wind360Night</td>
+      <td>预报夜间风向360角度</td>
+      <td>305</td>
+    </tr>
+    <tr>
+      <td>daily.WindDirNight</td>
+      <td>预报夜间当天风向</td>
+      <td>西北</td>
+    </tr>
+    <tr>
+      <td>daily.windScaleNight</td>
+      <td>预报夜间风力等级</td>
+      <td>3-4</td>
+    </tr>
+    <tr>
+      <td>daily.windSpeedNight</td>
+      <td>预报夜间风速，公里/小时</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td>daily.humidity</td>
+      <td>预报当天相对湿度，百分比数值</td>
+      <td>40</td>
+    </tr>
+    <tr>
+      <td>daily.precip</td>
+      <td>预报当天降水量，默认单位：毫米</td>
+      <td>1.2</td>
+    </tr>
+    <tr>
+      <td>daily.pressure</td>
+      <td>预报当天大气压强，默认单位：百帕</td>
+      <td>1020</td>
+    </tr>
+    <tr>
+      <td>daily.vis</td>
+      <td>预报当天能见度，默认单位：公里</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td>daily.cloud</td>
+      <td>预报当天云量，百分比数值</td>
+      <td>23</td>
+    </tr>
+    <tr>
+      <td>daily.uvIndex</td>
+      <td>预报当天紫外线强度指数</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>hourly.fxTime</td>
+      <td>逐小时预报时间</td>
+      <td>2013-12-30T13:00+08:00</td>
+    </tr>
+    <tr>
+      <td>hourly.temp</td>
+      <td>逐小时预报温度</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>hourly.icon</td>
+      <td>逐小时预报天气状况图标代码，图标可通过<a href="/docs/start/icons">天气状况和图标</a>下载</td>
+      <td>101</td>
+    </tr>
+    <tr>
+      <td>hourly.text</td>
+      <td>逐小时预报天气状况文字描述，包括阴晴雨雪等天气状态的描述</td>
+      <td>多云</td>
+    </tr>
+    <tr>
+      <td>hourly.wind360</td>
+      <td>逐小时预报风向360角度</td>
+      <td>305</td>
+    </tr>
+    <tr>
+      <td>hourly.windDir</td>
+      <td>逐小时预报风向</td>
+      <td>西北</td>
+    </tr>
+    <tr>
+      <td>hourly.windScale</td>
+      <td>逐小时预报风力等级</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>hourly.windSpeed</td>
+      <td>逐小时预报风速，公里/小时</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td>hourly.humidity</td>
+      <td>逐小时预报相对湿度，百分比数值</td>
+      <td>40</td>
+    </tr>
+    <tr>
+      <td>hourly.precip</td>
+      <td>逐小时预报降水量，默认单位：毫米</td>
+      <td>1.2</td>
+    </tr>
+    <tr>
+      <td>hourly.pop</td>
+      <td>逐小时预报降水概率，百分比数值，可能为空</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>hourly.pressure</td>
+      <td>逐小时预报大气压强，默认单位：百帕</td>
+      <td>1020</td>
+    </tr>
+    <tr>
+      <td>hourly.cloud</td>
+      <td>逐小时预报云量，百分比数值</td>
+      <td>23</td>
+    </tr>
+    <tr>
+      <td>hourly.dew</td>
+      <td>逐小时预报露点温度</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td>refer.sources</td>
+      <td>原始数据来源，可能为空</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>refer.license</td>
+      <td>使用许可，可能为空</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="分钟降水">分钟降水</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>接口</th>
+      <th>接口代码（枚举）</th>
+      <th>数据类</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>分钟降水</td>
+      <td>INQUIRE_TYPE_WEATHER_MINUTELY</td>
+      <td>WeatherMinutelyBaseClass</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="接口参数">接口参数</h4>
+
+<p><strong>location</strong> <span class="required">必选</span></p>
+
+<p>需要查询地区的以逗号分隔的<a href="/docsgetting-started/glossary#coordinate">经度/纬度坐标</a>（十进制）。例如： location=39.92,116.41</p>
+
+<p><strong>appKey</strong> <span class="required">必选</span></p>
+
+<p>用户认证key，例如 <code class="language-plaintext highlighter-rouge">appKey=123456789ABC</code></p>
+
+<p><strong>lang</strong> <span class="optional">可选</span></p>
+
+<p>多语言设置，支持31种语言，<strong>默认中文</strong>。具体的语言参数值请参考<a href="/docs/start/language">多语言参数值</a>。</p>
+
+<h4 id="示例代码-1">示例代码</h4>
+
+<div class="language-objc highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
+    <span class="n">HeConfigInstance</span><span class="p">.</span><span class="n">publicID</span> <span class="o">=</span> <span class="s">@"publicID"</span><span class="p">;</span>
+    <span class="n">HeConfigInstance</span><span class="p">.</span><span class="n">appKey</span> <span class="o">=</span> <span class="s">@"key"</span><span class="p">;</span>
+    <span class="n">HeConfigInstance</span><span class="p">.</span><span class="n">appType</span> <span class="o">=</span> <span class="n">APP_TYPE_BIZ</span><span class="p">;</span>    
+    <span class="n">HeConfigInstance</span><span class="p">.</span><span class="n">location</span> <span class="o">=</span> <span class="s">@"116.41,39.92"</span><span class="p">;</span>
+    <span class="n">HeConfigInstance</span><span class="p">.</span><span class="n">lang</span> <span class="o">=</span> <span class="s">@""</span><span class="p">;</span>
+    <span class="p">[</span><span class="n">HeConfigInstance</span> <span class="nf">weatherWithInquireType</span><span class="p">:</span> <span class="n">INQUIRE_TYPE_WEATHER_MINUTELY</span> <span class="nf">WithSuccess</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">WeatherMinutelyBaseClass</span>  <span class="o">*</span><span class="n">responseObject</span><span class="p">)</span> <span class="p">{</span>
+        
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@"描述-&gt;%@"</span><span class="p">,[</span><span class="n">responseObject</span> <span class="nf">description</span><span class="p">]);</span>
+        
+    <span class="p">}</span> <span class="n">faileureForError</span><span class="o">:^</span><span class="p">(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@"error-&gt;%@"</span><span class="p">,</span><span class="n">error</span><span class="p">);</span>
+        
+    <span class="p">}];</span>
+ 
+</code></pre></div></div>
+
+<h4 id="返回数据-1">返回数据</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">参数</th>
+      <th style="text-align: left">描述</th>
+      <th style="text-align: left">示例</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">code</td>
+      <td style="text-align: left">状态码，具体含义请参考<a href="/docs/start/status-code">状态码</a></td>
+      <td style="text-align: left">200</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">updateTime</td>
+      <td style="text-align: left">当前<a href="/docs/getting-started/glossary#updatetime">数据最近更新时间</a></td>
+      <td style="text-align: left">2013-12-30T01:45+08:00</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">fxLink</td>
+      <td style="text-align: left">该城市的分钟降水详情自适应网页，可嵌入网站或应用。<strong>有可能为空。</strong></td>
+      <td style="text-align: left">http://hfx.link/ae45</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">summary</td>
+      <td style="text-align: left">分钟降水描述</td>
+      <td style="text-align: left">未来2小时无降雨</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">minutely.fxTime</td>
+      <td style="text-align: left">预报时间</td>
+      <td style="text-align: left">2013-12-30T01:45+08:00</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">minutely.precip</td>
+      <td style="text-align: left">降水量</td>
+      <td style="text-align: left">10</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">minutely.type</td>
+      <td style="text-align: left">降水类型<br /><code class="language-plaintext highlighter-rouge">rain</code>雨<br /><code class="language-plaintext highlighter-rouge">snow</code>雪</td>
+      <td style="text-align: left">rain</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">refer.sources</td>
+      <td style="text-align: left">原始数据来源，可能为空</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">refer.license</td>
+      <td style="text-align: left">使用许可，可能为空</td>
+      <td style="text-align: left"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="空气质量">空气质量</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>接口</th>
+      <th>接口代码（枚举）</th>
+      <th>数据类</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>空气质量实况</td>
+      <td>INQUIRE_TYPE_WEATHER_AIR_NOW</td>
+      <td>AirBaseClass</td>
+    </tr>
+    <tr>
+      <td>空气质量5天预报</td>
+      <td>INQUIRE_TYPE_WEATHER_AIR_5D</td>
+      <td>AirBaseClass</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="请求参数-1">请求参数</h4>
+
+<p>请求参数包括必选和可选参数，如不填写可选参数将使用其默认值。</p>
+
+<p><strong>location</strong> <span class="required">必选</span></p>
+
+<p>需要查询地区的<a href="/docs/start/glossary#locationid">LocationID</a>或以逗号分隔的<a href="/docsgetting-started/glossary#coordinate">经度/纬度坐标</a>（十进制），LocationID可通过<a href="#城市查询">城市搜索</a>服务获取。例如： location=101010100 或 location=39.92,116.41</p>
+
+<p><strong>appKey</strong> <span class="required">必选</span></p>
+
+<p>用户认证key，例如 <code class="language-plaintext highlighter-rouge">appKey=123456789ABC</code></p>
+
+<p><strong>lang</strong> <span class="optional">可选</span></p>
+
+<p>多语言设置，支持31种语言，<strong>默认中文</strong>。具体的语言参数值请参考<a href="/docs/start/language">多语言参数值</a>。</p>
+
+<h4 id="示例代码-2">示例代码</h4>
+
+<div class="language-objc highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="n">HeConfigInstance</span><span class="p">.</span><span class="n">publicID</span> <span class="o">=</span> <span class="s">@"publicID"</span><span class="p">;</span>
+    <span class="n">HeConfigInstance</span><span class="p">.</span><span class="n">appKey</span> <span class="o">=</span> <span class="s">@"key"</span><span class="p">;</span>
+    <span class="n">HeConfigInstance</span><span class="p">.</span><span class="n">appType</span> <span class="o">=</span> <span class="n">APP_TYPE_BIZ</span><span class="p">;</span>    
+    <span class="n">HeConfigInstance</span><span class="p">.</span><span class="n">location</span> <span class="o">=</span> <span class="s">@"101010100"</span><span class="p">;</span>
+    <span class="n">HeConfigInstance</span><span class="p">.</span><span class="n">lang</span> <span class="o">=</span> <span class="s">@""</span><span class="p">;</span>
+    <span class="n">HeConfigInstance</span><span class="p">.</span><span class="n">unit</span> <span class="o">=</span> <span class="s">@""</span><span class="p">;</span>
+    <span class="p">[</span><span class="n">HeConfigInstance</span> <span class="nf">weatherWithInquireType</span><span class="p">:</span><span class="n">INQUIRE_TYPE_WEATHER_AIR_NOW</span> <span class="nf">WithSuccess</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">AirBaseClass</span>  <span class="o">*</span><span class="n">responseObject</span><span class="p">)</span> <span class="p">{</span>
+        
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@"描述-&gt;%@"</span><span class="p">,[</span><span class="n">responseObject</span> <span class="nf">description</span><span class="p">]);</span>
+        
+    <span class="p">}</span> <span class="n">faileureForError</span><span class="o">:^</span><span class="p">(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@"error-&gt;%@"</span><span class="p">,</span><span class="n">error</span><span class="p">);</span>
+        
+    <span class="p">}];</span>
+</code></pre></div></div>
+
+<h4 id="返回数据-2">返回数据</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>描述</th>
+      <th>示例值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>code</td>
+      <td>状态码，具体含义请参考<a href="/docs/start/status-code">状态码</a></td>
+      <td>200</td>
+    </tr>
+    <tr>
+      <td>updateTime</td>
+      <td>当前<a href="/docs/getting-started/glossary#updatetime">数据最近更新时间</a></td>
+      <td>2013-12-30T01:45+08:00</td>
+    </tr>
+    <tr>
+      <td>fxLink</td>
+      <td>该城市的天气预播啊自适应网页，可嵌入网站或应用，<strong>可能为空</strong></td>
+      <td>http://hfx.link/ae45</td>
+    </tr>
+    <tr>
+      <td>now.pubTime</td>
+      <td>实时空气质量数据发布时间</td>
+      <td>2013-12-30T01:45+08:00</td>
+    </tr>
+    <tr>
+      <td>now.aqi</td>
+      <td>实时空气质量指数，<a href="https://www.heweather.com/blog/aqi">AQI和PM25的关系</a></td>
+      <td>74</td>
+    </tr>
+    <tr>
+      <td>now.level</td>
+      <td>实时空气质量指数等级</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>now.category</td>
+      <td>实时空气质量指数级别</td>
+      <td>良</td>
+    </tr>
+    <tr>
+      <td>now.primary</td>
+      <td>实时空气质量的主要污染物，空气质量为优时，返回值为空</td>
+      <td>pm2.5</td>
+    </tr>
+    <tr>
+      <td>now.pm10</td>
+      <td>实时 pm10</td>
+      <td>78</td>
+    </tr>
+    <tr>
+      <td>now.pm2p5</td>
+      <td>实时 pm2.5</td>
+      <td>66</td>
+    </tr>
+    <tr>
+      <td>now.no2</td>
+      <td>实时 二氧化氮</td>
+      <td>40</td>
+    </tr>
+    <tr>
+      <td>now.so2</td>
+      <td>实时 二氧化硫</td>
+      <td>30</td>
+    </tr>
+    <tr>
+      <td>now.co</td>
+      <td>实时 一氧化碳</td>
+      <td>33</td>
+    </tr>
+    <tr>
+      <td>now.o3</td>
+      <td>实时 臭氧</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td>station.pubTime</td>
+      <td>国控站点实时空气质量数据发布时间，仅在<a href="https://cdn.heweather.com/air_gov.xlsx">环保部国控站点的城市</a>中返回</td>
+      <td>2013-12-30T01:45+08:00</td>
+    </tr>
+    <tr>
+      <td>station.name</td>
+      <td>国控站点名称，仅在<a href="https://cdn.heweather.com/air_gov.xlsx">环保部国控站点的城市</a>中返回</td>
+      <td>万寿西宫</td>
+    </tr>
+    <tr>
+      <td>station.cid</td>
+      <td>国控站点ID，仅在<a href="https://cdn.heweather.com/air_gov.xlsx">环保部国控站点的城市</a>中返回</td>
+      <td>CNA110000</td>
+    </tr>
+    <tr>
+      <td>station.aqi</td>
+      <td>国控站点实时空气质量指数，仅在<a href="https://cdn.heweather.com/air_gov.xlsx">环保部国控站点的城市</a>中返回</td>
+      <td>74</td>
+    </tr>
+    <tr>
+      <td>station.level</td>
+      <td>监测站实时空气质量指数等级，仅在国控站点的城市中返回</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>station.category</td>
+      <td>监测站实时空气质量指数级别，仅在国控站点的城市中返回</td>
+      <td>良</td>
+    </tr>
+    <tr>
+      <td>station.primary</td>
+      <td>国控站点实时主要污染物，仅在<a href="https://cdn.heweather.com/air_gov.xlsx">环保部国控站点的城市</a>中返回。空气质量为优时，返回值为空</td>
+      <td>pm25</td>
+    </tr>
+    <tr>
+      <td>station.pm10</td>
+      <td>国控站点实时 pm10，仅在<a href="https://cdn.heweather.com/air_gov.xlsx">环保部国控站点的城市</a>中返回</td>
+      <td>78</td>
+    </tr>
+    <tr>
+      <td>station.pm2p5</td>
+      <td>国控站点实时 pm2.5，仅在<a href="https://cdn.heweather.com/air_gov.xlsx">环保部国控站点的城市</a>中返回</td>
+      <td>66</td>
+    </tr>
+    <tr>
+      <td>station.no2</td>
+      <td>国控站点实时 二氧化氮，仅在<a href="https://cdn.heweather.com/air_gov.xlsx">环保部国控站点的城市</a>中返回</td>
+      <td>40</td>
+    </tr>
+    <tr>
+      <td>station.so2</td>
+      <td>国控站点实时 二氧化硫，仅在<a href="https://cdn.heweather.com/air_gov.xlsx">环保部国控站点的城市</a>中返回</td>
+      <td>30</td>
+    </tr>
+    <tr>
+      <td>station.co</td>
+      <td>国控站点实时 一氧化碳，仅在<a href="https://cdn.heweather.com/air_gov.xlsx">环保部国控站点的城市</a>中返回</td>
+      <td>33</td>
+    </tr>
+    <tr>
+      <td>station.o3</td>
+      <td>国控站点实时 臭氧，仅在<a href="https://cdn.heweather.com/air_gov.xlsx">环保部国控站点的城市</a>中返回</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td>daily.fxDate</td>
+      <td>空气质量逐天预报日期</td>
+      <td>2018-05-31</td>
+    </tr>
+    <tr>
+      <td>daily.aqi</td>
+      <td>空气质量逐天预报指数</td>
+      <td>74</td>
+    </tr>
+    <tr>
+      <td>daily.level</td>
+      <td>逐逐天预报的空气质量指数等级</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>daily.category</td>
+      <td>逐天预空气质量指数级别</td>
+      <td>良</td>
+    </tr>
+    <tr>
+      <td>daily.primary</td>
+      <td>空气质量逐天预报的主要污染物，空气质量为优时，返回值为空</td>
+      <td>pm2.5</td>
+    </tr>
+    <tr>
+      <td>hourly.fxTime</td>
+      <td>空气质量逐小时预报日期</td>
+      <td>2013-12-30T01:45+08:00</td>
+    </tr>
+    <tr>
+      <td>hourly.aqi</td>
+      <td>空气质量逐小时预报指数</td>
+      <td>74</td>
+    </tr>
+    <tr>
+      <td>hourly.level</td>
+      <td>逐逐天预报的空气质量指数等级</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>hourly.category</td>
+      <td>逐天预空气质量指数级别</td>
+      <td>良</td>
+    </tr>
+    <tr>
+      <td>houry.primary</td>
+      <td>空气质量逐小时预报的主要污染物，空气质量为优时，返回值为空</td>
+      <td>pm2.5</td>
+    </tr>
+    <tr>
+      <td>refer.sources</td>
+      <td>原始数据来源，可能为空</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>refer.license</td>
+      <td>使用许可，可能为空</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="灾害预警">灾害预警</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>接口</th>
+      <th>接口代码（枚举）</th>
+      <th>数据类</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>灾害预警</td>
+      <td>INQUIRE_TYPE_WARNING</td>
+      <td>WarningBaseClass</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="请求参数-2">请求参数</h4>
+
+<p>请求参数包括必选和可选参数，如不填写可选参数将使用其默认值。</p>
+
+<p><strong>location</strong> <span class="required">必选</span></p>
+
+<p>需要查询地区的<a href="/docs/start/glossary#locationid">LocationID</a>或以逗号分隔的<a href="/docsgetting-started/glossary#coordinate">经度/纬度坐标</a>（十进制），LocationID可通过<a href="#城市查询">城市搜索</a>服务获取。例如： location=101010100 或 location=39.92,116.41</p>
+
+<p><strong>appKey</strong> <span class="required">必选</span></p>
+
+<p>用户认证key，例如 <code class="language-plaintext highlighter-rouge">appKey=123456789ABC</code></p>
+
+<p><strong>lang</strong> <span class="optional">可选</span></p>
+
+<p>多语言设置，支持31种语言，<strong>默认中文</strong>。具体的语言参数值请参考<a href="/docs/start/language">多语言参数值</a>。</p>
+
+<h4 id="示例代码-3">示例代码</h4>
+
+<div class="language-objc highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
+    <span class="n">HeConfigInstance</span><span class="p">.</span><span class="n">publicID</span> <span class="o">=</span> <span class="s">@"publicID"</span><span class="p">;</span>
+    <span class="n">HeConfigInstance</span><span class="p">.</span><span class="n">appKey</span> <span class="o">=</span> <span class="s">@"key"</span><span class="p">;</span>
+    <span class="n">HeConfigInstance</span><span class="p">.</span><span class="n">appType</span> <span class="o">=</span> <span class="n">APP_TYPE_BIZ</span><span class="p">;</span>    
+    <span class="n">HeConfigInstance</span><span class="p">.</span><span class="n">location</span> <span class="o">=</span> <span class="s">@"101010100"</span><span class="p">;</span>
+    <span class="n">HeConfigInstance</span><span class="p">.</span><span class="n">lang</span> <span class="o">=</span> <span class="s">@""</span><span class="p">;</span>
+    <span class="n">HeConfigInstance</span><span class="p">.</span><span class="n">unit</span> <span class="o">=</span> <span class="s">@""</span><span class="p">;</span>
+    <span class="p">[</span><span class="n">HeConfigInstance</span> <span class="nf">weatherWithInquireType</span><span class="p">:</span> <span class="n">INQUIRE_TYPE_WARNING</span> <span class="nf">WithSuccess</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">WarningBaseClass</span>  <span class="o">*</span><span class="n">responseObject</span><span class="p">)</span> <span class="p">{</span>
+        
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@"描述-&gt;%@"</span><span class="p">,[</span><span class="n">responseObject</span> <span class="nf">description</span><span class="p">]);</span>
+        
+    <span class="p">}</span> <span class="n">faileureForError</span><span class="o">:^</span><span class="p">(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@"error-&gt;%@"</span><span class="p">,</span><span class="n">error</span><span class="p">);</span>
+        
+    <span class="p">}];</span>
+</code></pre></div></div>
+
+<h4 id="返回数据-3">返回数据</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>描述</th>
+      <th>示例值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>code</td>
+      <td>状态码，具体含义请参考<a href="/docs/start/status-code">状态码</a></td>
+      <td>200</td>
+    </tr>
+    <tr>
+      <td>updateTime</td>
+      <td>当前<a href="/docs/getting-started/glossary#updatetime">数据最近更新时间</a></td>
+      <td>2013-12-30T01:45+08:00</td>
+    </tr>
+    <tr>
+      <td>fxLink</td>
+      <td>该城市的灾害预警详情自适应网页，可嵌入网站或应用。<strong>可能为空。</strong></td>
+      <td>http://hfx.link/ae45</td>
+    </tr>
+    <tr>
+      <td>warning.id</td>
+      <td>本条预警的唯一标识，可判断本条预警是否已经存在，id有效期不超过72小时</td>
+      <td>202010110345679813</td>
+    </tr>
+    <tr>
+      <td>warning.pubTime</td>
+      <td>预警发布时间</td>
+      <td>2017-10-25T12:03+08:00</td>
+    </tr>
+    <tr>
+      <td>warning.title</td>
+      <td>预警信息标题</td>
+      <td>广东省深圳市气象台发布雷电黄色预警</td>
+    </tr>
+    <tr>
+      <td>warning.startTime</td>
+      <td>预警开始时间，<strong>不适用于所有国家，可能为空。</strong></td>
+      <td>广东省深圳市气象台发布雷电黄色预警</td>
+    </tr>
+    <tr>
+      <td>warning.endTime</td>
+      <td>预警结束时间，<strong>不适用于所有国家，可能为空。</strong></td>
+      <td>广东省深圳市气象台发布雷电黄色预警</td>
+    </tr>
+    <tr>
+      <td>warning.status</td>
+      <td>预警状态，<strong>不适用于所有国家，可能为空。</strong></td>
+      <td>预警中</td>
+    </tr>
+    <tr>
+      <td>warning.level</td>
+      <td>预警等级</td>
+      <td>黄色</td>
+    </tr>
+    <tr>
+      <td>warning.type</td>
+      <td>预警类型</td>
+      <td>雷电</td>
+    </tr>
+    <tr>
+      <td>warning.txt</td>
+      <td>预警详细文字描述</td>
+      <td>深圳市气象局于10月04日12时59分发布雷电黄色预警信号，请注意防御。</td>
+    </tr>
+    <tr>
+      <td>refer.sources</td>
+      <td>原始数据来源，可能为空</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>refer.license</td>
+      <td>使用许可，可能为空</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="灾害预警列表">灾害预警列表</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>接口</th>
+      <th>接口代码（枚举）</th>
+      <th>数据类</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>灾害预警城市列表</td>
+      <td>INQUIRE_TYPE_WARNINGLIST</td>
+      <td>WarningListClass</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="请求参数-3">请求参数</h4>
+
+<p>请求参数包括必选和可选参数，如不填写可选参数将使用其默认值。</p>
+
+<p><strong>range</strong> <span class="required">必选</span></p>
+
+<p>选择指定的国家，目前仅支持中国。例如<code class="language-plaintext highlighter-rouge">range=cn</code>。</p>
+
+<p><strong>appKey</strong> <span class="required">必选</span></p>
+
+<p>用户认证key，例如 <code class="language-plaintext highlighter-rouge">appKey=123456789ABC</code></p>
+
+<h4 id="示例代码-4">示例代码</h4>
+
+<div class="language-objc highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
+    <span class="n">HeConfigInstance</span><span class="p">.</span><span class="n">publicID</span> <span class="o">=</span> <span class="s">@"publicID"</span><span class="p">;</span>
+    <span class="n">HeConfigInstance</span><span class="p">.</span><span class="n">appKey</span> <span class="o">=</span> <span class="s">@"key"</span><span class="p">;</span>
+    <span class="n">HeConfigInstance</span><span class="p">.</span><span class="n">appType</span> <span class="o">=</span> <span class="n">APP_TYPE_BIZ</span><span class="p">;</span>    
+    <span class="n">HeConfigInstance</span><span class="p">.</span><span class="n">range</span> <span class="o">=</span> <span class="s">@"cn"</span><span class="p">;</span>
+    <span class="p">[</span><span class="n">HeConfigInstance</span> <span class="nf">weatherWithInquireType</span><span class="p">:</span> <span class="n">INQUIRE_TYPE_WARNINGLIST</span> <span class="nf">WithSuccess</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">WarningListClass</span>  <span class="o">*</span><span class="n">responseObject</span><span class="p">)</span> <span class="p">{</span>
+        
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@"描述-&gt;%@"</span><span class="p">,[</span><span class="n">responseObject</span> <span class="nf">description</span><span class="p">]);</span>
+        
+    <span class="p">}</span> <span class="n">faileureForError</span><span class="o">:^</span><span class="p">(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@"error-&gt;%@"</span><span class="p">,</span><span class="n">error</span><span class="p">);</span>
+        
+    <span class="p">}];</span>
+</code></pre></div></div>
+
+<h4 id="返回数据-4">返回数据</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>描述</th>
+      <th>示例值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>code</td>
+      <td>状态码，具体含义请参考<a href="/docs/start/status-code">状态码</a></td>
+      <td>200</td>
+    </tr>
+    <tr>
+      <td>updateTime</td>
+      <td>当前<a href="/docs/getting-started/glossary#updatetime">数据最近更新时间</a></td>
+      <td>2013-12-30T01:45+08:00</td>
+    </tr>
+    <tr>
+      <td>warningLocList.locationId</td>
+      <td>当前国家预警的城市/地区ID</td>
+      <td>101010100</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="生活指数">生活指数</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>接口</th>
+      <th>接口代码（枚举）</th>
+      <th>数据类</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>当天生活指数</td>
+      <td>INQUIRE_TYPE_INDICES_1D</td>
+      <td>IndicesBaseClass</td>
+    </tr>
+    <tr>
+      <td>3天生活指数</td>
+      <td>INQUIRE_TYPE_INDICES_3D</td>
+      <td>IndicesBaseClass</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="请求参数-4">请求参数</h4>
+
+<p>请求参数包括必选和可选参数，如不填写可选参数将使用其默认值。</p>
+
+<p><strong>indices</strong> <span class="required">必选</span></p>
+
+<p>生活指数数据类型，包括洗车指数、穿衣指数、钓鱼指数等。可以一次性获取多个类型的生活指数。</p>
+
+<p>indices内放入需要的INDICES_TYPESTRING类型，如选择<code class="language-plaintext highlighter-rouge">INDICES_TYPE_all</code>，则不能再使用其他生活指数类型。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>类型</th>
+      <th>DATA_TYPE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>INDICES_TYPE_all</td>
+      <td>全部指数</td>
+    </tr>
+    <tr>
+      <td>INDICES_TYPE_comf</td>
+      <td>舒适度指数</td>
+    </tr>
+    <tr>
+      <td>INDICES_TYPE_cw</td>
+      <td>洗车指数</td>
+    </tr>
+    <tr>
+      <td>INDICES_TYPE_drsg</td>
+      <td>穿衣指数</td>
+    </tr>
+    <tr>
+      <td>INDICES_TYPE_flu</td>
+      <td>感冒指数</td>
+    </tr>
+    <tr>
+      <td>INDICES_TYPE_spt</td>
+      <td>运动指数</td>
+    </tr>
+    <tr>
+      <td>INDICES_TYPE_trav</td>
+      <td>旅游指数</td>
+    </tr>
+    <tr>
+      <td>INDICES_TYPE_uv</td>
+      <td>紫外线指数</td>
+    </tr>
+    <tr>
+      <td>INDICES_TYPE_ap</td>
+      <td>空气污染扩散条件指数</td>
+    </tr>
+    <tr>
+      <td>INDICES_TYPE_ac</td>
+      <td>空调开启指数</td>
+    </tr>
+    <tr>
+      <td>INDICES_TYPE_ag</td>
+      <td>花粉过敏指数</td>
+    </tr>
+    <tr>
+      <td>INDICES_TYPE_gl</td>
+      <td>太阳镜指数</td>
+    </tr>
+    <tr>
+      <td>INDICES_TYPE_mu</td>
+      <td>化妆指数</td>
+    </tr>
+    <tr>
+      <td>INDICES_TYPE_dc</td>
+      <td>晾晒指数</td>
+    </tr>
+    <tr>
+      <td>INDICES_TYPE_ptfc</td>
+      <td>交通指数</td>
+    </tr>
+    <tr>
+      <td>INDICES_TYPE_fis</td>
+      <td>钓鱼指数</td>
+    </tr>
+    <tr>
+      <td>INDICES_TYPE_spi</td>
+      <td>防晒指数</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>location</strong> <span class="required">必选</span></p>
+
+<p>需要查询地区的<a href="/docs/start/glossary#locationid">LocationID</a>或以逗号分隔的<a href="/docsgetting-started/glossary#coordinate">经度/纬度坐标</a>（十进制），LocationID可通过<a href="#城市查询">城市搜索</a>服务获取。例如： location=101010100 或 location=39.92,116.41</p>
+
+<p><strong>appKey</strong> <span class="required">必选</span></p>
+
+<p>用户认证key，例如 <code class="language-plaintext highlighter-rouge">appKey=123456789ABC</code></p>
+
+<h4 id="示例代码-5">示例代码</h4>
+
+<div class="language-objc highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
+    <span class="n">HeConfigInstance</span><span class="p">.</span><span class="n">location</span> <span class="o">=</span> <span class="s">@"101010100"</span><span class="p">;</span>
+    <span class="n">HeConfigInstance</span><span class="p">.</span><span class="n">appKey</span> <span class="o">=</span> <span class="s">@"key"</span><span class="p">;</span>
+    <span class="n">HeConfigInstance</span><span class="p">.</span><span class="n">appType</span> <span class="o">=</span> <span class="n">APP_TYPE_BIZ</span><span class="p">;</span>
+    <span class="p">[</span><span class="n">HeConfigInstance</span> <span class="nf">weatherWithInquireType</span><span class="p">:</span><span class="n">INQUIRE_TYPE_INDICES_1D</span> <span class="nf">WithSuccess</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">IndicesBaseClass</span>  <span class="o">*</span><span class="n">responseObject</span><span class="p">)</span> <span class="p">{</span>
+        
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@"描述-&gt;%@"</span><span class="p">,[</span><span class="n">responseObject</span> <span class="nf">description</span><span class="p">]);</span>
+        
+    <span class="p">}</span> <span class="n">faileureForError</span><span class="o">:^</span><span class="p">(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@"error-&gt;%@"</span><span class="p">,</span><span class="n">error</span><span class="p">);</span>
+        
+    <span class="p">}];</span>
+</code></pre></div></div>
+<h4 id="返回数据-5">返回数据</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>描述</th>
+      <th>示例值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>code</td>
+      <td>状态码，具体含义请参考<a href="/docs/start/status-code">状态码</a></td>
+      <td>200</td>
+    </tr>
+    <tr>
+      <td>updateTime</td>
+      <td>当前<a href="/docs/getting-started/glossary#updatetime">数据最近更新时间</a></td>
+      <td>2013-12-30T01:45+08:00</td>
+    </tr>
+    <tr>
+      <td>fxLink</td>
+      <td>该城市的天气预报详情自适应网页，可嵌入网站或应用</td>
+      <td>http://hfx.link/ae45</td>
+    </tr>
+    <tr>
+      <td>daily.date</td>
+      <td>预报日期</td>
+      <td>2018-05-30</td>
+    </tr>
+    <tr>
+      <td>daily.type</td>
+      <td>生活指数预报类型</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>daily.name</td>
+      <td>生活指数预报类型的名称</td>
+      <td>舒适度指数</td>
+    </tr>
+    <tr>
+      <td>daily.level</td>
+      <td>生活指数预报等级</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>daily.category</td>
+      <td>生活指数预报级别名称</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>daily.text</td>
+      <td>生活指数预报的详细描述</td>
+      <td>白天温度适宜，应会感到比较清爽和舒适。</td>
+    </tr>
+    <tr>
+      <td>refer.sources</td>
+      <td>原始数据来源，可能为空</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>refer.license</td>
+      <td>使用许可，可能为空</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="生活指数等级">生活指数等级</h4>
+
+<p>生活指数等级仅供参考，等级有可能会进行调整。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>生活指数类型名称</th>
+      <th>类型ID</th>
+      <th>等级</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>全部生活指数</td>
+      <td>0</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>运动指数</td>
+      <td>1</td>
+      <td>适宜(1)、较适宜(2)、较不宜(3)</td>
+    </tr>
+    <tr>
+      <td>洗车指数</td>
+      <td>2</td>
+      <td>适宜(1)、较适宜(2)、较不宜(3)、不宜(4)</td>
+    </tr>
+    <tr>
+      <td>穿衣指数</td>
+      <td>3</td>
+      <td>寒冷(1)、冷(2)、较冷(3)、较舒适(4)、舒适(5)、热(6)、炎热(7)</td>
+    </tr>
+    <tr>
+      <td>钓鱼指数</td>
+      <td>4</td>
+      <td>适宜(1)、较适宜(2)、不宜(3)</td>
+    </tr>
+    <tr>
+      <td>紫外线指数</td>
+      <td>5</td>
+      <td>最弱(1)、弱(2)、中等(3)、强(4)、很强(5)</td>
+    </tr>
+    <tr>
+      <td>旅游指数</td>
+      <td>6</td>
+      <td>适宜(1)、较适宜(2)、一般(3)、较不宜(4)、不适宜(5)</td>
+    </tr>
+    <tr>
+      <td>花粉过敏指数</td>
+      <td>7</td>
+      <td>极不易发(1)、不易发(2)、较易发(3)、易发(4)、极易发(5)</td>
+    </tr>
+    <tr>
+      <td>舒适度指数</td>
+      <td>8</td>
+      <td>舒适(1)、较舒适(2)、较不舒适(3)、很不舒适(4)、极不舒适(5)、不舒适(6)、非常不舒适(7)</td>
+    </tr>
+    <tr>
+      <td>感冒指数</td>
+      <td>9</td>
+      <td>少发(1)、较易发(2)、易发(3)、极易发(4)</td>
+    </tr>
+    <tr>
+      <td>空气污染扩散条件指数</td>
+      <td>10</td>
+      <td>优(1)、良(2)、中(3)、较差(4)、很差(5)</td>
+    </tr>
+    <tr>
+      <td>空调开启指数</td>
+      <td>11</td>
+      <td>长时间开启(1)、部分时间开启(2)、较少开启(3)、开启制暖空调(4)</td>
+    </tr>
+    <tr>
+      <td>太阳镜指数</td>
+      <td>12</td>
+      <td>不需要(1)、需要(2)、必要(3)、很必要(4)、非常必要(5)</td>
+    </tr>
+    <tr>
+      <td>化妆指数</td>
+      <td>13</td>
+      <td>保湿(1)、保湿防晒(2)、去油防晒(3)、防脱水防晒(4)、去油(5)、防脱水(6)、防晒(7)、滋润保湿(8)</td>
+    </tr>
+    <tr>
+      <td>晾晒指数</td>
+      <td>14</td>
+      <td>极适宜(1)、适宜(2)、基本适宜(3)、不太适宜(4)、不宜(5)、不适宜(6)</td>
+    </tr>
+    <tr>
+      <td>交通指数</td>
+      <td>15</td>
+      <td>良好(1)、较好(2)、一般(3)、较差(4)、很差(5)</td>
+    </tr>
+    <tr>
+      <td>防晒指数</td>
+      <td>16</td>
+      <td>弱(1)、较弱(2)、中等(3)、强(4)、极强(5)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="景点天气预报">景点天气预报</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>接口</th>
+      <th>接口代码（枚举）</th>
+      <th>数据类</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>景点实况天气</td>
+      <td>INQUIRE_TYPE_WEATHER_POI_NOW</td>
+      <td>WeatherPoiBaseClass</td>
+    </tr>
+    <tr>
+      <td>景点7天预报</td>
+      <td>INQUIRE_TYPE_WEATHER_POI_7D</td>
+      <td>WeatherPoiBaseClass</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="请求参数-5">请求参数</h4>
+
+<p>请求参数包括必选和可选参数，如不填写可选参数将使用其默认值。</p>
+
+<p><strong>location</strong> <span class="required">必选</span></p>
+
+<p>需要查询景点的LocationID，LocationID可通过<a href="#城市查询">城市搜索</a>服务获取。例如： location=101010100</p>
+
+<p><strong>appKey</strong> <span class="required">必选</span></p>
+
+<p>用户认证key，例如 <code class="language-plaintext highlighter-rouge">appKey=123456789ABC</code></p>
+
+<p><strong>lang</strong> <span class="optional">可选</span></p>
+
+<p>多语言设置，支持31种语言，<strong>默认中文</strong>。具体的语言参数值请参考<a href="/docs/start/language">多语言参数值</a>。</p>
+
+<p><strong>unit</strong> <span class="optional">可选</span></p>
+
+<p><a href="/docs/start/unit">度量衡单位参数</a>选择，例如温度选摄氏度或华氏度、公里或英里。<strong>默认公制单位</strong>。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>语言</th>
+      <th>语言代码</th>
+      <th>常量属性</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>公制</td>
+      <td>m</td>
+      <td>UNIT_TYPE_M</td>
+    </tr>
+    <tr>
+      <td>英制</td>
+      <td>i</td>
+      <td>UNIT_TYPE_I</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="示例代码-6">示例代码</h4>
+
+<div class="language-objc highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+    <span class="n">HeConfigInstance</span><span class="p">.</span><span class="n">publicID</span> <span class="o">=</span> <span class="s">@"publicID"</span><span class="p">;</span>
+    <span class="n">HeConfigInstance</span><span class="p">.</span><span class="n">appKey</span> <span class="o">=</span> <span class="s">@"key"</span><span class="p">;</span>
+    <span class="n">HeConfigInstance</span><span class="p">.</span><span class="n">appType</span> <span class="o">=</span> <span class="n">APP_TYPE_BIZ</span><span class="p">;</span>    
+    <span class="n">HeConfigInstance</span><span class="p">.</span><span class="n">location</span> <span class="o">=</span> <span class="s">@"10101010004A"</span><span class="p">;</span>
+    <span class="n">HeConfigInstance</span><span class="p">.</span><span class="n">lang</span> <span class="o">=</span> <span class="s">@""</span><span class="p">;</span>
+    <span class="n">HeConfigInstance</span><span class="p">.</span><span class="n">unit</span> <span class="o">=</span> <span class="s">@""</span><span class="p">;</span>
+    <span class="p">[</span><span class="n">HeConfigInstance</span> <span class="nf">weatherWithInquireType</span><span class="p">:</span><span class="n">INQUIRE_TYPE_WEATHER_POI_NOW</span> <span class="nf">WithSuccess</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">WeatherPoiBaseClass</span>  <span class="o">*</span><span class="n">responseObject</span><span class="p">)</span> <span class="p">{</span>
+        
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@"描述-&gt;%@"</span><span class="p">,[</span><span class="n">responseObject</span> <span class="nf">description</span><span class="p">]);</span>
+        
+    <span class="p">}</span> <span class="n">faileureForError</span><span class="o">:^</span><span class="p">(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@"error-&gt;%@"</span><span class="p">,</span><span class="n">error</span><span class="p">);</span>
+        
+    <span class="p">}];</span>
+</code></pre></div></div>
+<h4 id="返回数据-6">返回数据</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>描述</th>
+      <th>示例值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>code</td>
+      <td>状态码，具体含义请参考<a href="/docs/start/status-code">状态码</a></td>
+      <td>200</td>
+    </tr>
+    <tr>
+      <td>updateTime</td>
+      <td>当前<a href="/docs/getting-started/glossary#updatetime">数据最近更新时间</a></td>
+      <td>2013-12-30T01:45+08:00</td>
+    </tr>
+    <tr>
+      <td>fxLink</td>
+      <td>该城市的天气预报详情自适应网页，可嵌入网站或应用，<strong>可能为空</strong></td>
+      <td>http://hfx.link/ae45</td>
+    </tr>
+    <tr>
+      <td>now.obsTime</td>
+      <td>实况观测时间</td>
+      <td>2013-12-30T01:45+08:00</td>
+    </tr>
+    <tr>
+      <td>now.temp</td>
+      <td>实况温度，默认单位：摄氏度</td>
+      <td>21</td>
+    </tr>
+    <tr>
+      <td>now.feelsLike</td>
+      <td>实况体感温度，默认单位：摄氏度</td>
+      <td>23</td>
+    </tr>
+    <tr>
+      <td>now.icon</td>
+      <td>当前天气状况和图标的代码，图标可通过<a href="/docs/start/icons">天气状况和图标</a>下载</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <td>now.text</td>
+      <td>实况天气状况的文字描述，包括阴晴雨雪等天气状态的描述</td>
+      <td>晴</td>
+    </tr>
+    <tr>
+      <td>now.windDir</td>
+      <td>实况风向</td>
+      <td>西北</td>
+    </tr>
+    <tr>
+      <td>now.windScale</td>
+      <td>实况风力等级</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>now.humidity</td>
+      <td>实况相对湿度，百分比数值</td>
+      <td>40</td>
+    </tr>
+    <tr>
+      <td>now.precip</td>
+      <td>实况降水量，默认单位：毫米</td>
+      <td>1.2</td>
+    </tr>
+    <tr>
+      <td>now.pressure</td>
+      <td>实况大气压强，默认单位：百帕</td>
+      <td>1020</td>
+    </tr>
+    <tr>
+      <td>daily.fxDate</td>
+      <td>预报日期</td>
+      <td>2018-05-31</td>
+    </tr>
+    <tr>
+      <td>daily.tempMax</td>
+      <td>预报最高温度</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>daily.tempMin</td>
+      <td>预报最低温度</td>
+      <td>-5</td>
+    </tr>
+    <tr>
+      <td>daily.iconDay</td>
+      <td>预报白天天气状况图标的代码，图标可通过<a href="/docs/start/icons">天气状况和图标</a>下载</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <td>daily.textDay</td>
+      <td>预报白天天气状况描述</td>
+      <td>晴</td>
+    </tr>
+    <tr>
+      <td>daily.iconNight</td>
+      <td>预报夜间天气状况图标的代码，图标可通过<a href="/docs/start/icons">天气状况和图标</a>下载</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <td>daily.textNight</td>
+      <td>晚间天气状况描述</td>
+      <td>晴</td>
+    </tr>
+    <tr>
+      <td>daily.windDirDay</td>
+      <td>预报白天风向</td>
+      <td>东</td>
+    </tr>
+    <tr>
+      <td>daily.windScaleDay</td>
+      <td>预报白天风力</td>
+      <td>2-3</td>
+    </tr>
+    <tr>
+      <td>daily.windDirNight</td>
+      <td>预报夜间风向</td>
+      <td>东</td>
+    </tr>
+    <tr>
+      <td>daily.windScaleNight</td>
+      <td>预报夜间风力</td>
+      <td>2-3</td>
+    </tr>
+    <tr>
+      <td>refer.sources</td>
+      <td>原始数据来源，可能为空</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>refer.license</td>
+      <td>使用许可，可能为空</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="历史天气">历史天气</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>接口</th>
+      <th>接口代码（枚举）</th>
+      <th>数据类</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>历史天气</td>
+      <td>INQUIRE_TYPE_HISTORICAL_WEATHER</td>
+      <td>WeatherHistoricalBaseClass</td>
+    </tr>
+    <tr>
+      <td>历史空气质量</td>
+      <td>INQUIRE_TYPE_HISTORICAL_AIR</td>
+      <td>WeatherHistoricalBaseClass</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="请求参数-6">请求参数</h4>
+
+<p>请求参数包括必选和可选参数，如不填写可选参数将使用其默认值。</p>
+
+<p><strong>location</strong> <span class="required">必选</span></p>
+
+<p>需要查询地区的LocationID，LocationID可通过<a href="#城市查询">城市搜索</a>服务获取。例如： location=101010100</p>
+
+<p><strong>date</strong> <span class="required">必选</span></p>
+
+<p>选择获取历史的日期限度，最多可选择最近10天的数据，例如今天是7月5日，最多可获取6月25日至7月4日的历史数据。日期格式为yyyyMMdd，例如 <code class="language-plaintext highlighter-rouge">date=20200531</code></p>
+
+<p><strong>appKey</strong> <span class="required">必选</span></p>
+
+<p>用户认证key，例如 <code class="language-plaintext highlighter-rouge">appKey=123456789ABC</code></p>
+
+<p><strong>lang</strong> <span class="optional">可选</span></p>
+
+<p>多语言设置，支持31种语言，<strong>默认中文</strong>。具体的语言参数值请参考<a href="/docs/start/language">多语言参数值</a>。</p>
+
+<p><strong>unit</strong> <span class="optional">可选</span></p>
+
+<p><a href="/docs/start/unit">度量衡单位参数</a>选择，例如温度选摄氏度或华氏度、公里或英里。<strong>默认公制单位</strong>。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>语言</th>
+      <th>语言代码</th>
+      <th>常量属性</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>公制</td>
+      <td>m</td>
+      <td>UNIT_TYPE_M</td>
+    </tr>
+    <tr>
+      <td>英制</td>
+      <td>i</td>
+      <td>UNIT_TYPE_I</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="示例代码-7">示例代码</h4>
+
+<div class="language-objc highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+     <span class="c1">//历史天气</span>
+    <span class="n">HeConfigInstance</span><span class="p">.</span><span class="n">publicID</span> <span class="o">=</span> <span class="s">@"publicID"</span><span class="p">;</span>
+    <span class="n">HeConfigInstance</span><span class="p">.</span><span class="n">appKey</span> <span class="o">=</span> <span class="s">@"key"</span><span class="p">;</span>
+    <span class="n">HeConfigInstance</span><span class="p">.</span><span class="n">appType</span> <span class="o">=</span> <span class="n">APP_TYPE_BIZ</span><span class="p">;</span>    
+    <span class="n">HeConfigInstance</span><span class="p">.</span><span class="n">location</span> <span class="o">=</span> <span class="s">@"101010100"</span><span class="p">;</span>
+    <span class="n">HeConfigInstance</span><span class="p">.</span><span class="n">date</span> <span class="o">=</span> <span class="s">@"20200425"</span><span class="p">;</span>
+    <span class="p">[</span><span class="n">HeConfigInstance</span> <span class="nf">weatherWithInquireType</span><span class="p">:</span><span class="n">INQUIRE_TYPE_HISTORICAL_WEATHER</span> <span class="nf">WithSuccess</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">WeatherHistoricalBaseClass</span>  <span class="o">*</span><span class="n">responseObject</span><span class="p">)</span> <span class="p">{</span>
+        
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@"描述-&gt;%@"</span><span class="p">,[</span><span class="n">responseObject</span> <span class="nf">description</span><span class="p">]);</span>
+        
+    <span class="p">}</span> <span class="n">faileureForError</span><span class="o">:^</span><span class="p">(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@"error-&gt;%@"</span><span class="p">,</span><span class="n">error</span><span class="p">);</span>
+        
+    <span class="p">}];</span>
+    <span class="c1">//历史空气质量</span>
+      <span class="n">HeConfigInstance</span><span class="p">.</span><span class="n">publicID</span> <span class="o">=</span> <span class="s">@"publicID"</span><span class="p">;</span>
+    <span class="n">HeConfigInstance</span><span class="p">.</span><span class="n">appKey</span> <span class="o">=</span> <span class="s">@"key"</span><span class="p">;</span>
+    <span class="n">HeConfigInstance</span><span class="p">.</span><span class="n">appType</span> <span class="o">=</span> <span class="n">APP_TYPE_BIZ</span><span class="p">;</span>    <span class="n">HeConfigInstance</span><span class="p">.</span><span class="n">location</span> <span class="o">=</span> <span class="s">@"101010100"</span><span class="p">;</span>
+    <span class="n">HeConfigInstance</span><span class="p">.</span><span class="n">date</span> <span class="o">=</span> <span class="s">@"20200425"</span><span class="p">;</span>
+    <span class="p">[</span><span class="n">HeConfigInstance</span> <span class="nf">weatherWithInquireType</span><span class="p">:</span><span class="n">INQUIRE_TYPE_HISTORICAL_AIR</span> <span class="nf">WithSuccess</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">WeatherHistoricalBaseClass</span>  <span class="o">*</span><span class="n">responseObject</span><span class="p">)</span> <span class="p">{</span>
+        
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@"描述-&gt;%@"</span><span class="p">,[</span><span class="n">responseObject</span> <span class="nf">description</span><span class="p">]);</span>
+        
+    <span class="p">}</span> <span class="n">faileureForError</span><span class="o">:^</span><span class="p">(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@"error-&gt;%@"</span><span class="p">,</span><span class="n">error</span><span class="p">);</span>
+        
+    <span class="p">}];</span>
+</code></pre></div></div>
+<h4 id="返回数据-7">返回数据</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>描述</th>
+      <th>示例值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>code</td>
+      <td>状态码，具体含义请参考<a href="/docs/start/status-code">状态码</a></td>
+      <td>200</td>
+    </tr>
+    <tr>
+      <td>fxLink</td>
+      <td>所查询城市的历史天气和历史空气质量网页，自适应PC和移动端，便于嵌入你的网站或应用。仅限中国城市返回。</td>
+      <td>http://hfx.link/ae45</td>
+    </tr>
+    <tr>
+      <td>weatherDaily.date</td>
+      <td>历史当天天气日期</td>
+      <td>2018-05-31</td>
+    </tr>
+    <tr>
+      <td>weatherDaily.sunrise</td>
+      <td>当天日出时间</td>
+      <td>07:36</td>
+    </tr>
+    <tr>
+      <td>weatherDaily.sunset</td>
+      <td>当天日落时间</td>
+      <td>16:58</td>
+    </tr>
+    <tr>
+      <td>weatherDaily.moonrise</td>
+      <td>当天月升时间</td>
+      <td>04:47</td>
+    </tr>
+    <tr>
+      <td>weatherDaily.moonset</td>
+      <td>当天月落时间</td>
+      <td>14:59</td>
+    </tr>
+    <tr>
+      <td>weatherDaily.moonPhase</td>
+      <td>当天月相名称</td>
+      <td>上弦月</td>
+    </tr>
+    <tr>
+      <td>weatherDaily.tempMax</td>
+      <td>当天最高温度</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>weatherDaily.tempMin</td>
+      <td>当天最低温度</td>
+      <td>-5</td>
+    </tr>
+    <tr>
+      <td>weatherDaily.humidity</td>
+      <td>当天相对湿度</td>
+      <td>37</td>
+    </tr>
+    <tr>
+      <td>weatherDaily.precip</td>
+      <td>当天降水量</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>weatherDaily.pressure</td>
+      <td>当天大气压强</td>
+      <td>1018</td>
+    </tr>
+    <tr>
+      <td>weatherHourly.time</td>
+      <td>历史当天天气时间</td>
+      <td>2013-12-30T01:45+08:00</td>
+    </tr>
+    <tr>
+      <td>weatherHourly.temp</td>
+      <td>当天每小时温度</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>weatherHourly.icon</td>
+      <td>当天每小时天气状况图标的代码，图标可通过<a href="/docs/start/icons">天气状况和图标</a>下载</td>
+      <td>101</td>
+    </tr>
+    <tr>
+      <td>weatherHourly.text</td>
+      <td>当天每小时天气状况代码</td>
+      <td>多云</td>
+    </tr>
+    <tr>
+      <td>weatherHourly.precip</td>
+      <td>当天每小时累计降水量</td>
+      <td>1.2</td>
+    </tr>
+    <tr>
+      <td>weatherHourly.windDir</td>
+      <td>当天每小时风向</td>
+      <td>西北</td>
+    </tr>
+    <tr>
+      <td>weatherHourly.windScale</td>
+      <td>当天每小时风力</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>weatherHourly.windSpeed</td>
+      <td>当天每小时风速，公里/小时</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td>weatherHourly.wind360</td>
+      <td>当天每小时风向360角度</td>
+      <td>305</td>
+    </tr>
+    <tr>
+      <td>weatherHourly.humidity</td>
+      <td>当天每小时相对湿度</td>
+      <td>30</td>
+    </tr>
+    <tr>
+      <td>weatherHourly.pressure</td>
+      <td>当天每小时大气压强</td>
+      <td>1030</td>
+    </tr>
+    <tr>
+      <td>airHourly.pubTime</td>
+      <td>历史当天空气质量数据发布时间,格式yyyy-MM-dd HH:mm</td>
+      <td>2013-12-30T01:45+08:00</td>
+    </tr>
+    <tr>
+      <td>airHourly.aqi</td>
+      <td>当天每小时空气质量指数</td>
+      <td>74</td>
+    </tr>
+    <tr>
+      <td>airHourly.primary</td>
+      <td>当天每小时主要污染物</td>
+      <td>pm2.5</td>
+    </tr>
+    <tr>
+      <td>airHourly.level</td>
+      <td>当天每小时空气质量指数等级</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>airHourly.category</td>
+      <td>当天每小时空气质量指数级别</td>
+      <td>良</td>
+    </tr>
+    <tr>
+      <td>airHourly.pm10</td>
+      <td>当天每小时pm10</td>
+      <td>78</td>
+    </tr>
+    <tr>
+      <td>airHourly.pm2p5</td>
+      <td>当天每小时pm2.5</td>
+      <td>66</td>
+    </tr>
+    <tr>
+      <td>airHourly.no2</td>
+      <td>当天每小时二氧化氮</td>
+      <td>40</td>
+    </tr>
+    <tr>
+      <td>airHourly.so2</td>
+      <td>当天每小时二氧化硫</td>
+      <td>30</td>
+    </tr>
+    <tr>
+      <td>airHourly.co</td>
+      <td>当天每小时一氧化碳</td>
+      <td>33</td>
+    </tr>
+    <tr>
+      <td>airHourly.o3</td>
+      <td>当天每小时臭氧</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td>refer.sources</td>
+      <td>原始数据来源，可能为空</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>refer.license</td>
+      <td>使用许可，可能为空</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="太阳和月亮">太阳和月亮</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>接口</th>
+      <th>接口代码（枚举）</th>
+      <th>数据类</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>太阳和月亮</td>
+      <td>INQUIRE_TYPE_SUNMOON</td>
+      <td>SunMoonBaseModel</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="请求参数-7">请求参数</h4>
+
+<p>请求参数包括必选和可选参数，如不填写可选参数将使用其默认值。</p>
+
+<p><strong>location</strong> <span class="required">必选</span></p>
+
+<p>需要查询地区的<a href="/docs/start/glossary#locationid">LocationID</a>或以逗号分隔的<a href="/docsgetting-started/glossary#coordinate">经度/纬度坐标</a>（十进制），LocationID可通过<a href="/docs/api/geo">城市搜索服务</a>获取。例如：<code class="language-plaintext highlighter-rouge">location=101010100</code> 或 <code class="language-plaintext highlighter-rouge">location=116.41,39.92</code></p>
+
+<p><strong>date</strong> <span class="required">必选</span></p>
+
+<p>选择日期，最多可选择最近60天的数据。日期格式为yyyyMMdd，例如 date=20200531</p>
+
+<p><strong>appKey</strong> <span class="required">必选</span></p>
+
+<p>用户认证key，例如 <code class="language-plaintext highlighter-rouge">appKey=123456789ABC</code></p>
+
+<p><strong>lang</strong> <span class="optional">可选</span></p>
+
+<p>多语言设置，支持31种语言，<strong>默认中文</strong>。具体的语言参数值请参考<a href="/docs/start/language">多语言参数值</a>。</p>
+
+<h4 id="示例代码-8">示例代码</h4>
+
+<div class="language-objc highlighter-rouge"><div class="highlight"><pre class="highlight"><code>      <span class="n">HeConfigInstance</span><span class="p">.</span><span class="n">publicID</span> <span class="o">=</span> <span class="s">@"publicID"</span><span class="p">;</span>
+    <span class="n">HeConfigInstance</span><span class="p">.</span><span class="n">appKey</span> <span class="o">=</span> <span class="s">@"key"</span><span class="p">;</span>
+    <span class="n">HeConfigInstance</span><span class="p">.</span><span class="n">appType</span> <span class="o">=</span> <span class="n">APP_TYPE_BIZ</span><span class="p">;</span>    
+    <span class="n">HeConfigInstance</span><span class="p">.</span><span class="n">location</span> <span class="o">=</span> <span class="s">@"101010100"</span><span class="p">;</span>
+    <span class="n">HeConfigInstance</span><span class="p">.</span><span class="n">date</span> <span class="o">=</span> <span class="s">@"20200425"</span><span class="p">;</span>
+    <span class="p">[</span><span class="n">HeConfigInstance</span> <span class="nf">weatherWithInquireType</span><span class="p">:</span><span class="n">INQUIRE_TYPE_SUNMOON</span> <span class="nf">WithSuccess</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">SunMoonBaseModel</span>  <span class="o">*</span><span class="n">responseObject</span><span class="p">)</span> <span class="p">{</span>
+        
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@"描述-&gt;%@"</span><span class="p">,[</span><span class="n">responseObject</span> <span class="nf">description</span><span class="p">]);</span>
+        
+    <span class="p">}</span> <span class="n">faileureForError</span><span class="o">:^</span><span class="p">(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@"error-&gt;%@"</span><span class="p">,</span><span class="n">error</span><span class="p">);</span>
+        
+    <span class="p">}];</span>
+</code></pre></div></div>
+
+<h4 id="返回数据-8">返回数据</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>描述</th>
+      <th>示例值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>code</td>
+      <td>状态码，具体含义请参考<a href="/docs/start/status-code">状态码</a></td>
+      <td>200</td>
+    </tr>
+    <tr>
+      <td>updateTime</td>
+      <td>当前<a href="/docs/getting-started/glossary#updatetime">数据最近更新时间</a></td>
+      <td>2013-12-30T01:45+08:00</td>
+    </tr>
+    <tr>
+      <td>fxLink</td>
+      <td>该城市的天气预报详情自适应网页，可嵌入网站或应用</td>
+      <td>http://hfx.link/ae45</td>
+    </tr>
+    <tr>
+      <td>sunrise</td>
+      <td>日出时间</td>
+      <td>2013-12-30T05:44+08:00</td>
+    </tr>
+    <tr>
+      <td>sunset</td>
+      <td>日落时间</td>
+      <td>2013-12-30T17:02+08:00</td>
+    </tr>
+    <tr>
+      <td>moonrise</td>
+      <td>月升时间</td>
+      <td>2013-12-30T13:19+08:00</td>
+    </tr>
+    <tr>
+      <td>moonset</td>
+      <td>月落时间</td>
+      <td>2013-12-31T23:31+08:00</td>
+    </tr>
+    <tr>
+      <td>moonPhase.fxTime</td>
+      <td>月相逐小时预报时间</td>
+      <td>2013-12-31T23:31+08:00</td>
+    </tr>
+    <tr>
+      <td>moonPhase.value</td>
+      <td>月相数值</td>
+      <td>0.25</td>
+    </tr>
+    <tr>
+      <td>moonPhase.name</td>
+      <td>月相名字</td>
+      <td>上弦月</td>
+    </tr>
+    <tr>
+      <td>moonPhase.illumination</td>
+      <td>月亮照明度，百分比数值</td>
+      <td>30</td>
+    </tr>
+    <tr>
+      <td>refer.sources</td>
+      <td>原始数据来源，<strong>可能为空</strong></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>refer.license</td>
+      <td>数据许可证</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="城市查询">城市查询</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>接口</th>
+      <th>接口代码（枚举）</th>
+      <th>数据类</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>城市查询</td>
+      <td>INQUIRE_TYPE_GEO_CITY_LOOKUP</td>
+      <td>GeoBaseClass</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="请求参数-8">请求参数</h4>
+
+<p>请求参数包括必选和可选参数，如不填写可选参数将使用其默认值。</p>
+
+<p><strong>location</strong> <span class="required">必选</span></p>
+
+<p>输入需要查询的城市名称，可使用Location ID、中文、英文、以逗号分隔的经度/纬度坐标、ADCode（仅限中国城市）。例如location=beijing， location=116.4,39.1</p>
+
+<p><strong>mode</strong> <span class="optional">可选</span></p>
+
+<p>搜索查询的方式。在使用名称搜索的时候，可选择模糊搜索或精准搜索，精准搜索最多返回1个结果，模糊搜索最多返回10个结果。<strong>默认精准搜索 mode = SERCHMODE_TYPE_EXACT
+。</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>类型</th>
+      <th>SEARCH_TYPE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>SERCHMODE_TYPE_EXACT</td>
+      <td>精准查询，默认</td>
+    </tr>
+    <tr>
+      <td>SERCHMODE_TYPE_FUZZY</td>
+      <td>模糊查询</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>appKey</strong> <span class="required">必选</span></p>
+
+<p>用户认证key，例如 <code class="language-plaintext highlighter-rouge">appKey=123456789ABC</code></p>
+
+<p><strong>lang</strong> <span class="optional">可选</span></p>
+
+<p>多语言设置，支持31种语言，<strong>默认中文</strong>。具体的语言参数值请参考<a href="/docs/start/language">多语言参数值</a>。</p>
+
+<p><strong>range</strong> <span class="optional">可选</span></p>
+
+<p>搜索范围，<strong>默认搜索全球城市。</strong> 可设定只在某个国家范围内进行搜索，国家名称需使用<a href="https://www.heweather.com/blog/iso-3166">ISO 3166 所定义的国家代码</a>。</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">world</code> 全球城市范围，默认</li>
+  <li><code class="language-plaintext highlighter-rouge">cn</code> 中国城市范围，可替换为其他国家的 <a href="https://www.heweather.com/blog/iso-3166">ISO 3166 国家代码</a>，例如<code class="language-plaintext highlighter-rouge">range=us</code></li>
+</ul>
+
+<p><strong>number</strong> <span class="optional">可选</span></p>
+
+<p>返回城市的数量，取值范围1-20，默认返回10个结果。</p>
+
+<h4 id="示例代码-9">示例代码</h4>
+
+<div class="language-objc highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="n">HeConfigInstance</span><span class="p">.</span><span class="n">publicID</span> <span class="o">=</span> <span class="s">@"publicID"</span><span class="p">;</span>
+    <span class="n">HeConfigInstance</span><span class="p">.</span><span class="n">appKey</span> <span class="o">=</span> <span class="s">@"key"</span><span class="p">;</span>
+    <span class="n">HeConfigInstance</span><span class="p">.</span><span class="n">appType</span> <span class="o">=</span> <span class="n">APP_TYPE_BIZ</span><span class="p">;</span>    
+    <span class="n">HeConfigInstance</span><span class="p">.</span><span class="n">location</span> <span class="o">=</span> <span class="s">@"beijing"</span><span class="p">;</span>
+    <span class="p">[</span><span class="n">HeConfigInstance</span> <span class="nf">weatherWithInquireType</span><span class="p">:</span><span class="n">INQUIRE_TYPE_GEO_CITY_LOOKUP</span> <span class="nf">WithSuccess</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">GeoBaseClass</span>  <span class="o">*</span><span class="n">responseObject</span><span class="p">)</span> <span class="p">{</span>
+        
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@"描述-&gt;%@"</span><span class="p">,[</span><span class="n">responseObject</span> <span class="nf">description</span><span class="p">]);</span>
+        
+    <span class="p">}</span> <span class="n">faileureForError</span><span class="o">:^</span><span class="p">(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@"error-&gt;%@"</span><span class="p">,</span><span class="n">error</span><span class="p">);</span>
+        
+    <span class="p">}];</span>
+    
+</code></pre></div></div>
+
+<h4 id="返回参数和数值说明">返回参数和数值说明</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>描述</th>
+      <th>示例</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>code</td>
+      <td>状态码，具体含义请参考<a href="/docs/start/status-code">状态码</a></td>
+      <td>200</td>
+    </tr>
+    <tr>
+      <td>location.name</td>
+      <td>地区/城市名称</td>
+      <td>南山区</td>
+    </tr>
+    <tr>
+      <td>location.cid</td>
+      <td>地区/城市ID</td>
+      <td>101280604</td>
+    </tr>
+    <tr>
+      <td>location.lat</td>
+      <td>地区/城市纬度</td>
+      <td>22.53122</td>
+    </tr>
+    <tr>
+      <td>location.lon</td>
+      <td>地区/城市经度</td>
+      <td>113.92942</td>
+    </tr>
+    <tr>
+      <td>location.adm2</td>
+      <td>该地区/城市的上级行政区划名称</td>
+      <td>深圳市</td>
+    </tr>
+    <tr>
+      <td>location.adm1</td>
+      <td>该地区/城市所属一级行政区域</td>
+      <td>广东省</td>
+    </tr>
+    <tr>
+      <td>location.country</td>
+      <td>该地区/城市所属国家名称</td>
+      <td>中国</td>
+    </tr>
+    <tr>
+      <td>location.tz</td>
+      <td>该地区/城市所在时区</td>
+      <td>+0800</td>
+    </tr>
+    <tr>
+      <td>location.utcOffset</td>
+      <td>该地区/城市目前与UTC时间偏移的小时数，参考详细说明</td>
+      <td>+08:00</td>
+    </tr>
+    <tr>
+      <td>location.isDst</td>
+      <td>该地区/城市是否当前处于夏令时</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>location.type</td>
+      <td>该地区/城市的属性</td>
+      <td>city</td>
+    </tr>
+    <tr>
+      <td>location.rank</td>
+      <td>地区评分</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td>location.fxLink</td>
+      <td>该地区的天气预报网页链接，便于嵌入你的网站或应用</td>
+      <td>http://hfx.link/34T5</td>
+    </tr>
+    <tr>
+      <td>refer.sources</td>
+      <td>原始数据来源，可能为空</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>refer.license</td>
+      <td>使用许可，可能为空</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="热门城市查询">热门城市查询</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>接口</th>
+      <th>接口代码（枚举）</th>
+      <th>数据类</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>热门城市查询</td>
+      <td>INQUIRE_TYPE_GEO_TOPCITY</td>
+      <td>GeoBaseClass</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="请求参数-9">请求参数</h4>
+
+<p>请求参数包括必选和可选参数，如不填写可选参数将使用其默认值。</p>
+
+<p><strong>appKey</strong> <span class="required">必选</span></p>
+
+<p>用户认证key，例如 <code class="language-plaintext highlighter-rouge">appKey=123456789ABC</code></p>
+
+<p><strong>lang</strong> <span class="optional">可选</span></p>
+
+<p>多语言设置，支持31种语言，<strong>默认中文</strong>。具体的语言参数值请参考<a href="/docs/start/language">多语言参数值</a>。</p>
+
+<p><strong>range</strong> <span class="optional">可选</span></p>
+
+<p>搜索范围，<strong>默认搜索全球城市。</strong> 可设定只在某个国家范围内进行搜索，国家名称需使用<a href="https://www.heweather.com/blog/iso-3166">ISO 3166 所定义的国家代码</a>。</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">world</code> 全球城市范围，默认</li>
+  <li><code class="language-plaintext highlighter-rouge">cn</code> 中国城市范围，可替换为其他国家的 <a href="https://www.heweather.com/blog/iso-3166">ISO 3166 国家代码</a>，例如<code class="language-plaintext highlighter-rouge">range=us</code></li>
+</ul>
+
+<p><strong>number</strong> <span class="optional">可选</span></p>
+
+<p>返回城市的数量，取值范围1-20，默认返回10个结果。</p>
+
+<h4 id="示例代码-10">示例代码</h4>
+
+<div class="language-objc highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+    <span class="n">HeConfigInstance</span><span class="p">.</span><span class="n">publicID</span> <span class="o">=</span> <span class="s">@"publicID"</span><span class="p">;</span>
+    <span class="n">HeConfigInstance</span><span class="p">.</span><span class="n">appKey</span> <span class="o">=</span> <span class="s">@"key"</span><span class="p">;</span>
+    <span class="n">HeConfigInstance</span><span class="p">.</span><span class="n">appType</span> <span class="o">=</span> <span class="n">APP_TYPE_BIZ</span><span class="p">;</span>    
+    <span class="n">HeConfigInstance</span><span class="p">.</span><span class="n">location</span> <span class="o">=</span> <span class="s">@"beijing"</span><span class="p">;</span>
+    <span class="p">[</span><span class="n">HeConfigInstance</span> <span class="nf">weatherWithInquireType</span><span class="p">:</span><span class="n">INQUIRE_TYPE_GEO_TOPCITY</span> <span class="nf">WithSuccess</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">GeoBaseClass</span>  <span class="o">*</span><span class="n">responseObject</span><span class="p">)</span> <span class="p">{</span>
+        
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@"描述-&gt;%@"</span><span class="p">,[</span><span class="n">responseObject</span> <span class="nf">description</span><span class="p">]);</span>
+        
+    <span class="p">}</span> <span class="n">faileureForError</span><span class="o">:^</span><span class="p">(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@"error-&gt;%@"</span><span class="p">,</span><span class="n">error</span><span class="p">);</span>
+        
+    <span class="p">}];</span>
+    
+</code></pre></div></div>
+
+<h4 id="返回参数和数值说明-1">返回参数和数值说明</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>描述</th>
+      <th>示例</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>code</td>
+      <td>状态码，具体含义请参考<a href="/docs/start/status-code">状态码</a></td>
+      <td>200</td>
+    </tr>
+    <tr>
+      <td>location.name</td>
+      <td>地区/城市名称</td>
+      <td>南山区</td>
+    </tr>
+    <tr>
+      <td>location.cid</td>
+      <td>地区/城市ID</td>
+      <td>101280604</td>
+    </tr>
+    <tr>
+      <td>location.lat</td>
+      <td>地区/城市纬度</td>
+      <td>22.53122</td>
+    </tr>
+    <tr>
+      <td>location.lon</td>
+      <td>地区/城市经度</td>
+      <td>113.92942</td>
+    </tr>
+    <tr>
+      <td>location.adm2</td>
+      <td>该地区/城市的上级行政区划名称</td>
+      <td>深圳市</td>
+    </tr>
+    <tr>
+      <td>location.adm1</td>
+      <td>该地区/城市所属一级行政区域</td>
+      <td>广东省</td>
+    </tr>
+    <tr>
+      <td>location.country</td>
+      <td>该地区/城市所属国家名称</td>
+      <td>中国</td>
+    </tr>
+    <tr>
+      <td>location.tz</td>
+      <td>该地区/城市所在时区</td>
+      <td>+0800</td>
+    </tr>
+    <tr>
+      <td>location.utcOffset</td>
+      <td>该地区/城市目前与UTC时间偏移的小时数，参考详细说明</td>
+      <td>+08:00</td>
+    </tr>
+    <tr>
+      <td>location.isDst</td>
+      <td>该地区/城市是否当前处于夏令时</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>location.type</td>
+      <td>该地区/城市的属性</td>
+      <td>city</td>
+    </tr>
+    <tr>
+      <td>location.rank</td>
+      <td>地区评分</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td>location.fxLink</td>
+      <td>该地区的天气预报网页链接，便于嵌入你的网站或应用</td>
+      <td>http://hfx.link/34T5</td>
+    </tr>
+    <tr>
+      <td>refer.sources</td>
+      <td>原始数据来源，可能为空</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>refer.license</td>
+      <td>使用许可，可能为空</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="poi信息搜索">POI信息搜索</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>接口</th>
+      <th>接口代码（枚举）</th>
+      <th>数据类</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>POI信息搜索</td>
+      <td>INQUIRE_TYPE_GEO_POI_LOOKUP</td>
+      <td>GeoBaseClass</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="请求参数-10">请求参数</h4>
+
+<p>请求参数包括必选和可选参数，如不填写可选参数将使用其默认值。</p>
+
+<p><strong>location</strong> <span class="required">必选</span></p>
+
+<p>输入需要查询的POI名称，可使用中文、英文。最少一个汉字或2个英文字母，返回结果将按照相关性和Rank值进行排列。例如location=故宫</p>
+
+<p><strong>appKey</strong> <span class="required">必选</span></p>
+
+<p>用户认证key，例如 <code class="language-plaintext highlighter-rouge">appKey=123456789ABC</code></p>
+
+<p><strong>type</strong> <span class="required">必选</span></p>
+
+<p>POI类型，可选择搜索某一类型的POI，目前仅限景点。例如type=scenic</p>
+
+<p><strong>lang</strong> <span class="optional">可选</span></p>
+
+<p>多语言设置，支持31种语言，<strong>默认中文</strong>。具体的语言参数值请参考<a href="/docs/start/language">多语言参数值</a>。</p>
+
+<p><strong>city</strong> <span class="optional">可选</span></p>
+
+<p>选择POI所在城市，可设定只搜索在特定城市内的POI信息。城市名称可以是中文、英文或城市的LocationID。默认全世界范围。</p>
+
+<p>城市名称需要精准匹配，建议使用LocaitonID，如城市名称无法识别，则数据返回为空。</p>
+
+<p><strong>number</strong> <span class="optional">可选</span></p>
+
+<p>返回城市的数量，取值范围1-20，默认返回10个结果。</p>
+
+<h4 id="示例代码-11">示例代码</h4>
+
+<div class="language-objc highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+    <span class="n">HeConfigInstance</span><span class="p">.</span><span class="n">publicID</span> <span class="o">=</span> <span class="s">@"publicID"</span><span class="p">;</span>
+    <span class="n">HeConfigInstance</span><span class="p">.</span><span class="n">appKey</span> <span class="o">=</span> <span class="s">@"key"</span><span class="p">;</span>
+    <span class="n">HeConfigInstance</span><span class="p">.</span><span class="n">appType</span> <span class="o">=</span> <span class="n">APP_TYPE_BIZ</span><span class="p">;</span>    
+    <span class="n">HeConfigInstance</span><span class="p">.</span><span class="n">location</span> <span class="o">=</span> <span class="s">@"beijing"</span><span class="p">;</span>
+    <span class="p">[</span><span class="n">HeConfigInstance</span> <span class="nf">weatherWithInquireType</span><span class="p">:</span><span class="n">INQUIRE_TYPE_GEO_POI_LOOKUP</span> <span class="nf">WithSuccess</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">GeoBaseClass</span>  <span class="o">*</span><span class="n">responseObject</span><span class="p">)</span> <span class="p">{</span>
+        
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@"描述-&gt;%@"</span><span class="p">,[</span><span class="n">responseObject</span> <span class="nf">description</span><span class="p">]);</span>
+        
+    <span class="p">}</span> <span class="n">faileureForError</span><span class="o">:^</span><span class="p">(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@"error-&gt;%@"</span><span class="p">,</span><span class="n">error</span><span class="p">);</span>
+        
+    <span class="p">}];</span>
+    
+</code></pre></div></div>
+
+<h4 id="返回参数和数值说明-2">返回参数和数值说明</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>描述</th>
+      <th>示例</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>code</td>
+      <td>状态码，具体含义请参考<a href="/docs/start/status-code">状态码</a></td>
+      <td>200</td>
+    </tr>
+    <tr>
+      <td>location.name</td>
+      <td>地区/城市名称</td>
+      <td>南山区</td>
+    </tr>
+    <tr>
+      <td>location.cid</td>
+      <td>地区/城市ID</td>
+      <td>101280604</td>
+    </tr>
+    <tr>
+      <td>location.lat</td>
+      <td>地区/城市纬度</td>
+      <td>22.53122</td>
+    </tr>
+    <tr>
+      <td>location.lon</td>
+      <td>地区/城市经度</td>
+      <td>113.92942</td>
+    </tr>
+    <tr>
+      <td>location.adm2</td>
+      <td>该地区/城市的上级行政区划名称</td>
+      <td>深圳市</td>
+    </tr>
+    <tr>
+      <td>location.adm1</td>
+      <td>该地区/城市所属一级行政区域</td>
+      <td>广东省</td>
+    </tr>
+    <tr>
+      <td>location.country</td>
+      <td>该地区/城市所属国家名称</td>
+      <td>中国</td>
+    </tr>
+    <tr>
+      <td>location.tz</td>
+      <td>该地区/城市所在时区</td>
+      <td>+0800</td>
+    </tr>
+    <tr>
+      <td>location.utcOffset</td>
+      <td>该地区/城市目前与UTC时间偏移的小时数，参考详细说明</td>
+      <td>+08:00</td>
+    </tr>
+    <tr>
+      <td>location.isDst</td>
+      <td>该地区/城市是否当前处于夏令时</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>location.type</td>
+      <td>该地区/城市的属性</td>
+      <td>city</td>
+    </tr>
+    <tr>
+      <td>location.rank</td>
+      <td>地区评分</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td>location.fxLink</td>
+      <td>该地区的天气预报网页链接，便于嵌入你的网站或应用</td>
+      <td>http://hfx.link/34T5</td>
+    </tr>
+    <tr>
+      <td>refer.sources</td>
+      <td>原始数据来源，可能为空</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>refer.license</td>
+      <td>使用许可，可能为空</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="poi范围搜索">POI范围搜索</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>接口</th>
+      <th>接口代码（枚举）</th>
+      <th>数据类</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>POI范围搜索</td>
+      <td>INQUIRE_TYPE_GEO_POI_RANGE</td>
+      <td>GeoBaseClass</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="请求参数-11">请求参数</h4>
+
+<p>请求参数包括必选和可选参数，如不填写可选参数将使用其默认值。</p>
+
+<p><strong>location</strong> <span class="required">必选</span></p>
+
+<p>输入需要查询的POI坐标，坐标以逗号分隔的经度/纬度坐标。例如location=116.4,39.1</p>
+
+<p><strong>appKey</strong> <span class="required">必选</span></p>
+
+<p>用户认证key，例如 <code class="language-plaintext highlighter-rouge">appKey=123456789ABC</code></p>
+
+<p><strong>radius</strong> <span class="optional">可选</span></p>
+
+<p>搜索范围，可设置搜索半径，取值范围1-50，单位：公里。默认5公里。</p>
+
+<p><strong>lang</strong> <span class="optional">可选</span></p>
+
+<p>多语言设置，支持31种语言，<strong>默认中文</strong>。具体的语言参数值请参考<a href="/docs/start/language">多语言参数值</a>。</p>
+
+<p><strong>number</strong> <span class="optional">可选</span></p>
+
+<p>返回城市的数量，取值范围1-20，默认返回10个结果。</p>
+
+<h4 id="示例代码-12">示例代码</h4>
+
+<div class="language-objc highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+    <span class="n">HeConfigInstance</span><span class="p">.</span><span class="n">publicID</span> <span class="o">=</span> <span class="s">@"publicID"</span><span class="p">;</span>
+    <span class="n">HeConfigInstance</span><span class="p">.</span><span class="n">appKey</span> <span class="o">=</span> <span class="s">@"key"</span><span class="p">;</span>
+    <span class="n">HeConfigInstance</span><span class="p">.</span><span class="n">appType</span> <span class="o">=</span> <span class="n">APP_TYPE_BIZ</span><span class="p">;</span>    
+    <span class="n">HeConfigInstance</span><span class="p">.</span><span class="n">location</span> <span class="o">=</span> <span class="s">@"116.4,39.1"</span><span class="p">;</span>
+    <span class="p">[</span><span class="n">HeConfigInstance</span> <span class="nf">weatherWithInquireType</span><span class="p">:</span><span class="n">INQUIRE_TYPE_GEO_POI_RANGE</span> <span class="nf">WithSuccess</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">GeoBaseClass</span>  <span class="o">*</span><span class="n">responseObject</span><span class="p">)</span> <span class="p">{</span>
+        
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@"描述-&gt;%@"</span><span class="p">,[</span><span class="n">responseObject</span> <span class="nf">description</span><span class="p">]);</span>
+        
+    <span class="p">}</span> <span class="n">faileureForError</span><span class="o">:^</span><span class="p">(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@"error-&gt;%@"</span><span class="p">,</span><span class="n">error</span><span class="p">);</span>
+        
+    <span class="p">}];</span>
+    
+</code></pre></div></div>
+
+<h4 id="返回参数和数值说明-3">返回参数和数值说明</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>描述</th>
+      <th>示例</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>code</td>
+      <td>状态码，具体含义请参考<a href="/docs/start/status-code">状态码</a></td>
+      <td>200</td>
+    </tr>
+    <tr>
+      <td>location.name</td>
+      <td>地区/城市名称</td>
+      <td>南山区</td>
+    </tr>
+    <tr>
+      <td>location.cid</td>
+      <td>地区/城市ID</td>
+      <td>101280604</td>
+    </tr>
+    <tr>
+      <td>location.lat</td>
+      <td>地区/城市纬度</td>
+      <td>22.53122</td>
+    </tr>
+    <tr>
+      <td>location.lon</td>
+      <td>地区/城市经度</td>
+      <td>113.92942</td>
+    </tr>
+    <tr>
+      <td>location.adm2</td>
+      <td>该地区/城市的上级行政区划名称</td>
+      <td>深圳市</td>
+    </tr>
+    <tr>
+      <td>location.adm1</td>
+      <td>该地区/城市所属一级行政区域</td>
+      <td>广东省</td>
+    </tr>
+    <tr>
+      <td>location.country</td>
+      <td>该地区/城市所属国家名称</td>
+      <td>中国</td>
+    </tr>
+    <tr>
+      <td>location.tz</td>
+      <td>该地区/城市所在时区</td>
+      <td>+0800</td>
+    </tr>
+    <tr>
+      <td>location.utcOffset</td>
+      <td>该地区/城市目前与UTC时间偏移的小时数，参考详细说明</td>
+      <td>+08:00</td>
+    </tr>
+    <tr>
+      <td>location.isDst</td>
+      <td>该地区/城市是否当前处于夏令时</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>location.type</td>
+      <td>该地区/城市的属性</td>
+      <td>city</td>
+    </tr>
+    <tr>
+      <td>location.rank</td>
+      <td>地区评分</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td>location.fxLink</td>
+      <td>该地区的天气预报网页链接，便于嵌入你的网站或应用</td>
+      <td>http://hfx.link/34T5</td>
+    </tr>
+    <tr>
+      <td>refer.sources</td>
+      <td>原始数据来源，可能为空</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>refer.license</td>
+      <td>使用许可，可能为空</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+
+                    
+                </article>
+            </section>
+            
+            <section class="col-md-2 col-lg-2 hidden-sm hidden-xs">
+                <div class="region-doc-toc">
+                    <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h2"><a href="#天气预报和实况">天气预报和实况</a></li>
+<li class="toc-entry toc-h2"><a href="#分钟降水">分钟降水</a></li>
+<li class="toc-entry toc-h2"><a href="#空气质量">空气质量</a></li>
+<li class="toc-entry toc-h2"><a href="#灾害预警">灾害预警</a></li>
+<li class="toc-entry toc-h2"><a href="#灾害预警列表">灾害预警列表</a></li>
+<li class="toc-entry toc-h2"><a href="#生活指数">生活指数</a></li>
+<li class="toc-entry toc-h2"><a href="#景点天气预报">景点天气预报</a></li>
+<li class="toc-entry toc-h2"><a href="#历史天气">历史天气</a></li>
+<li class="toc-entry toc-h2"><a href="#太阳和月亮">太阳和月亮</a></li>
+<li class="toc-entry toc-h2"><a href="#城市查询">城市查询</a></li>
+<li class="toc-entry toc-h2"><a href="#热门城市查询">热门城市查询</a></li>
+<li class="toc-entry toc-h2"><a href="#poi信息搜索">POI信息搜索</a></li>
+<li class="toc-entry toc-h2"><a href="#poi范围搜索">POI范围搜索</a></li>
+</ul>
+                </div>
+            </section>
+            
+    </div>
+</div>
+<script src="/assets/js/bootstrap-3.3.7.min.js"></script>
+<script src="/assets/js/cookie.min.js?v=202009082"></script>
+<!-- <script src="/assets/js/baidu-analysis.js?v=202009082"></script> -->
+
+
+</body>
+</html>

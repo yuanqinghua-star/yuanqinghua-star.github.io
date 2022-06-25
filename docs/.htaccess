@@ -1,0 +1,14 @@
+RewriteEngine on
+
+# don't show directory
+Options -Indexes
+
+# follow symbolic links in this directory.
+Options +FollowSymLinks
+
+# error page
+ErrorDocument 404 /404.html
+ErrorDocument 403 /403.html
+
+# default handler
+DirectoryIndex index.html index.md
