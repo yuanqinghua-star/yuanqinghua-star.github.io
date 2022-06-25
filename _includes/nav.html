@@ -11,9 +11,9 @@
     </div>
     <ul class="nav navbar-nav navbar-left">
       <li {% if page.url == "/" %}class="active"{% endif %}><a href="/">{{ site.data.t.zh.index }}</a></li>
-      <li {% if page.url == "/work/" %}class="active"{% endif %}><a href="/work/">{{ site.data.t.zh.workExperience }}</a></li>
-      <li {% if page.collection == "docs" %}class="active"{% endif %}><a href="/docs/start/">{{ site.data.t.zh.docs }}</a></li>
-      <li><a href="https://github.com/yuanqinghua-star">{{ site.data.t.zh.github }}</a></li>
+      <li {% if page.collection == "docs" and page.tag[0] == "works" %}class="active"{% endif %}><a href="/works/tjxx/">{{ site.data.t.zh.workExperience }}</a></li>
+      <li {% if page.collection == "docs" and page.tag[0] != "works" %}class="active"{% endif %}><a href="/docs/start/">{{ site.data.t.zh.docs }}</a></li>
+      <li><a href="https://github.com/yuanqinghua-star" target="_blank" >{{ site.data.t.zh.github }}</a></li>
     </ul>
     {% include nav-widget.html %}
   </nav>
