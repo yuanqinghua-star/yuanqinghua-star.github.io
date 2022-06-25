@@ -1,11 +1,11 @@
 name: 不停的博客
 description: 不停的在线简历和学习笔记
 timezone: Asia/Shanghai
-url: "https://dev.heweather.com"
+url: "https://yuanqinghua-star.github.io/"
 lang: zh_CN
 logo: "/assets/images/brand.png"
-attribution: heweather.com
-github: https://github.com/heweather
+attribution: yuanqinghua-star.github.io
+github: https://github.com/yuanqinghua-star
 defaults:
 - scope:
     path: "pages"

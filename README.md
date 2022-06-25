@@ -1,10 +1,9 @@
 # 不停的博客
-现代化、强大和易于使用的天气数据服务。
 
-[查看完整的开发文档](https://dev.heweather.com)
+[查看微博](https://yuanqinghua-star.github.io/)
 
 ## 关于 不停
-dev.heweather.com 使用[jekyll](https://jekyllrb.com)创建，你也可以自己在本地运行这个开发网站。 
+yuanqinghua-star.github.io 使用[jekyll](https://jekyllrb.com)创建，你也可以自己在本地运行这个开发网站。 
 
 ### 网站结构
 
