@@ -20,30 +20,6 @@ sidebar:
       - zh: 名词解释
         en: Glossary
   - group:
-    zh: API
-    en: API
-    list:
-      - zh: 概述
-        en: Overview
-      - zh: 城市信息搜索
-        en: Geo
-      - zh: 天气预报和实况
-        en: Weather
-      - zh: 分钟级降水
-        en: Minutely
-      - zh: 空气质量
-        en: Air
-      - zh: 灾害预警
-        en: Warning
-      - zh: 生活指数
-        en: Indices
-      - zh: 景区天气
-        en: Weather POI
-      - zh: 历史数据
-        en: Historical
-      - zh: 太阳和月亮
-        en: Astronomy
-  - group:
     zh: SDK
     en: SDK
     list:
@@ -75,16 +51,6 @@ sidebar:
         en: Standard Widget
       - zh: 网页简约插件
         en: Simple Widget
-  - group:
-    zh: 天气普拉斯
-    en: OWP
-    list:
-      - zh: 概述
-        en: Overview
-      - zh: iOS 开发文档
-        en: iOS
-      - zh: Android 开发文档
-        en: Android
   - group: 
     zh: 代码库
     en: library
