@@ -20,6 +20,15 @@
   body {
     padding-top: 116px;
   }
+  table {
+    display: block;
+    width: 100%;
+    min-height: .01%;
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+  }
   .text-left-xs {
     text-align: left;
   }
