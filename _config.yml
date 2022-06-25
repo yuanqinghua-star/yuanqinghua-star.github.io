@@ -1,12 +1,11 @@
-name: 不停的博客
-description: 不停的在线简历和学习笔记
+name: yqh的博客
+description: yqh的在线简历和学习笔记
 timezone: Asia/Shanghai
 url: "https://dev.heweather.com"
 lang: zh_CN
 logo: "/assets/images/brand.png"
 attribution: heweather.com
 github: https://github.com/heweather
-output: 
 defaults:
 - scope:
     path: "pages"
