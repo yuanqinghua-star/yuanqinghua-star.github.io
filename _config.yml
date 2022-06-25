@@ -19,8 +19,6 @@ defaults:
   values:
     layout: "docs-page"
     lang: zh
-    seo:
-      type: "DigitalDocument"
 collections:
   docs:
     permalink: "/docs/:path"
