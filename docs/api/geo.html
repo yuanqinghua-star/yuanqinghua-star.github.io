@@ -1,0 +1,2015 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>城市信息搜索 | 不停的博客</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="城市信息搜索" />
+<meta property="og:locale" content="zh" />
+<meta name="description" content="支持模糊搜索的全球位置/城市搜索服务，支持多语言、模糊搜索等功能。" />
+<meta property="og:description" content="支持模糊搜索的全球位置/城市搜索服务，支持多语言、模糊搜索等功能。" />
+<link rel="canonical" href="http://localhost:4000/docs/api/geo" />
+<meta property="og:url" content="http://localhost:4000/docs/api/geo" />
+<meta property="og:site_name" content="不停的博客" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-06-25T06:58:20+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="城市信息搜索" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"DigitalDocument","dateModified":"2022-06-25T06:58:20+00:00","datePublished":"2022-06-25T06:58:20+00:00","description":"支持模糊搜索的全球位置/城市搜索服务，支持多语言、模糊搜索等功能。","headline":"城市信息搜索","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/brand.png"}},"url":"http://localhost:4000/docs/api/geo"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <meta name="apple-itunes-app" content="app-id=1461458147, app-argument=weather"/>
+    <link rel="stylesheet" href="/assets/css/bootstrap-3.3.7.min.css?v=202009082"/>
+    <link rel="stylesheet" href="/assets/css/style.css?v=202009082"/>
+    <script src="/assets/js/jquery-1.11.0.min.js?v=202009082"></script>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+</head>
+<body>
+
+<header class="navbar-fixed-top">
+  <nav class="container" id="header-nav">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">
+        <img src="/assets/images/logo-white.png?v=202009082" alt="myBlog">
+        <span>不停的博客</span>
+      </a>
+    </div>
+    <ul class="nav navbar-nav navbar-left">
+      <li ><a href="/">首页</a></li>
+      <li ><a href="/work/">工作经历</a></li>
+      <li class="active"><a href="/docs/start/">笔记</a></li>
+      <li><a href="https://github.com/yuanqinghua-star">Github</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-left weather-widget visible-lg visible-md visible-sm">
+    <li>
+      <div id="he-plugin-simple"></div>
+      <script>
+        WIDGET = {
+          CONFIG: {
+            "modules": "20",
+            "background": 5,
+            "tmpColor": "FFFFFF",
+            "tmpSize": "14",
+            "cityColor": "FFFFFF",
+            "citySize": "14",
+            "aqiSize": "14",
+            "weatherIconSize": "18",
+            "alertIconSize": "14",
+            "padding": "0px 0px 0px 0px",
+            "shadow": "0",
+            "language": "zh",
+            "fixed": "false",
+            "vertical": "middle",
+            "horizontal": "center",
+            "key": "acd0fdcab4b9481a98d0f59145420fac"
+          }
+        }
+      </script>
+      <script src="https://widget.heweather.net/simple/static/js/he-simple-common.js?v=1.2"></script>
+    </li>
+  </ul> 
+  </nav>
+</header>
+
+
+<div class="container">
+    <div class="row" id='docs-main'>
+        <aside class="col-sm-3 col-md-3 col-lg-3 hidden-xs">
+  <nav class="navbar navbar-default nav-stacked doc-nav">
+
+    
+    
+
+    <div class="doc-nav-group">
+      <a class="doc-nav-title-link" href="/docs/start/"
+        title="开始">开始</a>
+      <ul class="nav collapse ">
+
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/start/
+          ">快速开始</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/start/get-api-key
+          ">创建应用和KEY</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/start/status-code
+          ">错误状态码</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/start/language
+          ">多语言</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/start/icons
+          ">天气图标</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/start/location-list
+          ">常见城市列表</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/start/unit
+          ">单位</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/start/glossary
+          ">名词解释</a>
+        </li>
+        
+
+      </ul>
+    </div>
+    
+    
+
+    <div class="doc-nav-group">
+      <a class="doc-nav-title-link" href="/docs/api/"
+        title="API">API</a>
+      <ul class="nav collapse in ">
+
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/api/overview
+          ">概述</a>
+        </li>
+        
+        
+        
+        
+
+        <li class="active" >
+          <a class="doc-nav-item-link" href="
+          /docs/api/geo
+          ">城市信息搜索</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/api/weather
+          ">天气预报和实况</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/api/minutely
+          ">分钟级降水</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/api/air
+          ">空气质量</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/api/warning
+          ">灾害预警</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/api/indices
+          ">生活指数</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/api/weather-poi
+          ">景区天气</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/api/historical
+          ">历史数据</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/api/astronomy
+          ">太阳和月亮</a>
+        </li>
+        
+
+      </ul>
+    </div>
+    
+    
+
+    <div class="doc-nav-group">
+      <a class="doc-nav-title-link" href="/docs/sdk/"
+        title="SDK">SDK</a>
+      <ul class="nav collapse ">
+
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/sdk/
+          ">概述</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/sdk/ios-sdk
+          ">iOS SDK</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/sdk/ios-entity
+          ">iOS 数据类属性</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/sdk/android-sdk
+          ">Android SDK</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/sdk/android-entity
+          ">Android数据类属性</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/sdk/release
+          ">下载和更新记录</a>
+        </li>
+        
+
+      </ul>
+    </div>
+    
+    
+
+    <div class="doc-nav-group">
+      <a class="doc-nav-title-link" href="/docs/widget/"
+        title="天气插件">天气插件</a>
+      <ul class="nav collapse ">
+
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/widget/
+          ">概述</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/widget/ios-widget
+          ">iOS天气插件</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/widget/android-widget
+          ">Android天气插件</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/widget/mobile-page
+          ">H5天气网页/频道页</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/widget/standard-widget
+          ">网页标准插件</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/widget/simple-widget
+          ">网页简约插件</a>
+        </li>
+        
+
+      </ul>
+    </div>
+    
+    
+
+    <div class="doc-nav-group">
+      <a class="doc-nav-title-link" href="/docs/owp/"
+        title="天气普拉斯">天气普拉斯</a>
+      <ul class="nav collapse ">
+
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/owp/overview
+          ">概述</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/owp/ios
+          ">iOS 开发文档</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/owp/android
+          ">Android 开发文档</a>
+        </li>
+        
+
+      </ul>
+    </div>
+    
+    
+
+    <div class="doc-nav-group">
+      <a class="doc-nav-title-link" href="/docs/library/"
+        title="代码库">代码库</a>
+      <ul class="nav collapse ">
+
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/library/
+          ">概述</a>
+        </li>
+        
+
+      </ul>
+    </div>
+    
+    
+
+    <div class="doc-nav-group">
+      <a class="doc-nav-title-link" href="/docs/faq/"
+        title="常见问题">常见问题</a>
+      <ul class="nav collapse ">
+
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/faq/general
+          ">一般问题</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/faq/buy
+          ">商业数据和购买</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/faq/technical
+          ">技术和开发</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/faq/user
+          ">用户和账号</a>
+        </li>
+        
+
+      </ul>
+    </div>
+    
+  </nav>
+</aside>
+
+<!-- for mobile -->
+<nav class="navbar navbar-default" id="header-slidebar">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+        data-target="#bs-example-navbar-collapse-1" aria-expanded="false" id="header-slidebar-btn">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">
+        笔记
+      </a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+            aria-expanded="false">开始<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            
+            
+            <li><a href="
+              /docs/start/
+              ">
+                快速开始
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/start/get-api-key
+              ">
+                创建应用和KEY
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/start/status-code
+              ">
+                错误状态码
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/start/language
+              ">
+                多语言
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/start/icons
+              ">
+                天气图标
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/start/location-list
+              ">
+                常见城市列表
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/start/unit
+              ">
+                单位
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/start/glossary
+              ">
+                名词解释
+              </a></li>
+            
+          </ul>
+          
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+            aria-expanded="false">API<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            
+            
+            <li><a href="
+              /docs/api/overview
+              ">
+                概述
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/api/geo
+              ">
+                城市信息搜索
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/api/weather
+              ">
+                天气预报和实况
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/api/minutely
+              ">
+                分钟级降水
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/api/air
+              ">
+                空气质量
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/api/warning
+              ">
+                灾害预警
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/api/indices
+              ">
+                生活指数
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/api/weather-poi
+              ">
+                景区天气
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/api/historical
+              ">
+                历史数据
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/api/astronomy
+              ">
+                太阳和月亮
+              </a></li>
+            
+          </ul>
+          
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+            aria-expanded="false">SDK<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            
+            
+            <li><a href="
+              /docs/sdk/
+              ">
+                概述
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/sdk/ios-sdk
+              ">
+                iOS SDK
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/sdk/ios-entity
+              ">
+                iOS 数据类属性
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/sdk/android-sdk
+              ">
+                Android SDK
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/sdk/android-entity
+              ">
+                Android数据类属性
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/sdk/release
+              ">
+                下载和更新记录
+              </a></li>
+            
+          </ul>
+          
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+            aria-expanded="false">天气插件<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            
+            
+            <li><a href="
+              /docs/widget/
+              ">
+                概述
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/widget/ios-widget
+              ">
+                iOS天气插件
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/widget/android-widget
+              ">
+                Android天气插件
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/widget/mobile-page
+              ">
+                H5天气网页/频道页
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/widget/standard-widget
+              ">
+                网页标准插件
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/widget/simple-widget
+              ">
+                网页简约插件
+              </a></li>
+            
+          </ul>
+          
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+            aria-expanded="false">天气普拉斯<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            
+            
+            <li><a href="
+              /docs/owp/overview
+              ">
+                概述
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/owp/ios
+              ">
+                iOS 开发文档
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/owp/android
+              ">
+                Android 开发文档
+              </a></li>
+            
+          </ul>
+          
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+            aria-expanded="false">代码库<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            
+            
+            <li><a href="
+              /docs/library/
+              ">
+                概述
+              </a></li>
+            
+          </ul>
+          
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+            aria-expanded="false">常见问题<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            
+            
+            <li><a href="
+              /docs/faq/general
+              ">
+                一般问题
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/faq/buy
+              ">
+                商业数据和购买
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/faq/technical
+              ">
+                技术和开发
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/faq/user
+              ">
+                用户和账号
+              </a></li>
+            
+          </ul>
+          
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+        
+        <section class="col-sm-9 col-md-7 col-lg-7 col-xs-12">
+            
+                <div class="docs-header">
+                    <h1>城市信息搜索</h1>
+                    
+                </div>
+                <article class="docs-content">
+                    
+                    <p>天气数据是基于地理位置的数据，因此获取天气之前需要先知道具体的位置信息。和风天气提供一个功能强大的城市信息搜索API服务，可获取到需要查询城市的基本信息，包括城市或地区的Location ID（你需要这个ID去查询天气），多语言名称、经纬度、时区、海拔、Rank值、归属上级行政区域、所在行政区域等。</p>
+
+<p>除此之外，城市信息搜索服务还可以帮助你：</p>
+
+<ul>
+  <li>避免重名城市的困扰</li>
+  <li>在你的应用或网站中根据用户输入的名称返回多个城市结果，便于用户选择准确的城市并返回该城市天气</li>
+  <li>在你的应用或网站中展示热门城市，用户直接选择即可，减少搜索步骤提高用户体验</li>
+  <li>不需要维护城市列表，城市信息更新实时获取</li>
+</ul>
+
+<blockquote>
+  <p>城市搜索每天每个账号下所有应用前50000次免费，超出部分参考<a href="/docs/faq/buy#price">计费方式</a></p>
+</blockquote>
+
+<h2 id="城市信息搜索">城市信息搜索</h2>
+
+<h3 id="请求url">请求URL</h3>
+
+<p><strong class="httpget">HTTP GET</strong> <code class="language-plaintext requesturl highlighter-rouge">https://geoapi.heweather.net/v2/city/lookup?{请求参数}</code></p>
+
+<h3 id="请求参数">请求参数</h3>
+
+<p>请求参数包括必选和可选参数，如不填写可选参数将使用其默认值，参数之间使用 <code class="language-plaintext highlighter-rouge">&amp;</code>进行分隔。</p>
+
+<p><strong>location</strong> <span class="required">必选</span></p>
+
+<p>输入需要查询的城市名称，可使用<a href="/docs/start/glossary#locationid">Location ID</a>、<a href="/docs/start/language">多语言</a>文字、以逗号分隔的<a href="/docs/start/glossary#coordinate">经度/纬度坐标</a>、ADCode（仅限中国城市）。例如<code class="language-plaintext highlighter-rouge">location=beijing</code>， <code class="language-plaintext highlighter-rouge">location=116.4,39.1</code></p>
+
+<blockquote class="bqnote">
+  <p><strong>模糊搜索</strong>，当location传递的为文字时，支持模糊搜索，即用户可以只输入城市名称一部分进行搜索，最少一个汉字或2个字符，排名将按照相关性和Rank值进行排列，便于开发或用户进行选择。例如<code class="language-plaintext highlighter-rouge">location=bei</code>，将返回与bei相关性最强的若干结果，包括黎巴嫩的贝鲁特和中国的北京市</p>
+
+  <p><strong>重名</strong>，当location传递的为文字时，可能会出现重名的城市，例如陕西省西安市、吉林省辽源市下辖的西安区和黑龙江省牡丹江市下辖的西安区，此时会根据Rank值排序返回所有结果。在这种情况下，可以通过<code class="language-plaintext highlighter-rouge">adm</code>参数的方式进一步确定需要查询的城市或地区，例如<code class="language-plaintext highlighter-rouge">location=西安&amp;adm=黑龙江</code></p>
+</blockquote>
+
+<p><strong>key</strong> <span class="required">必选</span></p>
+
+<p>用户认证key，请参考<a href="/docs/start/get-api-key">如何获取你的KEY</a>。支持<a href="/docs/faq/technical#signature-authentication">数字签名</a>方式进行认证，推荐使用。例如 <code class="language-plaintext highlighter-rouge">key=123456789ABC</code></p>
+
+<p><strong>adm</strong> <span class="optional">可选</span></p>
+
+<p>城市所属行政区划，只支持<a href="/docs/start/language">多语言</a>文字，<strong>默认不限定行政区划。</strong> 可设定只在某个行政区划范围内进行搜索，用于出现重名城市或需要对结果进行过滤的时候使用。例如<code class="language-plaintext highlighter-rouge">adm=beijing</code></p>
+
+<blockquote class="bqnote">
+  <p>如搜索参数为<code class="language-plaintext highlighter-rouge">location=chaoyang&amp;adm=beijing</code>时，返回的结果只包括北京市的朝阳区，而不包括辽宁省的朝阳市</p>
+
+  <p>如搜索参数仅为<code class="language-plaintext highlighter-rouge">location=chaoyang</code>时，返回的结果包括北京市的朝阳区、辽宁省的朝阳市以及长春市的朝阳区</p>
+</blockquote>
+
+<p><strong>range</strong> <span class="optional">可选</span></p>
+
+<p>搜索范围，<strong>默认搜索全球城市。</strong> 可设定只在某个国家范围内进行搜索，国家名称需使用<a href="/docs/start/glossary#iso-3166">ISO 3166 所定义的国家代码</a>。</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">world</code> 全球城市范围，默认</li>
+  <li><code class="language-plaintext highlighter-rouge">cn</code> 中国城市范围，可替换为其他国家的ISO 3166 国家代码，例如<code class="language-plaintext highlighter-rouge">range=us</code></li>
+</ul>
+
+<p><strong>number</strong> <span class="optional">可选</span></p>
+
+<p>返回城市的数量，取值范围1-20，<strong>默认返回10个结果</strong>。</p>
+
+<p><strong>gzip</strong> <span class="optional">可选</span></p>
+
+<p>对API接口进行压缩，可以极大的减少API接口访问延迟，减少缓存空间，提高接口连接成功率。<strong>默认开启gzip</strong></p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">y</code> 使用gzip方式压缩，默认</li>
+  <li><code class="language-plaintext highlighter-rouge">n</code> 不使用压缩</li>
+</ul>
+
+<p><strong>lang</strong> <span class="optional">可选</span></p>
+
+<p>多语言，<strong>默认中文</strong>，例如<code class="language-plaintext highlighter-rouge">lang=en</code>。具体的语言参数值请参考<a href="/docs/start/language">多语言参数</a>。当一些城市不存在对应的语言时，将返回英文或其本地语言结果。</p>
+
+<h3 id="返回数据">返回数据</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>描述</th>
+      <th>示例</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>code</td>
+      <td>API状态码，具体含义请参考<a href="/docs/start/status-code">状态码</a></td>
+      <td>200</td>
+    </tr>
+    <tr>
+      <td>location.name</td>
+      <td>地区/城市名称</td>
+      <td>南山区</td>
+    </tr>
+    <tr>
+      <td>location.id</td>
+      <td>地区/城市ID</td>
+      <td>101280604</td>
+    </tr>
+    <tr>
+      <td>location.lat</td>
+      <td>地区/城市纬度</td>
+      <td>22.53122</td>
+    </tr>
+    <tr>
+      <td>location.lon</td>
+      <td>地区/城市经度</td>
+      <td>113.92942</td>
+    </tr>
+    <tr>
+      <td>location.adm2</td>
+      <td>该地区/城市的上级行政区划名称</td>
+      <td>深圳市</td>
+    </tr>
+    <tr>
+      <td>location.adm1</td>
+      <td>该地区/城市所属一级行政区域</td>
+      <td>广东省</td>
+    </tr>
+    <tr>
+      <td>location.country</td>
+      <td>该地区/城市所属国家名称</td>
+      <td>中国</td>
+    </tr>
+    <tr>
+      <td>location.tz</td>
+      <td>该地区/城市所在<a href="/docs/start/glossary#timezone">时区</a></td>
+      <td>Asia/Shanghai</td>
+    </tr>
+    <tr>
+      <td>location.utcOffset</td>
+      <td>该地区/城市目前与UTC时间偏移的小时数，参考<a href="/docs/start/glossary#utc-offset">详细说明</a></td>
+      <td>+08:00</td>
+    </tr>
+    <tr>
+      <td>location.isDst</td>
+      <td>该地区/城市是否当前处于夏令时<br /><code class="language-plaintext highlighter-rouge">1</code> 表示当前处于夏令时 <br /> <code class="language-plaintext highlighter-rouge">0</code> 表示当前不是夏令时</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>location.type</td>
+      <td>该地区/城市的属性</td>
+      <td>city</td>
+    </tr>
+    <tr>
+      <td>location.rank</td>
+      <td><a href="/docs/start/glossary#rank">地区评分</a></td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td>location.fxLink</td>
+      <td>该地区的天气预报网页链接，便于嵌入你的网站或应用</td>
+      <td>http://hfx.link/34T5</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="热门城市查询">热门城市查询</h2>
+
+<h3 id="请求url-1">请求URL</h3>
+
+<p><strong class="httpget">HTTP GET</strong> <code class="language-plaintext requesturl highlighter-rouge">https://geoapi.heweather.net/v2/city/top?{请求参数}</code></p>
+
+<h3 id="请求参数-1">请求参数</h3>
+
+<p>请求参数包括必选和可选参数，如不填写可选参数将使用其默认值，参数之间使用 <code class="language-plaintext highlighter-rouge">&amp;</code>进行分隔。</p>
+
+<p><strong>key</strong> <span class="required">必选</span></p>
+
+<p>用户认证密钥，参考<a href="/docs/start/get-api-key">如何获取你的KEY</a>。支持<a href="/docs/faq/technical#signature-authentication">数字签名</a>方式认证。例如：<code class="language-plaintext highlighter-rouge">key=12334567890ABC</code></p>
+
+<p><strong>range</strong> <span class="optional">可选</span></p>
+
+<p>热门城市范围，<strong>默认全球范围。</strong> 可选择某个国家范围内的热门城市，国家名称需使用<a href="/docs/start/glossary#iso-3166">ISO 3166 所定义的国家代码</a>。</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">world</code> 全球城市范围，默认</li>
+  <li><code class="language-plaintext highlighter-rouge">cn</code> 中国城市范围，可替换为其他国家的ISO 3166 国家代码，例如<code class="language-plaintext highlighter-rouge">range=cn</code></li>
+</ul>
+
+<p><strong>number</strong> <span class="optional">可选</span></p>
+
+<p>返回城市的数量，取值范围1-20，<strong>默认返回10个结果</strong>。</p>
+
+<p><strong>gzip</strong> <span class="optional">可选</span></p>
+
+<p>对API接口进行压缩，可以极大的减少API接口访问延迟，减少缓存空间，提高接口连接成功率。<strong>默认开启gzip</strong></p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">y</code> 使用gzip方式压缩，默认</li>
+  <li><code class="language-plaintext highlighter-rouge">n</code> 不使用压缩</li>
+</ul>
+
+<p><strong>lang</strong> <span class="optional">可选</span></p>
+
+<p>多语言，<strong>默认中文</strong>，例如<code class="language-plaintext highlighter-rouge">lang=en</code>。具体的语言参数值请参考<a href="/docs/start/language">多语言参数</a>。当一些城市不存在对应的语言时，将返回英文或其本地语言结果。</p>
+
+<h3 id="返回数据-1">返回数据</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>描述</th>
+      <th>示例值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>code</td>
+      <td>API状态码，具体含义请参考<a href="/docs/start/status-code">状态码</a></td>
+      <td>200</td>
+    </tr>
+    <tr>
+      <td>topCityList.name</td>
+      <td>地区/城市名称</td>
+      <td>南山区</td>
+    </tr>
+    <tr>
+      <td>topCityList.id</td>
+      <td>地区/城市ID</td>
+      <td>101280604</td>
+    </tr>
+    <tr>
+      <td>topCityList.lat</td>
+      <td>地区/城市纬度</td>
+      <td>22.53122</td>
+    </tr>
+    <tr>
+      <td>topCityList.lon</td>
+      <td>地区/城市经度</td>
+      <td>113.92942</td>
+    </tr>
+    <tr>
+      <td>topCityList.adm2</td>
+      <td>该地区/城市的上级行政区划名称</td>
+      <td>深圳市</td>
+    </tr>
+    <tr>
+      <td>topCityList.adm1</td>
+      <td>该地区/城市所属一级行政区域</td>
+      <td>广东省</td>
+    </tr>
+    <tr>
+      <td>topCityList.country</td>
+      <td>该地区/城市所属国家名称</td>
+      <td>中国</td>
+    </tr>
+    <tr>
+      <td>topCityList.tz</td>
+      <td>该地区/城市所在<a href="/docs/start/glossary#timezone">时区</a></td>
+      <td>Asia/Shanghai</td>
+    </tr>
+    <tr>
+      <td>topCityList.utcOffset</td>
+      <td>该地区/城市目前与UTC时间偏移的小时数，参考<a href="/docs/start/glossary#utc-offset">详细说明</a></td>
+      <td>+08:00</td>
+    </tr>
+    <tr>
+      <td>topCityList.isDst</td>
+      <td>该地区/城市是否当前处于夏令时<br /><code class="language-plaintext highlighter-rouge">1</code> 表示当前处于夏令时 <br /> <code class="language-plaintext highlighter-rouge">0</code> 表示当前不是夏令时</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>topCityList.type</td>
+      <td>该地区/城市的属性</td>
+      <td>city</td>
+    </tr>
+    <tr>
+      <td>topCityList.rank</td>
+      <td><a href="/docs/start/glossary#rank">地区评分</a></td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td>topCityList.fxLink</td>
+      <td>该地区的天气预报网页链接，便于嵌入你的网站或应用</td>
+      <td>http://hfx.link/34T5</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="poi信息搜索">POI信息搜索</h2>
+
+<h3 id="请求url-2">请求URL</h3>
+
+<p><strong class="httpget">HTTP GET</strong> <code class="language-plaintext requesturl highlighter-rouge">https://geoapi.heweather.net/v2/poi/lookup?{请求参数}</code></p>
+
+<h3 id="请求参数-2">请求参数</h3>
+
+<p>请求参数包括必选和可选参数，如不填写可选参数将使用其默认值，参数之间使用<code class="language-plaintext highlighter-rouge">&amp;</code>进行分隔。</p>
+
+<p><strong>location</strong> <span class="required">必选</span></p>
+
+<p>输入需要查询的POI名称，可使用中文、英文。最少一个汉字或2个英文字母，返回结果将按照相关性和Rank值进行排列。例如<code class="language-plaintext highlighter-rouge">location=故宫</code></p>
+
+<p><strong>key</strong> <span class="required">必选</span></p>
+
+<p>用户认证key，请参考<a href="/docs/start/get-api-key">如何获取你的KEY</a>。支持<a href="/docs/faq/technical#signature-authentication">数字签名</a>方式进行认证，推荐使用。例如 <code class="language-plaintext highlighter-rouge">key=123456789ABC</code></p>
+
+<p><strong>type</strong> <span class="required">必选</span></p>
+
+<p>POI类型，可选择搜索某一类型的POI，目前仅限景点。例如<code class="language-plaintext highlighter-rouge">type=scenic</code></p>
+
+<p><strong>city</strong> <span class="optional">可选</span></p>
+
+<p>选择POI所在城市，可设定只搜索在特定城市内的POI信息。城市名称可以是文字或城市的LocationID。<strong>默认不限制特定城市</strong>。</p>
+
+<blockquote>
+  <p>城市名称为精准匹配，建议使用LocaitonID，如文字无法匹配，则数据返回为空。</p>
+</blockquote>
+
+<p><strong>number</strong> <span class="optional">可选</span></p>
+
+<p>返回POI的数量，取值范围1-20，<strong>默认返回10个结果</strong>。</p>
+
+<p><strong>gzip</strong> <span class="optional">可选</span></p>
+
+<p>对API接口进行压缩，可以极大的减少API接口访问延迟，减少缓存空间，提高接口连接成功率。<strong>默认开启gzip</strong></p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">y</code> 使用gzip方式压缩，默认</li>
+  <li><code class="language-plaintext highlighter-rouge">n</code> 不使用压缩</li>
+</ul>
+
+<p><strong>lang</strong> <span class="optional">可选</span></p>
+
+<p>多语言，<strong>默认中文</strong>，例如<code class="language-plaintext highlighter-rouge">lang=en</code>。具体的语言参数值请参考<a href="/docs/start/language">多语言参数</a>。当一些城市不存在对应的语言时，将返回英文或其本地语言结果。</p>
+
+<h3 id="返回数据-2">返回数据</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>描述</th>
+      <th>示例</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>code</td>
+      <td>API状态码，具体含义请参考<a href="/docs/start/status-code">状态码</a></td>
+      <td>200</td>
+    </tr>
+    <tr>
+      <td>poi.name</td>
+      <td>POI名称</td>
+      <td>南山区</td>
+    </tr>
+    <tr>
+      <td>poi.id</td>
+      <td>POI的LocationID</td>
+      <td>101280604</td>
+    </tr>
+    <tr>
+      <td>poi.lat</td>
+      <td>POI纬度</td>
+      <td>22.53122</td>
+    </tr>
+    <tr>
+      <td>poi.lon</td>
+      <td>POI经度</td>
+      <td>113.92942</td>
+    </tr>
+    <tr>
+      <td>poi.adm2</td>
+      <td>该POI所属的上级行政区划名称</td>
+      <td>深圳市</td>
+    </tr>
+    <tr>
+      <td>poi.adm1</td>
+      <td>该POI所属的一级行政区域</td>
+      <td>广东省</td>
+    </tr>
+    <tr>
+      <td>poi.country</td>
+      <td>该POI所属的国家名称</td>
+      <td>中国</td>
+    </tr>
+    <tr>
+      <td>poi.tz</td>
+      <td>该POI所在<a href="/docs/start/glossary#timezone">时区</a></td>
+      <td>Asia/Shanghai</td>
+    </tr>
+    <tr>
+      <td>poi.utcOffset</td>
+      <td>该POI目前与UTC时间偏移的小时数，参考<a href="/docs/start/glossary#utc-offset">详细说明</a></td>
+      <td>+08:00</td>
+    </tr>
+    <tr>
+      <td>poi.isDst</td>
+      <td>该POI是否当前处于夏令时<br /><code class="language-plaintext highlighter-rouge">1</code> 表示当前处于夏令时 <br /> <code class="language-plaintext highlighter-rouge">0</code> 表示当前不是夏令时</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>poi.type</td>
+      <td>该POI的属性</td>
+      <td>city</td>
+    </tr>
+    <tr>
+      <td>poi.rank</td>
+      <td><a href="/docs/start/glossary#rank">地区评分</a></td>
+      <td>10</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="poi范围搜索">POI范围搜索</h2>
+
+<h3 id="请求url-3">请求URL</h3>
+
+<p><strong class="httpget">HTTP GET</strong> <code class="language-plaintext requesturl highlighter-rouge">https://geoapi.heweather.net/v2/poi/range?{请求参数}</code></p>
+
+<h3 id="请求参数-3">请求参数</h3>
+
+<p>请求参数包括必选和可选参数，如不填写可选参数将使用其默认值，参数之间使用<code class="language-plaintext highlighter-rouge">&amp;</code>进行分隔。</p>
+
+<p><strong>location</strong> <span class="required">必选</span></p>
+
+<p>输入需要查询的POI坐标，坐标以逗号分隔的<a href="/docs/start/glossary#coordinate">经度/纬度坐标</a>。例如<code class="language-plaintext highlighter-rouge">location=116.4,39.1</code></p>
+
+<p><strong>key</strong> <span class="required">必选</span></p>
+
+<p>用户认证key，请参考<a href="/docs/start/get-api-key">如何获取你的KEY</a>。支持<a href="/docs/faq/technical#signature-authentication">数字签名</a>方式进行认证，推荐使用。例如 <code class="language-plaintext highlighter-rouge">key=123456789ABC</code></p>
+
+<p><strong>type</strong> <span class="required">必选</span></p>
+
+<p>POI类型，可选择搜索某一类型的POI，目前仅限景点。例如<code class="language-plaintext highlighter-rouge">type=scenic</code></p>
+
+<p><strong>radius</strong> <span class="optional">可选</span></p>
+
+<p>搜索范围，可设置搜索半径，取值范围1-50，单位：公里。<strong>默认5公里</strong>。</p>
+
+<p><strong>number</strong> <span class="optional">可选</span></p>
+
+<p>返回城市的数量，取值范围1-20，<strong>默认返回10个结果</strong>。</p>
+
+<p><strong>gzip</strong> <span class="optional">可选</span></p>
+
+<p>对API接口进行压缩，可以极大的减少API接口访问延迟，减少缓存空间，提高接口连接成功率。<strong>默认开启gzip</strong></p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">y</code> 使用gzip方式压缩，默认</li>
+  <li><code class="language-plaintext highlighter-rouge">n</code> 不使用压缩</li>
+</ul>
+
+<p><strong>lang</strong> <span class="optional">可选</span></p>
+
+<p>多语言，<strong>默认中文</strong>，例如<code class="language-plaintext highlighter-rouge">lang=en</code>。具体的语言参数值请参考<a href="/docs/start/language">多语言参数</a>。当一些城市不存在对应的语言时，将返回英文或其本地语言结果。</p>
+
+<h3 id="返回数据-3">返回数据</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>描述</th>
+      <th>示例</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>code</td>
+      <td>API状态码，具体含义请参考<a href="/docs/start/status-code">状态码</a></td>
+      <td>200</td>
+    </tr>
+    <tr>
+      <td>poi.name</td>
+      <td>POI名称</td>
+      <td>南山区</td>
+    </tr>
+    <tr>
+      <td>poi.id</td>
+      <td>POI的LocationID</td>
+      <td>101280604</td>
+    </tr>
+    <tr>
+      <td>poi.lat</td>
+      <td>POI纬度</td>
+      <td>22.53122</td>
+    </tr>
+    <tr>
+      <td>poi.lon</td>
+      <td>POI经度</td>
+      <td>113.92942</td>
+    </tr>
+    <tr>
+      <td>poi.adm2</td>
+      <td>该POI所属的上级行政区划名称</td>
+      <td>深圳市</td>
+    </tr>
+    <tr>
+      <td>poi.adm1</td>
+      <td>该POI所属的一级行政区域</td>
+      <td>广东省</td>
+    </tr>
+    <tr>
+      <td>poi.country</td>
+      <td>该POI所属的国家名称</td>
+      <td>中国</td>
+    </tr>
+    <tr>
+      <td>poi.tz</td>
+      <td>该POI所在<a href="/docs/start/glossary#timezone">时区</a></td>
+      <td>Asia/Shanghai</td>
+    </tr>
+    <tr>
+      <td>poi.utcOffset</td>
+      <td>该POI目前与UTC时间偏移的小时数，参考<a href="/docs/start/glossary#utc-offset">详细说明</a></td>
+      <td>+08:00</td>
+    </tr>
+    <tr>
+      <td>poi.isDst</td>
+      <td>该POI是否当前处于夏令时<br /><code class="language-plaintext highlighter-rouge">1</code> 表示当前处于夏令时 <br /> <code class="language-plaintext highlighter-rouge">0</code> 表示当前不是夏令时</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>poi.type</td>
+      <td>该POI的属性</td>
+      <td>city</td>
+    </tr>
+    <tr>
+      <td>poi.rank</td>
+      <td><a href="/docs/start/glossary#rank">地区评分</a></td>
+      <td>10</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="请求和返回示例">请求和返回示例</h2>
+
+<div class="api-snippets">
+    
+    
+    <h4><a href="#citylookup" data-toggle="collapse">城市信息搜索</a></h4>
+    <div class="collapse" id="citylookup">
+        
+        
+        <div class="language-plaintext pre-scrollable highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// 搜索关键字beij 
+// https://geoapi.heweather.net/v2/city/lookup?location=beij&amp;key=xxx
+// 请将示例请求URL中的KEY更换成你自己的KEY
+
+{
+  "status": "200",
+  "location": [
+    {
+      "name": "北京",
+      "id": "101010100",
+      "lat": "39.90498",
+      "lon": "116.40528",
+      "adm2": "北京",
+      "adm1": "北京",
+      "country": "中国",
+      "tz": "Asia/Shanghai",
+      "utcOffset": "+08:00",
+      "isDst": "0",
+      "type": "city",
+      "rank": "10",
+      "fxLink": "https://www.heweather.com/weather/beijing-101010100.html"
+    },
+    {
+      "name": "旧拜耶兰",
+      "id": "BD495",
+      "lat": "51.82416",
+      "lon": "4.41249",
+      "adm2": "旧拜耶兰",
+      "adm1": "南荷兰省",
+      "country": "荷兰",
+      "tz": "Europe/Amsterdam",
+      "utcOffset": "+02:00",
+      "isDst": "1",
+      "type": "city",
+      "rank": "62",
+      "fxLink": "https://www.heweather.com/weather/oud-beijerland-BD495.html"
+    },
+    {
+      "name": "朝阳",
+      "id": "101010300",
+      "lat": "39.92148",
+      "lon": "116.48641",
+      "adm2": "北京",
+      "adm1": "北京",
+      "country": "中国",
+      "tz": "Asia/Shanghai",
+      "utcOffset": "+08:00",
+      "isDst": "0",
+      "type": "city",
+      "rank": "15",
+      "fxLink": "https://www.heweather.com/weather/chaoyang-101010300.html"
+    },
+    {
+      "name": "海淀",
+      "id": "101010200",
+      "lat": "39.95607",
+      "lon": "116.31031",
+      "adm2": "北京",
+      "adm1": "北京",
+      "country": "中国",
+      "tz": "Asia/Shanghai",
+      "utcOffset": "+08:00",
+      "isDst": "0",
+      "type": "city",
+      "rank": "15",
+      "fxLink": "https://www.heweather.com/weather/haidian-101010200.html"
+    },
+    {
+      "name": "丰台",
+      "id": "101010900",
+      "lat": "39.86364",
+      "lon": "116.28696",
+      "adm2": "北京",
+      "adm1": "北京",
+      "country": "中国",
+      "tz": "Asia/Shanghai",
+      "utcOffset": "+08:00",
+      "isDst": "0",
+      "type": "city",
+      "rank": "25",
+      "fxLink": "https://www.heweather.com/weather/fengtai-101010900.html"
+    },
+    {
+      "name": "大兴",
+      "id": "101011100",
+      "lat": "39.72890",
+      "lon": "116.33803",
+      "adm2": "北京",
+      "adm1": "北京",
+      "country": "中国",
+      "tz": "Asia/Shanghai",
+      "utcOffset": "+08:00",
+      "isDst": "0",
+      "type": "city",
+      "rank": "25",
+      "fxLink": "https://www.heweather.com/weather/daxing-101011100.html"
+    },
+    {
+      "name": "房山",
+      "id": "101011200",
+      "lat": "39.73553",
+      "lon": "116.13916",
+      "adm2": "北京",
+      "adm1": "北京",
+      "country": "中国",
+      "tz": "Asia/Shanghai",
+      "utcOffset": "+08:00",
+      "isDst": "0",
+      "type": "city",
+      "rank": "23",
+      "fxLink": "https://www.heweather.com/weather/fangshan-101011200.html"
+    },
+    {
+      "name": "通州",
+      "id": "101010600",
+      "lat": "39.90248",
+      "lon": "116.65859",
+      "adm2": "北京",
+      "adm1": "北京",
+      "country": "中国",
+      "tz": "Asia/Shanghai",
+      "utcOffset": "+08:00",
+      "isDst": "0",
+      "type": "city",
+      "rank": "23",
+      "fxLink": "https://www.heweather.com/weather/tongzhou-101010600.html"
+    },
+    {
+      "name": "石景山",
+      "id": "101011000",
+      "lat": "39.91460",
+      "lon": "116.19544",
+      "adm2": "北京",
+      "adm1": "北京",
+      "country": "中国",
+      "tz": "Asia/Shanghai",
+      "utcOffset": "+08:00",
+      "isDst": "0",
+      "type": "city",
+      "rank": "35",
+      "fxLink": "https://www.heweather.com/weather/shijingshan-101011000.html"
+    },
+    {
+      "name": "昌平",
+      "id": "101010700",
+      "lat": "40.21808",
+      "lon": "116.23590",
+      "adm2": "北京",
+      "adm1": "北京",
+      "country": "中国",
+      "tz": "Asia/Shanghai",
+      "utcOffset": "+08:00",
+      "isDst": "0",
+      "type": "city",
+      "rank": "23",
+      "fxLink": "https://www.heweather.com/weather/changping-101010700.html"
+    }
+  ]
+}
+</code></pre></div></div>
+
+        
+    </div>
+    
+    
+    
+    <h4><a href="#citytop" data-toggle="collapse">热门城市查询</a></h4>
+    <div class="collapse" id="citytop">
+        
+        
+        <div class="language-plaintext pre-scrollable highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// 中国热门城市前5位 
+// https://geoapi.heweather.net/v2/city/top?number=5&amp;range=cn&amp;key=xxx
+// 请将示例请求URL中的KEY更换成你自己的KEY
+
+{
+  "status": "200",
+  "topCityList": [
+    {
+      "name": "余杭",
+      "id": "101210106",
+      "lat": "30.42118",
+      "lon": "120.30173",
+      "adm2": "杭州",
+      "adm1": "浙江",
+      "cnty": "中国",
+      "tz": "Asia/Shanghai",
+      "utcOffset": "+08:00",
+      "isDst": "0",
+      "type": "city",
+      "rank": "25",
+      "fxLink": "https://www.heweather.com/weather/yuhang-101210106.html"
+    },
+    {
+      "name": "嘉定",
+      "id": "101020500",
+      "lat": "31.38352",
+      "lon": "121.25033",
+      "adm2": "上海",
+      "adm1": "上海",
+      "cnty": "中国",
+      "tz": "Asia/Shanghai",
+      "utcOffset": "+08:00",
+      "isDst": "0",
+      "type": "city",
+      "rank": "23",
+      "fxLink": "https://www.heweather.com/weather/jiading-101020500.html"
+    },
+    {
+      "name": "杭州",
+      "id": "101210101",
+      "lat": "30.28745",
+      "lon": "120.15357",
+      "adm2": "杭州",
+      "adm1": "浙江",
+      "cnty": "中国",
+      "tz": "Asia/Shanghai",
+      "utcOffset": "+08:00",
+      "isDst": "0",
+      "type": "city",
+      "rank": "11",
+      "fxLink": "https://www.heweather.com/weather/hangzhou-101210101.html"
+    },
+    {
+      "name": "上海",
+      "id": "101020100",
+      "lat": "31.23170",
+      "lon": "121.47264",
+      "adm2": "上海",
+      "adm1": "上海",
+      "cnty": "中国",
+      "tz": "Asia/Shanghai",
+      "utcOffset": "+08:00",
+      "isDst": "0",
+      "type": "city",
+      "rank": "11",
+      "fxLink": "https://www.heweather.com/weather/shanghai-101020100.html"
+    },
+    {
+      "name": "萧山",
+      "id": "101210102",
+      "lat": "30.16293",
+      "lon": "120.27069",
+      "adm2": "杭州",
+      "adm1": "浙江",
+      "cnty": "中国",
+      "tz": "Asia/Shanghai",
+      "utcOffset": "+08:00",
+      "isDst": "0",
+      "type": "city",
+      "rank": "23",
+      "fxLink": "https://www.heweather.com/weather/xiaoshan-101210102.html"
+    }
+  ]
+}
+</code></pre></div></div>
+
+        
+    </div>
+    
+    
+    
+    <h4><a href="#poilookup" data-toggle="collapse">POI信息搜索</a></h4>
+    <div class="collapse" id="poilookup">
+        
+        
+        <div class="language-plaintext pre-scrollable highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// 搜索关键字jings 
+// https://geoapi.heweather.net/v2/poi/lookup?type=scenic&amp;location=jings&amp;key=xxx
+// 请将示例请求URL中的KEY更换成你自己的KEY
+
+{
+  "status": "200",
+  "poi": [
+    {
+      "name": "景山公园",
+      "id": "10101010012A",
+      "lat": "39.91999",
+      "lon": "116.38999",
+      "adm2": "北京",
+      "adm1": "北京",
+      "country": "中国",
+      "tz": "Asia/Shanghai",
+      "utcOffset": "+08:00",
+      "isDst": "0",
+      "type": "scenic",
+      "rank": "67",
+      "fxLink": "-999"
+    },
+    {
+      "name": "静思园",
+      "id": "10119040702A",
+      "lat": "31.15999",
+      "lon": "120.68000",
+      "adm2": "苏州",
+      "adm1": "苏州",
+      "country": "中国",
+      "tz": "Asia/Shanghai",
+      "utcOffset": "+08:00",
+      "isDst": "0",
+      "type": "scenic",
+      "rank": "86",
+      "fxLink": "-999"
+    }
+  ]
+}
+</code></pre></div></div>
+
+        
+    </div>
+    
+    
+    
+    <h4><a href="#poirange" data-toggle="collapse">POI范围搜索</a></h4>
+    <div class="collapse" id="poirange">
+        
+        
+        <div class="language-plaintext pre-scrollable highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// 北京市中心附近5公里景点 
+// https://geoapi.heweather.net/v2/poi/range?location=116.40528,39.90498&amp;type=scenic&amp;radius=10&amp;key=xxx
+// 请将示例请求URL中的KEY更换成你自己的KEY
+
+{
+  "status": "200",
+  "poi": [
+    {
+      "name": "中山公园",
+      "id": "10101010016A",
+      "lat": "39.90999985",
+      "lon": "116.38999939",
+      "adm2": "北京",
+      "adm1": "北京",
+      "country": "中国",
+      "tz": "Asia/Shanghai",
+      "utcOffset": "+08:00",
+      "isDst": "0",
+      "type": "scenic",
+      "rank": "86",
+      "fxLink": "http://hfx.link/1"
+    },
+    {
+      "name": "故宫博物院",
+      "id": "10101010018A",
+      "lat": "39.90999985",
+      "lon": "116.38999939",
+      "adm2": "北京",
+      "adm1": "北京",
+      "country": "中国",
+      "tz": "Asia/Shanghai",
+      "utcOffset": "+08:00",
+      "isDst": "0",
+      "type": "scenic",
+      "rank": "67",
+      "fxLink": "http://hfx.link/1"
+    },
+    {
+      "name": "北京市规划展览馆",
+      "id": "10101010002A",
+      "lat": "39.88999939",
+      "lon": "116.40000153",
+      "adm2": "北京",
+      "adm1": "北京",
+      "country": "中国",
+      "tz": "Asia/Shanghai",
+      "utcOffset": "+08:00",
+      "isDst": "0",
+      "type": "scenic",
+      "rank": "68",
+      "fxLink": "http://hfx.link/1"
+    },
+    {
+      "name": "老舍茶馆",
+      "id": "10101010021A",
+      "lat": "39.88999939",
+      "lon": "116.38999939",
+      "adm2": "北京",
+      "adm1": "北京",
+      "country": "中国",
+      "tz": "Asia/Shanghai",
+      "utcOffset": "+08:00",
+      "isDst": "0",
+      "type": "scenic",
+      "rank": "86",
+      "fxLink": "http://hfx.link/1"
+    },
+    {
+      "name": "景山公园",
+      "id": "10101010012A",
+      "lat": "39.91999817",
+      "lon": "116.38999939",
+      "adm2": "北京",
+      "adm1": "北京",
+      "country": "中国",
+      "tz": "Asia/Shanghai",
+      "utcOffset": "+08:00",
+      "isDst": "0",
+      "type": "scenic",
+      "rank": "67",
+      "fxLink": "http://hfx.link/1"
+    },
+    {
+      "name": "北京明城墙遗址公园",
+      "id": "10101010001A",
+      "lat": "39.90000153",
+      "lon": "116.43000031",
+      "adm2": "北京",
+      "adm1": "北京",
+      "country": "中国",
+      "tz": "Asia/Shanghai",
+      "utcOffset": "+08:00",
+      "isDst": "0",
+      "type": "scenic",
+      "rank": "70",
+      "fxLink": "http://hfx.link/1"
+    },
+    {
+      "name": "明城墙遗址公园",
+      "id": "10101010003A",
+      "lat": "39.90000153",
+      "lon": "116.43000031",
+      "adm2": "北京",
+      "adm1": "北京",
+      "country": "中国",
+      "tz": "Asia/Shanghai",
+      "utcOffset": "+08:00",
+      "isDst": "0",
+      "type": "scenic",
+      "rank": "85",
+      "fxLink": "http://hfx.link/1"
+    },
+    {
+      "name": "北海公园",
+      "id": "10101010010A",
+      "lat": "39.91999817",
+      "lon": "116.37999725",
+      "adm2": "北京",
+      "adm1": "北京",
+      "country": "中国",
+      "tz": "Asia/Shanghai",
+      "utcOffset": "+08:00",
+      "isDst": "0",
+      "type": "scenic",
+      "rank": "68",
+      "fxLink": "http://hfx.link/1"
+    },
+    {
+      "name": "天坛公园",
+      "id": "10101010004A",
+      "lat": "39.88000107",
+      "lon": "116.41000366",
+      "adm2": "北京",
+      "adm1": "北京",
+      "country": "中国",
+      "tz": "Asia/Shanghai",
+      "utcOffset": "+08:00",
+      "isDst": "0",
+      "type": "scenic",
+      "rank": "68",
+      "fxLink": "http://hfx.link/1"
+    },
+    {
+      "name": "南锣鼓巷",
+      "id": "10101010005A",
+      "lat": "39.93000031",
+      "lon": "116.40000153",
+      "adm2": "北京",
+      "adm1": "北京",
+      "country": "中国",
+      "tz": "Asia/Shanghai",
+      "utcOffset": "+08:00",
+      "isDst": "0",
+      "type": "scenic",
+      "rank": "86",
+      "fxLink": "http://hfx.link/1"
+    }
+  ],
+  "refer": {
+    "sources": [
+      "heweather.com"
+    ],
+    "license": [
+      "commercial license"
+    ]
+  }
+}
+</code></pre></div></div>
+
+        
+    </div>
+    
+     
+</div>
+
+                    
+                </article>
+            </section>
+            
+            <section class="col-md-2 col-lg-2 hidden-sm hidden-xs">
+                <div class="region-doc-toc">
+                    <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h2"><a href="#城市信息搜索">城市信息搜索</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#请求url">请求URL</a></li>
+<li class="toc-entry toc-h3"><a href="#请求参数">请求参数</a></li>
+<li class="toc-entry toc-h3"><a href="#返回数据">返回数据</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#热门城市查询">热门城市查询</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#请求url-1">请求URL</a></li>
+<li class="toc-entry toc-h3"><a href="#请求参数-1">请求参数</a></li>
+<li class="toc-entry toc-h3"><a href="#返回数据-1">返回数据</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#poi信息搜索">POI信息搜索</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#请求url-2">请求URL</a></li>
+<li class="toc-entry toc-h3"><a href="#请求参数-2">请求参数</a></li>
+<li class="toc-entry toc-h3"><a href="#返回数据-2">返回数据</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#poi范围搜索">POI范围搜索</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#请求url-3">请求URL</a></li>
+<li class="toc-entry toc-h3"><a href="#请求参数-3">请求参数</a></li>
+<li class="toc-entry toc-h3"><a href="#返回数据-3">返回数据</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#请求和返回示例">请求和返回示例</a></li>
+</ul>
+                </div>
+            </section>
+            
+    </div>
+</div>
+<script src="/assets/js/bootstrap-3.3.7.min.js"></script>
+<script src="/assets/js/cookie.min.js?v=202009082"></script>
+<!-- <script src="/assets/js/baidu-analysis.js?v=202009082"></script> -->
+
+
+</body>
+</html>

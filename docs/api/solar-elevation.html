@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>太阳高度 | 不停的博客</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="太阳高度" />
+<meta property="og:locale" content="zh" />
+<meta name="description" content="查看和风天气太阳高度角API接口开发文档，支持任意时间点的全球太阳高度及方位角接口，为安全和智能驾驶、房屋建设提供数据支持" />
+<meta property="og:description" content="查看和风天气太阳高度角API接口开发文档，支持任意时间点的全球太阳高度及方位角接口，为安全和智能驾驶、房屋建设提供数据支持" />
+<link rel="canonical" href="http://localhost:4000/docs/api/solar-elevation" />
+<meta property="og:url" content="http://localhost:4000/docs/api/solar-elevation" />
+<meta property="og:site_name" content="不停的博客" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-06-25T06:58:20+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="太阳高度" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"DigitalDocument","dateModified":"2022-06-25T06:58:20+00:00","datePublished":"2022-06-25T06:58:20+00:00","description":"查看和风天气太阳高度角API接口开发文档，支持任意时间点的全球太阳高度及方位角接口，为安全和智能驾驶、房屋建设提供数据支持","headline":"太阳高度","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/brand.png"}},"url":"http://localhost:4000/docs/api/solar-elevation"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <meta name="apple-itunes-app" content="app-id=1461458147, app-argument=weather"/>
+    <link rel="stylesheet" href="/assets/css/bootstrap-3.3.7.min.css?v=202009082"/>
+    <link rel="stylesheet" href="/assets/css/style.css?v=202009082"/>
+    <script src="/assets/js/jquery-1.11.0.min.js?v=202009082"></script>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+</head>
+<body>
+
+<header class="navbar-fixed-top">
+  <nav class="container" id="header-nav">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">
+        <img src="/assets/images/logo-white.png?v=202009082" alt="myBlog">
+        <span>不停的博客</span>
+      </a>
+    </div>
+    <ul class="nav navbar-nav navbar-left">
+      <li ><a href="/">首页</a></li>
+      <li ><a href="/work/">工作经历</a></li>
+      <li class="active"><a href="/docs/start/">笔记</a></li>
+      <li><a href="https://github.com/yuanqinghua-star">Github</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-left weather-widget visible-lg visible-md visible-sm">
+    <li>
+      <div id="he-plugin-simple"></div>
+      <script>
+        WIDGET = {
+          CONFIG: {
+            "modules": "20",
+            "background": 5,
+            "tmpColor": "FFFFFF",
+            "tmpSize": "14",
+            "cityColor": "FFFFFF",
+            "citySize": "14",
+            "aqiSize": "14",
+            "weatherIconSize": "18",
+            "alertIconSize": "14",
+            "padding": "0px 0px 0px 0px",
+            "shadow": "0",
+            "language": "zh",
+            "fixed": "false",
+            "vertical": "middle",
+            "horizontal": "center",
+            "key": "acd0fdcab4b9481a98d0f59145420fac"
+          }
+        }
+      </script>
+      <script src="https://widget.heweather.net/simple/static/js/he-simple-common.js?v=1.2"></script>
+    </li>
+  </ul> 
+  </nav>
+</header>
+
+
+<div class="container">
+    <div class="row" id='docs-main'>
+        <aside class="col-sm-3 col-md-3 col-lg-3 hidden-xs">
+  <nav class="navbar navbar-default nav-stacked doc-nav">
+
+    
+    
+
+    <div class="doc-nav-group">
+      <a class="doc-nav-title-link" href="/docs/start/"
+        title="开始">开始</a>
+      <ul class="nav collapse ">
+
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/start/
+          ">快速开始</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/start/get-api-key
+          ">创建应用和KEY</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/start/status-code
+          ">错误状态码</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/start/language
+          ">多语言</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/start/icons
+          ">天气图标</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/start/location-list
+          ">常见城市列表</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/start/unit
+          ">单位</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/start/glossary
+          ">名词解释</a>
+        </li>
+        
+
+      </ul>
+    </div>
+    
+    
+
+    <div class="doc-nav-group">
+      <a class="doc-nav-title-link" href="/docs/api/"
+        title="API">API</a>
+      <ul class="nav collapse in ">
+
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/api/overview
+          ">概述</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/api/geo
+          ">城市信息搜索</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/api/weather
+          ">天气预报和实况</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/api/minutely
+          ">分钟级降水</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/api/air
+          ">空气质量</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/api/warning
+          ">灾害预警</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/api/indices
+          ">生活指数</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/api/weather-poi
+          ">景区天气</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/api/historical
+          ">历史数据</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/api/astronomy
+          ">太阳和月亮</a>
+        </li>
+        
+
+      </ul>
+    </div>
+    
+    
+
+    <div class="doc-nav-group">
+      <a class="doc-nav-title-link" href="/docs/sdk/"
+        title="SDK">SDK</a>
+      <ul class="nav collapse ">
+
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/sdk/
+          ">概述</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/sdk/ios-sdk
+          ">iOS SDK</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/sdk/ios-entity
+          ">iOS 数据类属性</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/sdk/android-sdk
+          ">Android SDK</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/sdk/android-entity
+          ">Android数据类属性</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/sdk/release
+          ">下载和更新记录</a>
+        </li>
+        
+
+      </ul>
+    </div>
+    
+    
+
+    <div class="doc-nav-group">
+      <a class="doc-nav-title-link" href="/docs/widget/"
+        title="天气插件">天气插件</a>
+      <ul class="nav collapse ">
+
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/widget/
+          ">概述</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/widget/ios-widget
+          ">iOS天气插件</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/widget/android-widget
+          ">Android天气插件</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/widget/mobile-page
+          ">H5天气网页/频道页</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/widget/standard-widget
+          ">网页标准插件</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/widget/simple-widget
+          ">网页简约插件</a>
+        </li>
+        
+
+      </ul>
+    </div>
+    
+    
+
+    <div class="doc-nav-group">
+      <a class="doc-nav-title-link" href="/docs/owp/"
+        title="天气普拉斯">天气普拉斯</a>
+      <ul class="nav collapse ">
+
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/owp/overview
+          ">概述</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/owp/ios
+          ">iOS 开发文档</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/owp/android
+          ">Android 开发文档</a>
+        </li>
+        
+
+      </ul>
+    </div>
+    
+    
+
+    <div class="doc-nav-group">
+      <a class="doc-nav-title-link" href="/docs/library/"
+        title="代码库">代码库</a>
+      <ul class="nav collapse ">
+
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/library/
+          ">概述</a>
+        </li>
+        
+
+      </ul>
+    </div>
+    
+    
+
+    <div class="doc-nav-group">
+      <a class="doc-nav-title-link" href="/docs/faq/"
+        title="常见问题">常见问题</a>
+      <ul class="nav collapse ">
+
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/faq/general
+          ">一般问题</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/faq/buy
+          ">商业数据和购买</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/faq/technical
+          ">技术和开发</a>
+        </li>
+        
+        
+        
+        
+
+        <li >
+          <a class="doc-nav-item-link" href="
+          /docs/faq/user
+          ">用户和账号</a>
+        </li>
+        
+
+      </ul>
+    </div>
+    
+  </nav>
+</aside>
+
+<!-- for mobile -->
+<nav class="navbar navbar-default" id="header-slidebar">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+        data-target="#bs-example-navbar-collapse-1" aria-expanded="false" id="header-slidebar-btn">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">
+        笔记
+      </a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+            aria-expanded="false">开始<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            
+            
+            <li><a href="
+              /docs/start/
+              ">
+                快速开始
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/start/get-api-key
+              ">
+                创建应用和KEY
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/start/status-code
+              ">
+                错误状态码
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/start/language
+              ">
+                多语言
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/start/icons
+              ">
+                天气图标
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/start/location-list
+              ">
+                常见城市列表
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/start/unit
+              ">
+                单位
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/start/glossary
+              ">
+                名词解释
+              </a></li>
+            
+          </ul>
+          
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+            aria-expanded="false">API<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            
+            
+            <li><a href="
+              /docs/api/overview
+              ">
+                概述
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/api/geo
+              ">
+                城市信息搜索
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/api/weather
+              ">
+                天气预报和实况
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/api/minutely
+              ">
+                分钟级降水
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/api/air
+              ">
+                空气质量
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/api/warning
+              ">
+                灾害预警
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/api/indices
+              ">
+                生活指数
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/api/weather-poi
+              ">
+                景区天气
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/api/historical
+              ">
+                历史数据
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/api/astronomy
+              ">
+                太阳和月亮
+              </a></li>
+            
+          </ul>
+          
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+            aria-expanded="false">SDK<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            
+            
+            <li><a href="
+              /docs/sdk/
+              ">
+                概述
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/sdk/ios-sdk
+              ">
+                iOS SDK
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/sdk/ios-entity
+              ">
+                iOS 数据类属性
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/sdk/android-sdk
+              ">
+                Android SDK
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/sdk/android-entity
+              ">
+                Android数据类属性
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/sdk/release
+              ">
+                下载和更新记录
+              </a></li>
+            
+          </ul>
+          
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+            aria-expanded="false">天气插件<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            
+            
+            <li><a href="
+              /docs/widget/
+              ">
+                概述
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/widget/ios-widget
+              ">
+                iOS天气插件
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/widget/android-widget
+              ">
+                Android天气插件
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/widget/mobile-page
+              ">
+                H5天气网页/频道页
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/widget/standard-widget
+              ">
+                网页标准插件
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/widget/simple-widget
+              ">
+                网页简约插件
+              </a></li>
+            
+          </ul>
+          
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+            aria-expanded="false">天气普拉斯<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            
+            
+            <li><a href="
+              /docs/owp/overview
+              ">
+                概述
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/owp/ios
+              ">
+                iOS 开发文档
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/owp/android
+              ">
+                Android 开发文档
+              </a></li>
+            
+          </ul>
+          
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+            aria-expanded="false">代码库<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            
+            
+            <li><a href="
+              /docs/library/
+              ">
+                概述
+              </a></li>
+            
+          </ul>
+          
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+            aria-expanded="false">常见问题<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            
+            
+            <li><a href="
+              /docs/faq/general
+              ">
+                一般问题
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/faq/buy
+              ">
+                商业数据和购买
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/faq/technical
+              ">
+                技术和开发
+              </a></li>
+            
+            
+            
+            <li><a href="
+              /docs/faq/user
+              ">
+                用户和账号
+              </a></li>
+            
+          </ul>
+          
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+        
+            <section class="col-sm-9 col-md-9 col-lg-9 col-xs-12">
+                
+                <div class="docs-header">
+                    <h1>太阳高度</h1>
+                    
+                </div>
+                <article class="docs-content">
+                    
+                    <p>任意时间点的全球太阳高度及方位角接口，为安全和智能驾驶、房屋建设提供数据支持。</p>
+
+<h2 id="请求url">请求URL</h2>
+
+<p><strong>太阳高度角</strong> <strong class="httpget">HTTP GET</strong></p>
+
+<ul>
+  <li>商业版 <code class="language-plaintext requesturl highlighter-rouge">https://geoapi.heweather.net/v7/solar-elevation-angle?{请求参数}</code></li>
+</ul>
+
+<p><strong>日出日落、月升月落和月相</strong> <strong class="httpget">HTTP GET</strong></p>
+
+<ul>
+  <li>商业版 <code class="language-plaintext requesturl highlighter-rouge">https://api.heweather.net/v7/astronomy/sunmoon?{请求参数}</code></li>
+  <li>开发版 <code class="language-plaintext requesturl highlighter-rouge">https://devapi.heweather.net/v7/astronomy/sunmoon?{请求参数}</code></li>
+</ul>
+
+<h2 id="请求参数">请求参数</h2>
+
+<p>请求参数包括必选和可选参数，如不填写可选参数将使用其默认值，参数之间使用<code class="language-plaintext highlighter-rouge">&amp;</code>进行分隔。</p>
+
+<p>location <span class="required">必选</span></p>
+
+<p>太阳高度角是基于经纬度测量的，需要填写具体的坐标，填写格式：经度,纬度（经度在前纬度在后，英文<code class="language-plaintext highlighter-rouge">,</code>分隔，十进制格式，北纬东经为正，南纬西经为负）。例如：<code class="language-plaintext highlighter-rouge">location=116.41,39.92</code></p>
+
+<p><strong>data</strong> <span class="required">必选</span></p>
+
+<p>查询日期，格式为yyyyMMdd，例如 <code class="language-plaintext highlighter-rouge">date=20170809</code></p>
+
+<p><strong>time</strong> <span class="required">必选</span></p>
+
+<p>查询时间，格式为HHmm，24 时制，例如 <code class="language-plaintext highlighter-rouge">time=1230</code></p>
+
+<p><strong>tz</strong> <span class="required">必选</span></p>
+
+<p>查询地区所在时区，例如<code class="language-plaintext highlighter-rouge">tz=0800</code>或<code class="language-plaintext highlighter-rouge">tz=-0530</code></p>
+
+<p><strong>alt</strong> <span class="required">必选</span></p>
+
+<p>海拔高度，单位为米，例如<code class="language-plaintext highlighter-rouge">alt=43</code></p>
+
+<p><strong>key</strong> <span class="required">必选</span></p>
+
+<p>用户认证key，请参考<a href="/docs/start/get-api-key">如何获取你的KEY</a>。支持<a href="/docs/faq/technical#signature-authentication">数字签名</a>方式进行认证，推荐使用。例如 <code class="language-plaintext highlighter-rouge">key=123456789ABC</code></p>
+
+<h2 id="返回数据">返回数据</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>描述</th>
+      <th>示例值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>code</td>
+      <td>API状态码，具体含义请参考<a href="/docs/start/status-code">状态码</a></td>
+      <td>200</td>
+    </tr>
+    <tr>
+      <td>solar.elevationAngle</td>
+      <td>太阳高度角</td>
+      <td>89</td>
+    </tr>
+    <tr>
+      <td>solar.azimuthAngle</td>
+      <td>太阳方位角，正北顺时针方向角度</td>
+      <td>190</td>
+    </tr>
+    <tr>
+      <td>solar.hour</td>
+      <td>太阳时</td>
+      <td>0923</td>
+    </tr>
+    <tr>
+      <td>hour.angle</td>
+      <td>时角</td>
+      <td>-45.5</td>
+    </tr>
+    <tr>
+      <td>refer.sources</td>
+      <td>原始数据来源，<strong>可能为空</strong></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>refer.license</td>
+      <td>数据许可证</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="请求和返回示例">请求和返回示例</h2>
+
+<div class="api-snippets">
+    
+    
+    <h4><a href="#sunmoon" data-toggle="collapse">日出日落、月升月落和月相</a></h4>
+    <div class="collapse" id="sunmoon">
+        
+        
+        <div class="language-plaintext pre-scrollable highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// 北京日出日落、月升月落和月相 
+// 商业版 https://api.heweather.net/v7/astronomy/sunmoon?location=101010100&amp;date=20200610&amp;key=xxx
+// 开发版 https://devapi.heweather.net/v7/astronomy/sunmoon?location=101010100&amp;date=20200610&amp;key=xxx
+// 请将示例请求URL中的KEY更换成你自己的KEY，date更换为当天或未来60天任意日期
+
+{
+  "code": "200",
+  "updateTime": "2020-06-14T16:57+08:00",
+  "fxLink": "https://www.heweather.com/weather/beijing-101010100.html",
+  "daily": [
+    {
+      "fxDate": "2020-06-14",
+      "sunrise": "04:45",
+      "sunset": "19:44",
+      "moonrise": "01:05",
+      "moonset": "12:53",
+      "tempMax": "35",
+      "tempMin": "22",
+      "iconDay": "100",
+      "textDay": "晴",
+      "iconNight": "150",
+      "textNight": "晴",
+      "wind360Day": "358",
+      "windDirDay": "北风",
+      "windScaleDay": "1-2",
+      "windSpeedDay": "8",
+      "wind360Night": "234",
+      "windDirNight": "西南风",
+      "windScaleNight": "1-2",
+      "windSpeedNight": "6",
+      "humidity": "22",
+      "precip": "0.0",
+      "pressure": "1001",
+      "vis": "25",
+      "uvIndex": "11"
+    },
+    {
+      "fxDate": "2020-06-15",
+      "sunrise": "04:45",
+      "sunset": "19:45",
+      "moonrise": "01:29",
+      "moonset": "13:51",
+      "tempMax": "36",
+      "tempMin": "22",
+      "iconDay": "100",
+      "textDay": "晴",
+      "iconNight": "150",
+      "textNight": "晴",
+      "wind360Day": "6",
+      "windDirDay": "北风",
+      "windScaleDay": "1-2",
+      "windSpeedDay": "2",
+      "wind360Night": "220",
+      "windDirNight": "西南风",
+      "windScaleNight": "1-2",
+      "windSpeedNight": "5",
+      "humidity": "30",
+      "precip": "0.0",
+      "pressure": "999",
+      "vis": "25",
+      "uvIndex": "11"
+    },
+    {
+      "fxDate": "2020-06-16",
+      "sunrise": "04:45",
+      "sunset": "19:45",
+      "moonrise": "01:52",
+      "moonset": "14:49",
+      "tempMax": "35",
+      "tempMin": "24",
+      "iconDay": "100",
+      "textDay": "晴",
+      "iconNight": "150",
+      "textNight": "晴",
+      "wind360Day": "235",
+      "windDirDay": "西南风",
+      "windScaleDay": "3-4",
+      "windSpeedDay": "18",
+      "wind360Night": "206",
+      "windDirNight": "西南风",
+      "windScaleNight": "1-2",
+      "windSpeedNight": "5",
+      "humidity": "30",
+      "precip": "0.0",
+      "pressure": "994",
+      "vis": "25",
+      "uvIndex": "11"
+    }
+  ],
+  "refer": {
+    "sources": [
+      "Weather China"
+    ],
+    "license": [
+      "commercial license"
+    ]
+  }
+}
+</code></pre></div></div>
+
+        
+    </div>
+    
+     
+</div>
+
+                    
+                </article>
+            </section>
+            
+    </div>
+</div>
+<script src="/assets/js/bootstrap-3.3.7.min.js"></script>
+<script src="/assets/js/cookie.min.js?v=202009082"></script>
+<!-- <script src="/assets/js/baidu-analysis.js?v=202009082"></script> -->
+
+
+</body>
+</html>

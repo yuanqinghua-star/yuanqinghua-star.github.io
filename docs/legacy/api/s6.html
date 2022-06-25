@@ -1,0 +1,2604 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>S6版本API开发文档 | 不停的博客</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="S6版本API开发文档" />
+<meta property="og:locale" content="zh" />
+<meta name="description" content="本文档仅适用于和风天气API s6版本。s6版本不再提供技术支持，请使用最新版本替换，最新版请参考 https://dev.heweather.com/docs/api/" />
+<meta property="og:description" content="本文档仅适用于和风天气API s6版本。s6版本不再提供技术支持，请使用最新版本替换，最新版请参考 https://dev.heweather.com/docs/api/" />
+<link rel="canonical" href="http://localhost:4000/docs/legacy/api/s6" />
+<meta property="og:url" content="http://localhost:4000/docs/legacy/api/s6" />
+<meta property="og:site_name" content="不停的博客" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-06-25T06:58:20+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="S6版本API开发文档" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"DigitalDocument","dateModified":"2022-06-25T06:58:20+00:00","datePublished":"2022-06-25T06:58:20+00:00","description":"本文档仅适用于和风天气API s6版本。s6版本不再提供技术支持，请使用最新版本替换，最新版请参考 https://dev.heweather.com/docs/api/","headline":"S6版本API开发文档","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/brand.png"}},"url":"http://localhost:4000/docs/legacy/api/s6"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <meta name="apple-itunes-app" content="app-id=1461458147, app-argument=weather"/>
+    <link rel="stylesheet" href="/assets/css/bootstrap-3.3.7.min.css?v=202009082"/>
+    <link rel="stylesheet" href="/assets/css/style.css?v=202009082"/>
+    <script src="/assets/js/jquery-1.11.0.min.js?v=202009082"></script>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+</head>
+<body>
+
+<a class="new-alart navbar-fixed-top" href="/docs/api/">这里是和风天气API S6版本，该版本将于2021年12月31日下线且不再提供技术支持，新用户现已无法使用，点击查看最新版本</a>
+
+
+<div class="container doc-legacy">
+    <div class="row" id='doc-main'>
+        <section class="col-md-10">
+            <div class="region-content">
+                <h1 class="page-header navbar-static-top">S6版本API开发文档</h1>
+                <article class="docs-content">
+                    <table>
+  <thead>
+    <tr>
+      <th>适用API版本</th>
+      <th>维护期</th>
+      <th>最后编辑</th>
+      <th>下载本文档（.md）</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>S6</td>
+      <td>2018年1月1日 至 2021年6月1日</td>
+      <td>2020年3月20日</td>
+      <td><a href="https://a.hecdn.net/files/hewaether-api-docs-s6.md">下载</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="status-code">Status Code</h2>
+
+<p><code class="language-plaintext highlighter-rouge">Status</code> 字段是API的状态码，请出错误时请参考这里了解错误原因。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>代码</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ok</td>
+      <td>数据正常</td>
+    </tr>
+    <tr>
+      <td>invalid key</td>
+      <td>无效的key，请检查你的key是否输入以及是否输入有误</td>
+    </tr>
+    <tr>
+      <td>invalid key type</td>
+      <td>KEY的类型错误（如使用SDK的KEY去访问Web API）。</td>
+    </tr>
+    <tr>
+      <td>invalid param</td>
+      <td>无效的参数，请检查你传递的参数是否正确、完整</td>
+    </tr>
+    <tr>
+      <td>bad bind</td>
+      <td>错误的绑定，绑定的PackageName、BundleID、域名IP地址不一致</td>
+    </tr>
+    <tr>
+      <td>no data for this location</td>
+      <td>该城市/地区没有你所请求的数据</td>
+    </tr>
+    <tr>
+      <td>no more requests</td>
+      <td>超过访问次数，需要等到当月最后一天24点（免费用户为当天24点）后进行访问次数的重置或升级你的访问量</td>
+    </tr>
+    <tr>
+      <td>no balance</td>
+      <td>没有余额，你的按量计费产品由于余额不足或欠费而不能访问，请尽快充值</td>
+    </tr>
+    <tr>
+      <td>too fast</td>
+      <td>超过限定的QPM，请参考<a href="https://dev.heweather.com/docs/start/glossary#qpm">QPM说明</a></td>
+    </tr>
+    <tr>
+      <td>dead</td>
+      <td>无响应或超时，接口服务异常请<a href="https://www.heweather.com/contact">联系我们</a></td>
+    </tr>
+    <tr>
+      <td>unknown location</td>
+      <td>没有你查询的这个地区，或者地区名称错误</td>
+    </tr>
+    <tr>
+      <td>permission denied</td>
+      <td>无访问权限，你没有购买你所访问的这部分服务</td>
+    </tr>
+    <tr>
+      <td>sign error</td>
+      <td>签名错误，请参考<a href="https://dev.heweather.com/docs/faq/technical#signature-authentication">签名算法</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="常规天气接口">常规天气接口</h2>
+
+<p>通过常规天气数据API，可以获取到3-10天天气预报、实况天气、逐小时天气预报以及生活指数。</p>
+
+<h3 class="no_toc">请求URL</h3>
+
+<p><strong>商业版：</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.heweather.net/s6/weather/{weather-type}?{parameters}
+</code></pre></div></div>
+
+<p><strong>免费版：</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://free-api.heweather.net/s6/weather/{weather-type}?{parameters}
+</code></pre></div></div>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">{weather-type}</code> 代表不同的天气数据类型，必选，请使用以下值替代：</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>weather-type 值</th>
+      <th>描述</th>
+      <th>授权</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>now</td>
+      <td>实况天气</td>
+      <td>商业/免费</td>
+    </tr>
+    <tr>
+      <td>forecast</td>
+      <td>3-10天预报</td>
+      <td>商业/免费</td>
+    </tr>
+    <tr>
+      <td>hourly</td>
+      <td>逐小时预报</td>
+      <td>商业/免费</td>
+    </tr>
+    <tr>
+      <td>lifestyle</td>
+      <td>生活指数</td>
+      <td>商业/免费</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">{parameters}</code>代表请求参数，包括必选和可选参数。所有请求参数均使用 <code class="language-plaintext highlighter-rouge">&amp;</code>进行分隔，参数值存在中文或特殊字符的情况，需要对参数进行 <strong>url encode</strong>。</li>
+</ul>
+
+<p><strong>请求URL示例</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># 获取北京实况天气
+https://api.heweather.net/s6/weather/now?location=beijing&amp;key=xxx
+</code></pre></div></div>
+
+<h3 class="no_toc">请求参数</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>描述</th>
+      <th>选择</th>
+      <th>示例值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>location</td>
+      <td>需要查询的城市或地区，可输入以下值：<br />1. 城市ID：<a href="https://dev.heweather.com/docs/start/location-list">城市列表</a><br />2. 经纬度格式：经度,纬度（<strong>经度在前纬度在后</strong>，英文<code class="language-plaintext highlighter-rouge">,</code>分隔，十进制格式，北纬东经为正，南纬西经为负<br />3. 城市名称，支持中英文和汉语拼音<br />4. 城市名称，上级城市 或 省 或 国家，英文<code class="language-plaintext highlighter-rouge">,</code>分隔，此方式可以在重名的情况下只获取想要的地区的天气数据，例如 西安,陕西<br />5. IP<br /> 6. 根据请求自动判断，根据用户的请求获取IP，通过 IP 定位并获取城市数据</td>
+      <td>必选</td>
+      <td>1. location=CN101010100<br />2. location=116.40,39.9<br />3. location=北京、 location=北京市、 location=beijing<br />4. location=朝阳,北京、 location=chaoyang,beijing<br />5. location=60.194.130.1<br />6. location=auto_ip</td>
+    </tr>
+    <tr>
+      <td>lang</td>
+      <td>多语言，可以不使用该参数，默认为简体中文，海外城市默认为英文<br />详见<a href="https://dev.heweather.com/docs/start/language">多语言参数</a></td>
+      <td>可选</td>
+      <td>lang=en</td>
+    </tr>
+    <tr>
+      <td>unit</td>
+      <td>单位选择，公制（m）或英制（i），默认为公制单位<br />详见<a href="https://dev.heweather.com/docs/start/unit">度量衡单位参数</a></td>
+      <td>可选</td>
+      <td>unit=i</td>
+    </tr>
+    <tr>
+      <td>key</td>
+      <td>用户认证key，请参考<a href="https://dev.heweather.com/docs/start/get-api-key">如何获取你的KEY</a><br />支持<a href="https://dev.heweather.com/docs/faq/technical#signature-authentication">数字签名</a>方式进行认证，推荐使用</td>
+      <td>必选</td>
+      <td>key=xxxxxxxxxxxxxx</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 class="no_toc">数据返回字段和数值说明</h3>
+
+<p>常规天气数据接口将返回一些基本字段和不同天气类型的字段。</p>
+
+<p>返回的数据中，<code class="language-plaintext highlighter-rouge">basic</code>，<code class="language-plaintext highlighter-rouge">update</code>和<code class="language-plaintext highlighter-rouge">status</code>是基本参数，在不同数据类型中都会返回。</p>
+
+<p>具体的天气数据，会根据你请求的<code class="language-plaintext highlighter-rouge">{weather-type}</code>不同，将返回不同的天气数据。</p>
+
+<h4 id="basic-基础信息"><code class="language-plaintext highlighter-rouge">basic</code> 基础信息</h4>
+
+<p>基础信息包括所查询的城市/地区的一些基本信息，例如名称、ID、经纬度等</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>描述</th>
+      <th>示例值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>location</td>
+      <td>地区／城市名称</td>
+      <td>卓资</td>
+    </tr>
+    <tr>
+      <td>cid</td>
+      <td>地区／城市ID</td>
+      <td>CN101080402</td>
+    </tr>
+    <tr>
+      <td>lat</td>
+      <td>地区／城市纬度</td>
+      <td>40.89576</td>
+    </tr>
+    <tr>
+      <td>lon</td>
+      <td>地区／城市经度</td>
+      <td>112.577702</td>
+    </tr>
+    <tr>
+      <td>parent_city</td>
+      <td>该地区／城市的上级城市</td>
+      <td>乌兰察布</td>
+    </tr>
+    <tr>
+      <td>admin_area</td>
+      <td>该地区／城市所属行政区域</td>
+      <td>内蒙古</td>
+    </tr>
+    <tr>
+      <td>cnty</td>
+      <td>该地区／城市所属国家名称</td>
+      <td>中国</td>
+    </tr>
+    <tr>
+      <td>tz</td>
+      <td>该地区／城市所在时区</td>
+      <td>+8.0</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="update-接口更新时间"><code class="language-plaintext highlighter-rouge">update</code> 接口更新时间</h4>
+
+<p>接口更新时间为当前接口的更新时间，包括城市/地区所在地的当地时间和UTC时间，即使其中有个别数据没有变化，<code class="language-plaintext highlighter-rouge">update</code>时间也会变更。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>描述</th>
+      <th>示例值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>loc</td>
+      <td>当地时间，24小时制，格式yyyy-MM-dd HH:mm</td>
+      <td>2017-10-25 12:34</td>
+    </tr>
+    <tr>
+      <td>utc</td>
+      <td>UTC时间，24小时制，格式yyyy-MM-dd HH:mm</td>
+      <td>2017-10-25 04:34</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="satuts-接口状态"><code class="language-plaintext highlighter-rouge">satuts</code> 接口状态</h4>
+
+<p>当前接口的状态，正常返回数据会返回<code class="language-plaintext highlighter-rouge">ok</code>，若未能返回数据，会给出具体的错误码，不同的错误码请参考<a href="https://dev.heweather.com/docs/start/status-code">接口状态码及错误码</a></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>描述</th>
+      <th>示例值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>status</td>
+      <td>接口状态，具体含义请参考<a href="https://dev.heweather.com/docs/start/status-code">接口状态码及错误码</a></td>
+      <td>ok</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="now实况天气"><code class="language-plaintext highlighter-rouge">now</code>实况天气</h4>
+
+<p>实况天气即为当前时间点的天气状况以及温湿风压等气象指数，具体包含的数据：体感温度、实测温度、天气状况、风力、风速、风向、相对湿度、大气压强、降水量、能见度等。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>描述</th>
+      <th>示例</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>fl</td>
+      <td>体感温度，默认单位：摄氏度</td>
+      <td>23</td>
+    </tr>
+    <tr>
+      <td>tmp</td>
+      <td>温度，默认单位：摄氏度</td>
+      <td>21</td>
+    </tr>
+    <tr>
+      <td>cond_code</td>
+      <td><a href="https://dev.heweather.com/docs/start/icons">实况天气状况代码</a></td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <td>cond_txt</td>
+      <td>实况天气状况描述</td>
+      <td>晴</td>
+    </tr>
+    <tr>
+      <td>wind_deg</td>
+      <td>风向360角度</td>
+      <td>305</td>
+    </tr>
+    <tr>
+      <td>wind_dir</td>
+      <td>风向</td>
+      <td>西北</td>
+    </tr>
+    <tr>
+      <td>wind_sc</td>
+      <td>风力</td>
+      <td>3-4</td>
+    </tr>
+    <tr>
+      <td>wind_spd</td>
+      <td>风速，公里/小时</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td>hum</td>
+      <td>相对湿度</td>
+      <td>40</td>
+    </tr>
+    <tr>
+      <td>pcpn</td>
+      <td>降水量</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>pres</td>
+      <td>大气压强</td>
+      <td>1020</td>
+    </tr>
+    <tr>
+      <td>vis</td>
+      <td>能见度，默认单位：公里</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td>cloud</td>
+      <td>云量</td>
+      <td>23</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="daily_forecast-天气预报"><code class="language-plaintext highlighter-rouge">daily_forecast</code> 天气预报</h4>
+
+<p>3-10天天气预报数据，天气预报包含的数据：日出日落、月升月落、最高最低温度、天气白天和夜间状况、风力、风速、风向、相对湿度、大气压强、降水量、降水概率、露点温度、紫外线强度、能见度等数据</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>描述</th>
+      <th>示例值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>date</td>
+      <td>预报日期</td>
+      <td>2013-12-30</td>
+    </tr>
+    <tr>
+      <td>sr</td>
+      <td>日出时间</td>
+      <td>07:36</td>
+    </tr>
+    <tr>
+      <td>ss</td>
+      <td>日落时间</td>
+      <td>16:58</td>
+    </tr>
+    <tr>
+      <td>mr</td>
+      <td>月升时间</td>
+      <td>04:47</td>
+    </tr>
+    <tr>
+      <td>ms</td>
+      <td>月落时间</td>
+      <td>14:59</td>
+    </tr>
+    <tr>
+      <td>tmp_max</td>
+      <td>最高温度</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>tmp_min</td>
+      <td>最低温度</td>
+      <td>-5</td>
+    </tr>
+    <tr>
+      <td>cond_code_d</td>
+      <td><a href="https://dev.heweather.com/docs/start/icons">白天天气状况代码</a></td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <td>cond_code_n</td>
+      <td><a href="https://dev.heweather.com/docs/start/icons">夜间天气状况代码</a></td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <td>cond_txt_d</td>
+      <td>白天天气状况描述</td>
+      <td>晴</td>
+    </tr>
+    <tr>
+      <td>cond_txt_n</td>
+      <td>晚间天气状况描述</td>
+      <td>晴</td>
+    </tr>
+    <tr>
+      <td>wind_deg</td>
+      <td>风向360角度</td>
+      <td>310</td>
+    </tr>
+    <tr>
+      <td>wind_dir</td>
+      <td>风向</td>
+      <td>西北风</td>
+    </tr>
+    <tr>
+      <td>wind_sc</td>
+      <td>风力</td>
+      <td>1-2</td>
+    </tr>
+    <tr>
+      <td>wind_spd</td>
+      <td>风速，公里/小时</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <td>hum</td>
+      <td>相对湿度</td>
+      <td>37</td>
+    </tr>
+    <tr>
+      <td>pcpn</td>
+      <td>降水量</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>pop</td>
+      <td>降水概率</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>pres</td>
+      <td>大气压强</td>
+      <td>1018</td>
+    </tr>
+    <tr>
+      <td>uv_index</td>
+      <td>紫外线强度指数</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>vis</td>
+      <td>能见度，单位：公里</td>
+      <td>10</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="hourly-逐小时预报"><code class="language-plaintext highlighter-rouge">hourly</code> 逐小时预报</h4>
+
+<p>未来24-168个小时，逐小时的天气预报数据数据，具体包含的数据：温度、天气状况、风力、风速、风向、相对湿度、大气压强、降水概率等。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>描述</th>
+      <th>示例</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>time</td>
+      <td>预报时间，格式yyyy-MM-dd hh:mm</td>
+      <td>2013-12-30 13:00</td>
+    </tr>
+    <tr>
+      <td>tmp</td>
+      <td>温度</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>cond_code</td>
+      <td><a href="https://dev.heweather.com/docs/start/icons">天气状况代码</a></td>
+      <td>101</td>
+    </tr>
+    <tr>
+      <td>cond_txt</td>
+      <td>天气状况描述</td>
+      <td>多云</td>
+    </tr>
+    <tr>
+      <td>wind_deg</td>
+      <td>风向360角度</td>
+      <td>290</td>
+    </tr>
+    <tr>
+      <td>wind_dir</td>
+      <td>风向</td>
+      <td>西北</td>
+    </tr>
+    <tr>
+      <td>wind_sc</td>
+      <td>风力</td>
+      <td>3-4</td>
+    </tr>
+    <tr>
+      <td>wind_spd</td>
+      <td>风速，公里/小时</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td>hum</td>
+      <td>相对湿度</td>
+      <td>30</td>
+    </tr>
+    <tr>
+      <td>pres</td>
+      <td>大气压强</td>
+      <td>1030</td>
+    </tr>
+    <tr>
+      <td>pop</td>
+      <td>降水概率，百分比</td>
+      <td>30</td>
+    </tr>
+    <tr>
+      <td>dew</td>
+      <td>露点温度</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td>cloud</td>
+      <td>云量</td>
+      <td>23</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="lifestyle-生活指数"><code class="language-plaintext highlighter-rouge">lifestyle</code> 生活指数</h4>
+
+<p>生活指数和生活指数预报包括：穿衣、洗车、感冒、紫外线、运动、舒适度、旅游、空气污染扩散条件。</p>
+
+<blockquote>
+  <p>目前生活指数仅支持中国地区</p>
+</blockquote>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>描述</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>brf</td>
+      <td>生活指数简介</td>
+    </tr>
+    <tr>
+      <td>txt</td>
+      <td>生活指数详细描述</td>
+    </tr>
+    <tr>
+      <td>type</td>
+      <td>生活指数类型 comf：舒适度指数、cw：洗车指数、drsg：穿衣指数、flu：感冒指数、sport：运动指数、trav：旅游指数、uv：紫外线指数、air：空气污染扩散条件指数、ac：空调开启指数、ag：过敏指数、gl：太阳镜指数、mu：化妆指数、airc：晾晒指数、ptfc：交通指数、fsh：钓鱼指数、spi：防晒指数</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="lifestyle_forecast-生活指数预报"><code class="language-plaintext highlighter-rouge">lifestyle_forecast</code> 生活指数预报</h4>
+
+<p>生活指数预报提供最长未来3天的预报数据，包括：穿衣、洗车、感冒、紫外线、运动、舒适度、旅游、空气污染扩散条件。</p>
+
+<blockquote>
+  <p>目前生活指数预报仅支持中国地区</p>
+</blockquote>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>描述</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>date</td>
+      <td>预报日期，例如2017-12-30</td>
+    </tr>
+    <tr>
+      <td>brf</td>
+      <td>生活指数简介</td>
+    </tr>
+    <tr>
+      <td>txt</td>
+      <td>生活指数详细描述</td>
+    </tr>
+    <tr>
+      <td>type</td>
+      <td>生活指数类型 comf：舒适度指数、cw：洗车指数、drsg：穿衣指数、flu：感冒指数、sport：运动指数、trav：旅游指数、uv：紫外线指数、air：空气污染扩散条件指数、ac：空调开启指数、ag：过敏指数、gl：太阳镜指数、mu：化妆指数、airc：晾晒指数、ptfc：交通指数、fsh：钓鱼指数、spi：防晒指数</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="1公里格点天气数据">1公里格点天气数据</h2>
+
+<p>由和风天气、中国气象局、清华大学联合研发的我国首个精确到1公里格点的高精度天气实况和预报数据，精确到街道、小区的天气数据，包括：温度、湿度、大气压、天气状况、风力、风向等</p>
+
+<h3 class="no_toc">请求URL</h3>
+
+<p><strong>商业版：</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.heweather.net/s6/weather/{grid-type}?{parameters}
+</code></pre></div></div>
+
+<p><strong>免费版：</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://free-api.heweather.net/s6/weather/{grid-type}?{parameters}
+</code></pre></div></div>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">{grid-type}</code> 代表不同的天气数据类型，必选，请使用以下值替代：</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>grid-type 值</th>
+      <th>描述</th>
+      <th>授权</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>grid-now</td>
+      <td>格点实况天气</td>
+      <td>商业</td>
+    </tr>
+    <tr>
+      <td>grid-forecast</td>
+      <td>格点3-7天预报</td>
+      <td>商业/免费</td>
+    </tr>
+    <tr>
+      <td>grid-hourly</td>
+      <td>格点逐小时预报</td>
+      <td>商业</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">{parameters}</code>代表请求参数，包括必选和可选参数。所有请求参数均使用 <code class="language-plaintext highlighter-rouge">&amp;</code>进行分隔，参数值存在中文或特殊字符的情况，需要对参数进行 <strong>url encode</strong>。</li>
+</ul>
+
+<p><strong>请求URL示例</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># 获取某一个坐标的格点实况天气
+https://api.heweather.net/s6/weather/grid-now?location=116.4,39.9&amp;key=xxx
+</code></pre></div></div>
+<h3 class="no_toc">请求参数</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>描述</th>
+      <th>选择</th>
+      <th>示例值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>location</td>
+      <td>需要查询的地区，仅可使用经纬度坐标查询<br />经纬度格式：经度,纬度（<strong>经度在前纬度在后</strong>，英文<code class="language-plaintext highlighter-rouge">,</code>分隔，十进制格式，北纬东经为正，南纬西经为负</td>
+      <td>必选</td>
+      <td>location=116.40,39.9</td>
+    </tr>
+    <tr>
+      <td>lang</td>
+      <td>多语言，可以不使用该参数，默认为简体中文，海外城市默认为英文<br />详见<a href="https://dev.heweather.com/docs/start/language">多语言参数</a></td>
+      <td>可选</td>
+      <td>lang=en</td>
+    </tr>
+    <tr>
+      <td>unit</td>
+      <td>单位选择，公制（m）或英制（i），默认为公制单位<br />详见<a href="https://dev.heweather.com/docs/start/unit">度量衡单位参数</a></td>
+      <td>可选</td>
+      <td>unit=i</td>
+    </tr>
+    <tr>
+      <td>key</td>
+      <td>用户认证key，请参考<a href="https://dev.heweather.com/docs/start/get-api-key">如何获取你的KEY</a><br />支持<a href="https://dev.heweather.com/docs/faq/technical#signature-authentication">数字签名</a>方式进行认证，推荐使用</td>
+      <td>必选</td>
+      <td>key=xxxxxxxxxxxxxx</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 class="no_toc">数据返回字段和数值说明</h3>
+
+<p>格点天气数据接口将返回一些基本字段和不同天气类型的字段：</p>
+<ul>
+  <li>返回的数据中，<code class="language-plaintext highlighter-rouge">basic</code>，<code class="language-plaintext highlighter-rouge">update</code>和<code class="language-plaintext highlighter-rouge">status</code>是基本参数，在不同数据类型中都会返回。</li>
+  <li>具体的天气数据，会根据你请求的<code class="language-plaintext highlighter-rouge">{grid-type}</code>不同，将返回不同的天气数据。</li>
+</ul>
+
+<h4 id="basic-基础信息-1"><code class="language-plaintext highlighter-rouge">basic</code> 基础信息</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>描述</th>
+      <th>示例值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>lat</td>
+      <td>地区／城市纬度</td>
+      <td>39.956074</td>
+    </tr>
+    <tr>
+      <td>lon</td>
+      <td>地区／城市经度</td>
+      <td>116.310316</td>
+    </tr>
+    <tr>
+      <td>parent_city</td>
+      <td>该地区／城市的上级城市</td>
+      <td>北京</td>
+    </tr>
+    <tr>
+      <td>admin_area</td>
+      <td>该地区／城市所属行政区域</td>
+      <td>北京</td>
+    </tr>
+    <tr>
+      <td>cnty</td>
+      <td>该地区／城市所属国家名称</td>
+      <td>中国</td>
+    </tr>
+    <tr>
+      <td>tz</td>
+      <td>该地区／城市所在时区</td>
+      <td>+8.0</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="update-接口更新时间-1"><code class="language-plaintext highlighter-rouge">update</code> 接口更新时间</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>描述</th>
+      <th>示例值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>loc</td>
+      <td>当地时间，24小时制，格式yyyy-MM-dd HH:mm</td>
+      <td>2017-10-25 12:34</td>
+    </tr>
+    <tr>
+      <td>utc</td>
+      <td>UTC时间，24小时制，格式yyyy-MM-dd HH:mm</td>
+      <td>2017-10-25 04:34</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="status-接口状态"><code class="language-plaintext highlighter-rouge">status</code> 接口状态</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>描述</th>
+      <th>示例</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>status</td>
+      <td>接口状态，具体含义请参考<a href="https://dev.heweather.com/docs/start/status-code">接口状态码及错误码</a></td>
+      <td>ok</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="grid_now-格点实况天气"><code class="language-plaintext highlighter-rouge">grid_now</code> 格点实况天气</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>描述</th>
+      <th>示例值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>tmp</td>
+      <td>温度</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>cond_code</td>
+      <td>天气状况代码</td>
+      <td>101</td>
+    </tr>
+    <tr>
+      <td>cond_txt</td>
+      <td>天气状况代码</td>
+      <td>多云</td>
+    </tr>
+    <tr>
+      <td>wind_dir</td>
+      <td>风向</td>
+      <td>西北</td>
+    </tr>
+    <tr>
+      <td>wind_sc</td>
+      <td>风力</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>hum</td>
+      <td>相对湿度</td>
+      <td>30</td>
+    </tr>
+    <tr>
+      <td>pcpn</td>
+      <td>1小时降水量</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td>pcpn_10m</td>
+      <td>10分钟降水量</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td>pres</td>
+      <td>大气压强</td>
+      <td>1030</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="grid_forecast-格点未来7天预报"><code class="language-plaintext highlighter-rouge">grid_forecast</code> 格点未来7天预报</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>描述</th>
+      <th>示例值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>date</td>
+      <td>预报日期，格式yyyy-MM-dd</td>
+      <td>2013-12-30</td>
+    </tr>
+    <tr>
+      <td>tmp_max</td>
+      <td>最高温度</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>tmp_min</td>
+      <td>最低温度</td>
+      <td>-5</td>
+    </tr>
+    <tr>
+      <td>cond_code_d</td>
+      <td>白天天气状况代码</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <td>cond_code_n</td>
+      <td>晚间天气状况代码</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <td>cond_txt_d</td>
+      <td>白天天气状况描述</td>
+      <td>晴</td>
+    </tr>
+    <tr>
+      <td>cond_txt_n</td>
+      <td>晚间天气状况描述</td>
+      <td>晴</td>
+    </tr>
+    <tr>
+      <td>wind_dir_d</td>
+      <td>白天风向</td>
+      <td>西北</td>
+    </tr>
+    <tr>
+      <td>wind_dir_n</td>
+      <td>夜间风向</td>
+      <td>西北</td>
+    </tr>
+    <tr>
+      <td>wind_sc_d</td>
+      <td>白天风力</td>
+      <td>3-4</td>
+    </tr>
+    <tr>
+      <td>wind_sc_n</td>
+      <td>夜间风力</td>
+      <td>3-4</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="grid_hourly-格点逐小时天气预报"><code class="language-plaintext highlighter-rouge">grid_hourly</code> 格点逐小时天气预报</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>描述</th>
+      <th>示例值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>time</td>
+      <td>预报时间，格式yyyy-MM-dd HH:mm</td>
+      <td>2013-12-30 13:00</td>
+    </tr>
+    <tr>
+      <td>tmp</td>
+      <td>温度</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>cond_code</td>
+      <td>天气状况代码</td>
+      <td>101</td>
+    </tr>
+    <tr>
+      <td>cond_txt</td>
+      <td>天气状况代码</td>
+      <td>多云</td>
+    </tr>
+    <tr>
+      <td>wind_dir</td>
+      <td>风向</td>
+      <td>西北</td>
+    </tr>
+    <tr>
+      <td>wind_sc</td>
+      <td>风力</td>
+      <td>3-4</td>
+    </tr>
+    <tr>
+      <td>pcpn</td>
+      <td>降水量</td>
+      <td>10</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="分钟降水数据">分钟降水数据</h2>
+
+<p>由中国气象局、清华大学以及和风天气联合研发的我国首个精确到1公里格点的全国分钟级降雨预报数据，为每一分钟的降雨进行预测。</p>
+
+<h3 class="no_toc">请求URL</h3>
+
+<p><strong>商业版：</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.heweather.net/s6/weather/grid-minute?{parameters}
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">parameters</code>代表请求参数，包括必选和可选参数。所有请求参数均使用<code class="language-plaintext highlighter-rouge">&amp;</code>进行分隔，参数值存在中文或特殊字符的情况，需要对参数进行 <strong>url encode</strong>。</p>
+
+<p><strong>请求URL示例</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># 获取某一坐标分钟级降水情况：
+https://api.heweather.net/s6/weather/grid-minute?location=116.4,39.9&amp;key=xxx
+</code></pre></div></div>
+
+<h3 class="no_toc">请求参数</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>描述</th>
+      <th>选择</th>
+      <th>示例值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>location</td>
+      <td>需要查询的地区，仅可使用经纬度坐标查询<br />经纬度格式：经度,纬度（<strong>经度在前纬度在后</strong>，英文<code class="language-plaintext highlighter-rouge">,</code>分隔，十进制格式，北纬东经为正，南纬西经为负</td>
+      <td>必选</td>
+      <td>location=116.40,39.9</td>
+    </tr>
+    <tr>
+      <td>lang</td>
+      <td>多语言，可以不使用该参数，默认为简体中文，海外城市默认为英文<br />详见<a href="https://dev.heweather.com/docs/start/language">多语言参数</a></td>
+      <td>可选</td>
+      <td>lang=en</td>
+    </tr>
+    <tr>
+      <td>unit</td>
+      <td>单位选择，公制（m）或英制（i），默认为公制单位<br />详见<a href="https://dev.heweather.com/docs/start/unit">度量衡单位参数</a></td>
+      <td>可选</td>
+      <td>unit=i</td>
+    </tr>
+    <tr>
+      <td>key</td>
+      <td>用户认证key，请参考<a href="https://dev.heweather.com/docs/start/get-api-key">如何获取你的KEY</a><br />支持<a href="https://dev.heweather.com/docs/faq/technical#signature-authentication">数字签名</a>方式进行认证，推荐使用</td>
+      <td>必选</td>
+      <td>key=xxxxxxxxxxxxxx</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 class="no_toc">数据返回字段和数值说明</h3>
+
+<h4 id="basic-基础信息-2"><code class="language-plaintext highlighter-rouge">basic</code> 基础信息</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>描述</th>
+      <th>示例值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>lat</td>
+      <td>地区／城市纬度</td>
+      <td>39.956074</td>
+    </tr>
+    <tr>
+      <td>lon</td>
+      <td>地区／城市经度</td>
+      <td>116.310316</td>
+    </tr>
+    <tr>
+      <td>parent_city</td>
+      <td>该地区／城市的上级城市</td>
+      <td>北京</td>
+    </tr>
+    <tr>
+      <td>admin_area</td>
+      <td>该地区／城市所属行政区域</td>
+      <td>北京</td>
+    </tr>
+    <tr>
+      <td>cnty</td>
+      <td>该地区／城市所属国家名称</td>
+      <td>中国</td>
+    </tr>
+    <tr>
+      <td>tz</td>
+      <td>该地区／城市所在时区</td>
+      <td>+8</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="grid_minute_forecast-临近预报"><code class="language-plaintext highlighter-rouge">grid_minute_forecast</code> 临近预报</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>描述</th>
+      <th>示例值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>date</td>
+      <td>预报日期，格式yyyy-MM-dd HH:mm</td>
+      <td>2013-12-30 20:35</td>
+    </tr>
+    <tr>
+      <td>txt</td>
+      <td>分钟降雨描述</td>
+      <td>未来2小时无降雨</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="pcpn_5m-未来两小时5分钟降水量"><code class="language-plaintext highlighter-rouge">pcpn_5m</code> 未来两小时5分钟降水量</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>描述</th>
+      <th>示例值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>time</td>
+      <td>时间，格式yyyy-MM-dd HH:mm</td>
+      <td>2013-12-30 20:35</td>
+    </tr>
+    <tr>
+      <td>pcpn</td>
+      <td>降水量</td>
+      <td>10</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="pcpn_type降水类型"><code class="language-plaintext highlighter-rouge">pcpn_type</code>降水类型</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>描述</th>
+      <th>示例</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>pcpn_type</td>
+      <td>降水类型，rain雨，snow雪</td>
+      <td>rain</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="update-接口更新时间-2"><code class="language-plaintext highlighter-rouge">update</code> 接口更新时间</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>描述</th>
+      <th>示例值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>loc</td>
+      <td>当地时间，24小时制，格式yyyy-MM-dd HH:mm</td>
+      <td>2017-10-25 12:34</td>
+    </tr>
+    <tr>
+      <td>utc</td>
+      <td>UTC时间，24小时制，格式yyyy-MM-dd HH:mm</td>
+      <td>2017-10-25 04:34</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="status-接口状态-1"><code class="language-plaintext highlighter-rouge">status</code> 接口状态</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>描述</th>
+      <th>示例</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>status</td>
+      <td>接口状态，具体含义请参考<a href="https://dev.heweather.com/docs/start/status-code">接口状态码及错误码</a></td>
+      <td>ok</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="中国景点天气预报">中国景点天气预报</h2>
+
+<p>全国4A和5A级景点共2000＋的7天天气预报，包括：日出日落时间、最高最低温度、白天和晚间天气状况、风力、风向等。</p>
+
+<h3 class="no_toc">请求URL</h3>
+<p><strong>商业版：</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.heweather.net/s6/scenic?{parameters}
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">parameters</code>代表请求参数，包括必选和可选参数。所有请求参数均使用<code class="language-plaintext highlighter-rouge">&amp;</code>进行分隔，参数值存在中文或特殊字符的情况，需要对参数进行 <strong>url encode</strong>。</p>
+
+<p><strong>请求URL示例</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># 获取北京天坛公园天气情况：
+https://api.heweather.net/s6/scenic?location=CN10101010004A&amp;key=xxx
+</code></pre></div></div>
+
+<h3 class="no_toc">请求参数</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>描述</th>
+      <th>选择</th>
+      <th>示例值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>location</td>
+      <td>景点天气仅支持使用景点ID获取数据<br />查看<a href="https://dev.heweather.com/docs/start/location-list">全部景点ID</a></td>
+      <td>必选</td>
+      <td>location=CN10101010004A</td>
+    </tr>
+    <tr>
+      <td>lang</td>
+      <td>多语言，可以不使用该参数，默认为简体中文，海外城市默认为英文<br />详见<a href="https://dev.heweather.com/docs/start/language">多语言参数</a></td>
+      <td>可选</td>
+      <td>lang=en</td>
+    </tr>
+    <tr>
+      <td>unit</td>
+      <td>单位选择，公制（m）或英制（i），默认为公制单位<br />详见<a href="https://dev.heweather.com/docs/start/unit">度量衡单位参数</a></td>
+      <td>可选</td>
+      <td>unit=i</td>
+    </tr>
+    <tr>
+      <td>key</td>
+      <td>用户认证key，请参考<a href="https://dev.heweather.com/docs/start/get-api-key">如何获取你的KEY</a><br />另外支持<a href="https://dev.heweather.com/docs/faq/technical#signature-authentication">数字签名</a>方式进行认证，推荐使用</td>
+      <td>必选</td>
+      <td>key=xxxxxxxxxxxxxx</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 class="no_toc">数据返回字段和数值说明</h3>
+
+<h4 id="basic基础信息"><code class="language-plaintext highlighter-rouge">basic</code>基础信息</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>描述</th>
+      <th>示例值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>location</td>
+      <td>地区／城市名称</td>
+      <td>玉渊潭公园</td>
+    </tr>
+    <tr>
+      <td>cid</td>
+      <td>地区／城市ID</td>
+      <td>CN10101020010A</td>
+    </tr>
+    <tr>
+      <td>lat</td>
+      <td>地区／城市纬度</td>
+      <td>39.90999</td>
+    </tr>
+    <tr>
+      <td>lon</td>
+      <td>地区／城市经度</td>
+      <td>116.30999</td>
+    </tr>
+    <tr>
+      <td>parent_city</td>
+      <td>该地区／城市的上级城市</td>
+      <td>北京</td>
+    </tr>
+    <tr>
+      <td>admin_area</td>
+      <td>该地区／城市所属行政区域</td>
+      <td>北京</td>
+    </tr>
+    <tr>
+      <td>cnty</td>
+      <td>该地区／城市所属国家名称</td>
+      <td>中国</td>
+    </tr>
+    <tr>
+      <td>tz</td>
+      <td>该地区／城市所在时区</td>
+      <td>+8.0</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="update接口更新时间"><code class="language-plaintext highlighter-rouge">update</code>接口更新时间</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>描述</th>
+      <th>示例值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>loc</td>
+      <td>当地时间，24小时制，格式yyyy-MM-dd HH:mm</td>
+      <td>2017-10-25 12:34</td>
+    </tr>
+    <tr>
+      <td>utc</td>
+      <td>UTC时间，24小时制，格式yyyy-MM-dd HH:mm</td>
+      <td>2017-10-25 04:34</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="status接口状态"><code class="language-plaintext highlighter-rouge">status</code>接口状态</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>描述</th>
+      <th>示例</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>status</td>
+      <td>接口状态，具体含义请参考<a href="https://dev.heweather.com/docs/start/status-code">接口状态码及错误码</a></td>
+      <td>ok</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="daily_forecast天气预报"><code class="language-plaintext highlighter-rouge">daily_forecast</code>天气预报</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>描述</th>
+      <th>示例</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>date</td>
+      <td>预报日期</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>sr</td>
+      <td>日出时间</td>
+      <td>04:50</td>
+    </tr>
+    <tr>
+      <td>ss</td>
+      <td>日落时间</td>
+      <td>18:06</td>
+    </tr>
+    <tr>
+      <td>tmp_max</td>
+      <td>最高温度</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>tmp_min</td>
+      <td>最低温度</td>
+      <td>-5</td>
+    </tr>
+    <tr>
+      <td>cond_code_d</td>
+      <td><a href="https://dev.heweather.com/docs/start/icons">白天天气状况代码</a></td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <td>cond_code_n</td>
+      <td><a href="https://dev.heweather.com/docs/start/icons">夜间天气状况代码</a></td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <td>cond_txt_d</td>
+      <td>白天天气状况描述</td>
+      <td>晴</td>
+    </tr>
+    <tr>
+      <td>cond_txt_n</td>
+      <td>晚间天气状况描述</td>
+      <td>晴</td>
+    </tr>
+    <tr>
+      <td>wind_dir</td>
+      <td>风向</td>
+      <td>东</td>
+    </tr>
+    <tr>
+      <td>wind_sc</td>
+      <td>风力</td>
+      <td>2-3</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="历史前一天天气">历史前一天天气</h2>
+
+<h3 class="no_toc">请求URL</h3>
+
+<p><strong>商业版：</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.heweather.net/s6/weather/historical?{parameters}
+</code></pre></div></div>
+<p><code class="language-plaintext highlighter-rouge">parameters</code>代表请求参数，包括必选和可选参数。所有请求参数均使用<code class="language-plaintext highlighter-rouge">&amp;</code>进行分隔，参数值存在中文或特殊字符的情况，需要对参数进行 <strong>url encode</strong>。</p>
+
+<p><strong>请求URL示例</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># 获取北京的前一天天气数据
+https://api.heweather.net/s6/weather/historical?location=CN101010100&amp;date=2017-05-31&amp;key=xxx
+</code></pre></div></div>
+
+<h3 class="no_toc">请求参数</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>描述</th>
+      <th>选择</th>
+      <th>示例值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>location</td>
+      <td>仅支持城市ID的方式查询，<a href="https://dev.heweather.com/docs/start/location-list">城市列表</a></td>
+      <td>必选</td>
+      <td>location=CN101010100</td>
+    </tr>
+    <tr>
+      <td>key</td>
+      <td>用户认证key，请参考<a href="https://dev.heweather.com/docs/start/get-api-key">如何获取你的KEY</a><br />支持<a href="https://dev.heweather.com/docs/faq/technical#signature-authentication">数字签名</a>方式进行认证，推荐使用</td>
+      <td>必选</td>
+      <td>key=xxxxxxxxxxxxxx</td>
+    </tr>
+    <tr>
+      <td>date</td>
+      <td>获取制定日期的历史数据，格式为yyyy-mm-dd</td>
+      <td>必选</td>
+      <td>date=2010-01-01</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 class="no_toc">数据返回字段和数值说明</h3>
+
+<h4 id="basic-基础信息-3"><code class="language-plaintext highlighter-rouge">basic</code> 基础信息</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>描述</th>
+      <th>示例值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>location</td>
+      <td>地区／城市名称</td>
+      <td>卓资</td>
+    </tr>
+    <tr>
+      <td>cid</td>
+      <td>地区／城市ID</td>
+      <td>CN101080402</td>
+    </tr>
+    <tr>
+      <td>lat</td>
+      <td>地区／城市纬度</td>
+      <td>40.89576</td>
+    </tr>
+    <tr>
+      <td>lon</td>
+      <td>地区／城市经度</td>
+      <td>112.577702</td>
+    </tr>
+    <tr>
+      <td>parent_city</td>
+      <td>该地区／城市的上级城市</td>
+      <td>乌兰察布</td>
+    </tr>
+    <tr>
+      <td>admin_area</td>
+      <td>该地区／城市所属行政区域</td>
+      <td>内蒙古</td>
+    </tr>
+    <tr>
+      <td>cnty</td>
+      <td>该地区／城市所属国家名称</td>
+      <td>中国</td>
+    </tr>
+    <tr>
+      <td>tz</td>
+      <td>该地区／城市所在时区</td>
+      <td>+8.0</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="status-接口状态-2"><code class="language-plaintext highlighter-rouge">status</code> 接口状态</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>描述</th>
+      <th>示例值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>status</td>
+      <td>接口状态，具体含义请参考<a href="https://dev.heweather.com/docs/start/status-code">接口状态码及错误码</a></td>
+      <td>ok</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="daily_weather-当天天气"><code class="language-plaintext highlighter-rouge">daily_weather</code> 当天天气</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>描述</th>
+      <th>示例值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>date</td>
+      <td>日期</td>
+      <td>2013-12-30</td>
+    </tr>
+    <tr>
+      <td>sr</td>
+      <td>日出时间</td>
+      <td>07:36</td>
+    </tr>
+    <tr>
+      <td>ss</td>
+      <td>日落时间</td>
+      <td>16:58</td>
+    </tr>
+    <tr>
+      <td>mr</td>
+      <td>月升时间</td>
+      <td>04:47</td>
+    </tr>
+    <tr>
+      <td>ms</td>
+      <td>月落时间</td>
+      <td>14:59</td>
+    </tr>
+    <tr>
+      <td>tmp_max</td>
+      <td>最高温度</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>tmp_min</td>
+      <td>最低温度</td>
+      <td>-5</td>
+    </tr>
+    <tr>
+      <td>hum</td>
+      <td>相对湿度</td>
+      <td>37</td>
+    </tr>
+    <tr>
+      <td>pcpn</td>
+      <td>降水量</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>pres</td>
+      <td>大气压强</td>
+      <td>1018</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="hourly_weather-逐小时预报"><code class="language-plaintext highlighter-rouge">hourly_weather</code> 逐小时预报</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>描述</th>
+      <th>示例</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>time</td>
+      <td>时间，格式yyyy-MM-dd hh:mm</td>
+      <td>2013-12-30 13:00</td>
+    </tr>
+    <tr>
+      <td>tmp</td>
+      <td>温度</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>cond_code</td>
+      <td>天气状况代码</td>
+      <td>101</td>
+    </tr>
+    <tr>
+      <td>cond_txt</td>
+      <td>天气状况代码</td>
+      <td>多云</td>
+    </tr>
+    <tr>
+      <td>wind_dir</td>
+      <td>风向</td>
+      <td>西北</td>
+    </tr>
+    <tr>
+      <td>wind_sc</td>
+      <td>风力</td>
+      <td>3-4</td>
+    </tr>
+    <tr>
+      <td>wind_spd</td>
+      <td>风速，公里/小时</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td>hum</td>
+      <td>相对湿度</td>
+      <td>30</td>
+    </tr>
+    <tr>
+      <td>pres</td>
+      <td>大气压强</td>
+      <td>1030</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="中国极端天气灾害预警">中国极端天气灾害预警</h2>
+
+<ul>
+  <li>获取当前时间点全国3240个市县区所有灾害预警信息。</li>
+  <li>预警种类：台风、暴雨、暴雪、寒潮、大风、沙尘暴、高温、干旱、雷电、冰雹、霜冻、大雾、霾、道路结冰、寒冷、灰霾、雷雨大风、森林火险、降温、道路冰雪、干热风、低温、冰冻、空气重污染、海上大雾、雷暴大风、持续低温、浓浮尘、龙卷风、低温冻害、海上大风、低温雨雪冰冻、强对流、臭氧、大雪、强降雨、强降温、雪灾、森林（草原）火险、雷暴、严寒、沙尘、海上雷雨大风、海上雷电、海上台风。</li>
+  <li>预警级别：白色（仅限广东省内）、蓝色、黄色、橙色、红色</li>
+  <li>更新时间：每15分钟更新一次。</li>
+</ul>
+
+<h3 class="no_toc">请求URL</h3>
+
+<p><strong>商业版(指定地区）：</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.heweather.net/s6/alarm?{parameters}
+</code></pre></div></div>
+<p><strong>商业版(全部地区）：</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.heweather.net/s6/alarm/all?{parameters}
+</code></pre></div></div>
+
+<blockquote>
+  <p>当使用获取全部城市预警信息时，访问量按照返回的城市预警信息计算，例如当一次性返回500条预警信息时，按照500次访问量计算。</p>
+</blockquote>
+
+<p><code class="language-plaintext highlighter-rouge">{parameters}</code>代表请求参数，包括必选和可选参数。所有请求参数均使用 <code class="language-plaintext highlighter-rouge">&amp;</code>进行分隔，参数值存在中文或特殊字符的情况，需要对参数进行 <strong>url encode</strong>。</p>
+
+<p><strong>请求URL示例</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># 获取北京的灾害预警信息
+https://api.heweather.net/s6/alarm?location=beijing&amp;key=xxx
+</code></pre></div></div>
+
+<h3 class="no_toc">请求参数</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>描述</th>
+      <th>选择</th>
+      <th>示例值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>lang</td>
+      <td>多语言，可以不使用该参数，默认为简体中文，海外城市默认为英文<br />详见<a href="https://dev.heweather.com/docs/start/language">多语言参数</a></td>
+      <td>可选</td>
+      <td>lang=en</td>
+    </tr>
+    <tr>
+      <td>unit</td>
+      <td>单位选择，公制（m）或英制（i），默认为公制单位<br />详见<a href="https://dev.heweather.com/docs/start/unit">度量衡单位参数</a></td>
+      <td>可选</td>
+      <td>unit=i</td>
+    </tr>
+    <tr>
+      <td>key</td>
+      <td>用户数据key，请参考<a href="https://dev.heweather.com/docs/start/get-api-key">如何获取你的KEY</a><br />支持<a href="https://dev.heweather.com/docs/secret-authorization">数字签名</a>方式进行认证，推荐使用</td>
+      <td>必选</td>
+      <td>key=xxxxxxxxxxxxxx</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 class="no_toc">数据返回字段和数值说明</h3>
+
+<h4 id="basic-基础信息指定地区"><code class="language-plaintext highlighter-rouge">basic</code> 基础信息（指定地区）</h4>
+
+<p>基础信息包括所查询的城市/地区的一些基本信息，例如名称、ID、经纬度等</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>描述</th>
+      <th>示例值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>location</td>
+      <td>地区／城市名称</td>
+      <td>卓资</td>
+    </tr>
+    <tr>
+      <td>cid</td>
+      <td>地区／城市ID</td>
+      <td>CN101080402</td>
+    </tr>
+    <tr>
+      <td>lat</td>
+      <td>地区／城市纬度</td>
+      <td>40.89576</td>
+    </tr>
+    <tr>
+      <td>lon</td>
+      <td>地区／城市经度</td>
+      <td>112.577702</td>
+    </tr>
+    <tr>
+      <td>parent_city</td>
+      <td>该地区／城市的上级城市</td>
+      <td>乌兰察布</td>
+    </tr>
+    <tr>
+      <td>admin_area</td>
+      <td>该地区／城市所属行政区域</td>
+      <td>内蒙古</td>
+    </tr>
+    <tr>
+      <td>cnty</td>
+      <td>该地区／城市所属国家名称</td>
+      <td>中国</td>
+    </tr>
+    <tr>
+      <td>tz</td>
+      <td>该地区／城市所在时区</td>
+      <td>+8.0</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="update-接口更新时间-3"><code class="language-plaintext highlighter-rouge">update</code> 接口更新时间</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>描述</th>
+      <th>示例值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>loc</td>
+      <td>当地时间，24小时制，格式yyyy-MM-dd HH:mm</td>
+      <td>2017-10-25 12:34</td>
+    </tr>
+    <tr>
+      <td>utc</td>
+      <td>UTC时间，24小时制，格式yyyy-MM-dd HH:mm</td>
+      <td>2017-10-25 04:34</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="status-接口状态-3"><code class="language-plaintext highlighter-rouge">status</code> 接口状态</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>描述</th>
+      <th>示例</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>status</td>
+      <td>接口状态，具体含义请参考<a href="https://dev.heweather.com/docs/start/status-code">接口状态码及错误码</a></td>
+      <td>ok</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="alarm-灾害预警指定地区"><code class="language-plaintext highlighter-rouge">alarm</code> 灾害预警（指定地区）</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>描述</th>
+      <th>示例</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>title</td>
+      <td>预警标题</td>
+      <td>北京市朝阳区气象台发布大风黄色预警</td>
+    </tr>
+    <tr>
+      <td>stat</td>
+      <td>预警状态</td>
+      <td>预警中</td>
+    </tr>
+    <tr>
+      <td>level</td>
+      <td>预警等级</td>
+      <td>黄色</td>
+    </tr>
+    <tr>
+      <td>type</td>
+      <td>预警类型</td>
+      <td>大风</td>
+    </tr>
+    <tr>
+      <td>txt</td>
+      <td>预警详细信息</td>
+      <td>朝阳区气象台05日14时30分发布大风黄色预警，预计5日15时至21时，受东移加强的…</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="alarm_list-灾害预警全部地区"><code class="language-plaintext highlighter-rouge">alarm_list</code> 灾害预警（全部地区）</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>描述</th>
+      <th>示例</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>cid</td>
+      <td>地区／城市ID</td>
+      <td>CN101280601</td>
+    </tr>
+    <tr>
+      <td>title</td>
+      <td>预警标题</td>
+      <td>广东省深圳市气象台发布雷电黄色预警</td>
+    </tr>
+    <tr>
+      <td>stat</td>
+      <td>预警状态</td>
+      <td>预警中</td>
+    </tr>
+    <tr>
+      <td>level</td>
+      <td>预警等级</td>
+      <td>黄色</td>
+    </tr>
+    <tr>
+      <td>type</td>
+      <td>预警类型</td>
+      <td>雷电</td>
+    </tr>
+    <tr>
+      <td>txt</td>
+      <td>预警详细信息</td>
+      <td>深圳市气象局于10月04日12时59分发布雷电黄色预警信号，请注意防御。</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="中国空气质量数据">中国空气质量数据</h2>
+
+<p>通过空气质量数据接口，可获取空气质量相关数据，包括空气质量实况数据、空气质量未来7天预报以及空气质量未来逐小时预报。</p>
+
+<h3 class="no_toc">请求URL</h3>
+
+<p><strong>商业版：</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.heweather.net/s6/air/{air-type}?{parameters}
+</code></pre></div></div>
+
+<p><strong>免费版：</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://free-api.heweather.net/s6/air/{air-type}?{parameters}
+</code></pre></div></div>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">{air-type}</code>代表不同的天气数据类型，必选，请使用以下值替代：</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>air-type 值</th>
+      <th>描述</th>
+      <th>授权</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>now</td>
+      <td>空气质量实况</td>
+      <td>商业/免费</td>
+    </tr>
+    <tr>
+      <td>forecast</td>
+      <td>未来3-7天空气质量预报</td>
+      <td>商业</td>
+    </tr>
+    <tr>
+      <td>hourly</td>
+      <td>未来24小时逐小时空气质量预报</td>
+      <td>商业</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">{parameters}</code>代表请求参数，包括必选和可选参数。所有请求参数均使用<code class="language-plaintext highlighter-rouge">&amp;</code>进行分隔，参数值存在中文或特殊字符的情况，需要对参数进行 <strong>url encode</strong>。</li>
+</ul>
+
+<p><strong>请求URL示例</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># 获取北京空气质量实况天气：
+https://api.heweather.net/s6/air/now?location=beijing&amp;key=xxx
+</code></pre></div></div>
+
+<h3 class="no_toc">请求参数</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>描述</th>
+      <th>选择</th>
+      <th>示例值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>location</td>
+      <td>需要查询的城市或地区，可输入以下值：<br />1. 城市ID：<a href="https://dev.heweather.com/docs/start/location-list">城市列表</a><br />2. 经纬度格式：经度,纬度（<strong>经度在前纬度在后</strong>，英文<code class="language-plaintext highlighter-rouge">,</code>分隔，十进制格式，北纬东经为正，南纬西经为负<br />3. 城市名称，支持中英文和汉语拼音<br />4. 城市名称，上级城市 或 省 或 国家，英文<code class="language-plaintext highlighter-rouge">,</code>分隔，此方式可以在重名的情况下只获取想要的地区的天气数据，例如 西安,陕西<br />5. IP<br /> 6. 根据请求自动判断，根据用户的请求获取IP，通过 IP 定位并获取城市数据</td>
+      <td>必选</td>
+      <td>1. location=CN101010100<br />2. location=116.40,39.9<br />3. location=北京、 location=北京市、 location=beijing<br />4. location=朝阳,北京、 location=chaoyang,beijing<br />5. location=60.194.130.1<br />6. location=auto_ip</td>
+    </tr>
+    <tr>
+      <td>lang</td>
+      <td>多语言，可以不使用该参数，默认为简体中文，海外城市默认为英文<br />详见<a href="https://dev.heweather.com/docs/start/language">多语言参数</a></td>
+      <td>可选</td>
+      <td>lang=en</td>
+    </tr>
+    <tr>
+      <td>unit</td>
+      <td>单位选择，公制（m）或英制（i），默认为公制单位<br />详见<a href="https://dev.heweather.com/docs/start/unit">度量衡单位参数</a></td>
+      <td>可选</td>
+      <td>unit=i</td>
+    </tr>
+    <tr>
+      <td>key</td>
+      <td>用户认证key，请参考<a href="https://dev.heweather.com/docs/start/get-api-key">如何获取你的KEY</a><br />支持<a href="https://dev.heweather.com/docs/faq/technical#signature-authentication">数字签名</a>方式进行认证，推荐使用</td>
+      <td>必选</td>
+      <td>key=xxxxxxxxxxxxxx</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 class="no_toc">数据返回字段和数值说明</h3>
+
+<p>空气质量数据接口将返回一些基本字段和不同空气质量类型的字段。</p>
+
+<p>返回的数据中，<code class="language-plaintext highlighter-rouge">basic</code>，<code class="language-plaintext highlighter-rouge">update</code>和<code class="language-plaintext highlighter-rouge">status</code>是基本参数，在不同数据类型中都会返回。</p>
+
+<p>具体的空气质量数据，会根据你请求的<code class="language-plaintext highlighter-rouge">{air-type}</code>不同，将返回不同的空气质量数据。</p>
+
+<h4 id="basic-基础信息-4"><code class="language-plaintext highlighter-rouge">basic</code> 基础信息</h4>
+
+<p>基础信息包括所查询的城市/地区的一些基本信息，例如名称、ID、经纬度等</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>描述</th>
+      <th>示例值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>location</td>
+      <td>地区／城市名称</td>
+      <td>卓资</td>
+    </tr>
+    <tr>
+      <td>cid</td>
+      <td>地区／城市ID</td>
+      <td>CN101080402</td>
+    </tr>
+    <tr>
+      <td>lat</td>
+      <td>地区／城市纬度</td>
+      <td>40.89576</td>
+    </tr>
+    <tr>
+      <td>lon</td>
+      <td>地区／城市经度</td>
+      <td>112.577702</td>
+    </tr>
+    <tr>
+      <td>parent_city</td>
+      <td>该地区／城市的上级城市</td>
+      <td>乌兰察布</td>
+    </tr>
+    <tr>
+      <td>admin_area</td>
+      <td>该地区／城市所属行政区域</td>
+      <td>内蒙古</td>
+    </tr>
+    <tr>
+      <td>cnty</td>
+      <td>该地区／城市所属国家名称</td>
+      <td>中国</td>
+    </tr>
+    <tr>
+      <td>tz</td>
+      <td>该地区／城市所在时区</td>
+      <td>+8.0</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="update-接口更新时间-4"><code class="language-plaintext highlighter-rouge">update</code> 接口更新时间</h4>
+
+<p>接口更新时间为当前接口的更新时间，包括城市/地区所在地的当地时间和UTC时间。在一些接口中，其中一部分数据会单独更新，但此时<code class="language-plaintext highlighter-rouge">update</code>时间不会变更。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>描述</th>
+      <th>示例值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>loc</td>
+      <td>当地时间，24小时制，格式yyyy-MM-dd HH:mm</td>
+      <td>2017-10-25 12:34</td>
+    </tr>
+    <tr>
+      <td>utc</td>
+      <td>UTC时间，24小时制，格式yyyy-MM-dd HH:mm</td>
+      <td>2017-10-25 04:34</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="satuts-接口状态-1"><code class="language-plaintext highlighter-rouge">satuts</code> 接口状态</h4>
+
+<p>当前接口的状态，正常返回数据会返回<code class="language-plaintext highlighter-rouge">ok</code>，若未能返回数据，会给出具体的错误码，不同的错误码请参考<a href="https://dev.heweather.com/docs/start/status-code">接口状态码及错误码</a></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>描述</th>
+      <th>示例值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>status</td>
+      <td>接口状态，具体含义请参考<a href="https://dev.heweather.com/docs/start/status-code">接口状态码及错误码</a></td>
+      <td>ok</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="air_now_city-空气质量实况城区"><code class="language-plaintext highlighter-rouge">air_now_city</code> 空气质量实况（城区）</h4>
+
+<p>中国3240个市县区的实时空气质量（AQI）数据，包含环保部300+国控站点所在的地级市。 <a href="https://www.heweather.com/blog/air-forecast">了解更多</a></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>描述</th>
+      <th>示例</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>pub_time</td>
+      <td>数据发布时间,格式yyyy-MM-dd HH:mm</td>
+      <td>2017-03-20 12:30</td>
+    </tr>
+    <tr>
+      <td>aqi</td>
+      <td>空气质量指数</td>
+      <td>74</td>
+    </tr>
+    <tr>
+      <td>main</td>
+      <td>主要污染物</td>
+      <td>pm25</td>
+    </tr>
+    <tr>
+      <td>qlty</td>
+      <td>空气质量，取值范围:优，良，轻度污染，中度污染，重度污染，严重污染</td>
+      <td>良</td>
+    </tr>
+    <tr>
+      <td>pm10</td>
+      <td>pm10</td>
+      <td>78</td>
+    </tr>
+    <tr>
+      <td>pm25</td>
+      <td>pm25</td>
+      <td>66</td>
+    </tr>
+    <tr>
+      <td>no2</td>
+      <td>二氧化氮</td>
+      <td>40</td>
+    </tr>
+    <tr>
+      <td>so2</td>
+      <td>二氧化硫</td>
+      <td>30</td>
+    </tr>
+    <tr>
+      <td>co</td>
+      <td>一氧化碳</td>
+      <td>33</td>
+    </tr>
+    <tr>
+      <td>o3</td>
+      <td>臭氧</td>
+      <td>20</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="air_now_station-空气质量实况站点"><code class="language-plaintext highlighter-rouge">air_now_station</code> 空气质量实况（站点）</h4>
+
+<p>环保部1500+国控监测站点实时空气质量（AQI）数据。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>描述</th>
+      <th>示例</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>pub_time</td>
+      <td>数据发布时间,格式yyyy-MM-dd HH:mm</td>
+      <td>2017-03-20 12:30</td>
+    </tr>
+    <tr>
+      <td>air_sta</td>
+      <td>站点名称</td>
+      <td>万寿西宫</td>
+    </tr>
+    <tr>
+      <td>asid</td>
+      <td>站点ID</td>
+      <td>CNA110000</td>
+    </tr>
+    <tr>
+      <td>lat</td>
+      <td>站点纬度</td>
+      <td>116.405285</td>
+    </tr>
+    <tr>
+      <td>lon</td>
+      <td>站点经度</td>
+      <td>39.904989</td>
+    </tr>
+    <tr>
+      <td>aqi</td>
+      <td>空气质量指数</td>
+      <td>74</td>
+    </tr>
+    <tr>
+      <td>main</td>
+      <td>主要污染物</td>
+      <td>pm25</td>
+    </tr>
+    <tr>
+      <td>qlty</td>
+      <td>空气质量，取值范围:优，良，轻度污染，中度污染，重度污染，严重污染</td>
+      <td>良</td>
+    </tr>
+    <tr>
+      <td>pm10</td>
+      <td>pm10</td>
+      <td>78</td>
+    </tr>
+    <tr>
+      <td>pm25</td>
+      <td>pm25</td>
+      <td>66</td>
+    </tr>
+    <tr>
+      <td>no2</td>
+      <td>二氧化氮</td>
+      <td>40</td>
+    </tr>
+    <tr>
+      <td>so2</td>
+      <td>二氧化硫</td>
+      <td>30</td>
+    </tr>
+    <tr>
+      <td>co</td>
+      <td>一氧化碳</td>
+      <td>33</td>
+    </tr>
+    <tr>
+      <td>o3</td>
+      <td>臭氧</td>
+      <td>20</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="air_forecast-空气质量预报"><code class="language-plaintext highlighter-rouge">air_forecast</code> 空气质量预报</h4>
+
+<p>结合环保部最新排放污染清单以及WRF-CHEM模型算法，和风天气推出了全国首家且唯一的未来7天空气质量预报数据，本数据接口可对未来7天全国3240个城市地区进行空气质量AQI预报。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>描述</th>
+      <th>示例</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>date</td>
+      <td>预报日期,格式yyyy-MM-dd</td>
+      <td>2017-08-09</td>
+    </tr>
+    <tr>
+      <td>aqi</td>
+      <td>空气质量指数</td>
+      <td>74</td>
+    </tr>
+    <tr>
+      <td>main</td>
+      <td>主要污染物</td>
+      <td>pm25</td>
+    </tr>
+    <tr>
+      <td>qlty</td>
+      <td>空气质量，取值范围:优，良，轻度污染，中度污染，重度污染，严重污染</td>
+      <td>良</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="air_hourly-空气质量逐小时预报"><code class="language-plaintext highlighter-rouge">air_hourly</code> 空气质量逐小时预报</h4>
+
+<p>全国3240个城市地区进行精确到每一小时的空气质量预报，最长达120小时</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>描述</th>
+      <th>示例</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>time</td>
+      <td>预报日期，格式yyyy-MM-dd HH:mm</td>
+      <td>2017-08-09 14:00</td>
+    </tr>
+    <tr>
+      <td>aqi</td>
+      <td>空气质量指数</td>
+      <td>74</td>
+    </tr>
+    <tr>
+      <td>main</td>
+      <td>主要污染物</td>
+      <td>pm25</td>
+    </tr>
+    <tr>
+      <td>qlty</td>
+      <td>空气质量，取值范围:优，良，轻度污染，中度污染，重度污染，严重污染</td>
+      <td>良</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="全球太阳高度数据">全球太阳高度数据</h2>
+
+<p>任意时间点的全球太阳高度及方位角接口，为安全和智能驾驶、房屋建设提供数据支持 <a href="https://www.heweather.com/blog/solar_elevation_angle">了解更多</a></p>
+
+<blockquote>
+  <p>仅限付费用户使用</p>
+</blockquote>
+
+<h3 class="no_toc">请求URL</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.heweather.net/s6/solar/solar-elevation-angle?{parameters}
+</code></pre></div></div>
+
+<blockquote>
+  <p><code class="language-plaintext highlighter-rouge">parameters</code>代表请求参数，包括必选和可选参数。所有请求参数均使用<code class="language-plaintext highlighter-rouge">&amp;</code>进行分隔，参数值存在中文或特殊字符的情况，需要对参数进行 <strong>url encode</strong>。</p>
+</blockquote>
+
+<p><strong>请求URL示例</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># 获取某一个坐标的太阳高度
+https://api.heweather.net/s6/solar/solar-elevation-angle?lat=39.9&amp;lon=116.4&amp;date=20170809&amp;time=1230&amp;alt=43&amp;tz=8&amp;key=xxx
+</code></pre></div></div>
+
+<h3 class="no_toc">请求参数</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>描述</th>
+      <th>选择</th>
+      <th>示例值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>lat</td>
+      <td>所查询地区的纬度<br />纬度采用十进制格式，北纬为正，南纬为负</td>
+      <td>必选</td>
+      <td>lat=36.088</td>
+    </tr>
+    <tr>
+      <td>lon</td>
+      <td>所查询地区的经度<br />经度采用十进制格式，东经为正，西经为负</td>
+      <td>必选</td>
+      <td>lon=120.343</td>
+    </tr>
+    <tr>
+      <td>date</td>
+      <td>查询日期，格式为yyyyMMdd</td>
+      <td>必选</td>
+      <td>20170809</td>
+    </tr>
+    <tr>
+      <td>time</td>
+      <td>查询时间，格式为HHmm，24 时制</td>
+      <td>必选</td>
+      <td>1230</td>
+    </tr>
+    <tr>
+      <td>alt</td>
+      <td>海拔高度，单位为米</td>
+      <td>必选</td>
+      <td>43</td>
+    </tr>
+    <tr>
+      <td>tz</td>
+      <td>查询地区所在时区</td>
+      <td>必选</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td>key</td>
+      <td>用户认证key，请参考<a href="https://dev.heweather.com/docs/start/get-api-key">如何获取你的KEY</a><br />支持<a href="https://dev.heweather.com/docs/faq/technical#signature-authentication">数字签名</a>方式进行认证，推荐使用</td>
+      <td>必选</td>
+      <td>key=xxxxxxxxxxxxxx</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 class="no_toc">数据返回字段和数值说明</h3>
+
+<h4 id="solar_elevation_angle-基础信息"><code class="language-plaintext highlighter-rouge">solar_elevation_angle</code> 基础信息</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>描述</th>
+      <th>示例值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>solar_elevation_angle</td>
+      <td>太阳高度角</td>
+      <td>89</td>
+    </tr>
+    <tr>
+      <td>solar_azimuth_angle</td>
+      <td>太阳方位角，正北顺时针方向角度</td>
+      <td>190</td>
+    </tr>
+    <tr>
+      <td>solar_hour</td>
+      <td>太阳时</td>
+      <td>0923</td>
+    </tr>
+    <tr>
+      <td>hour_angle</td>
+      <td>时角</td>
+      <td>-45.5</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="status-接口状态-4"><code class="language-plaintext highlighter-rouge">status</code> 接口状态</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>描述</th>
+      <th>示例</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>status</td>
+      <td>接口状态，具体含义请参考<a href="https://dev.heweather.com/docs/start/status-code">接口状态码及错误码</a></td>
+      <td>ok</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="风云二号卫星云图">风云二号卫星云图</h2>
+
+<p>风云二号卫星每小时更新的全国彩色卫星云图</p>
+
+<h3 class="no_toc">请求URL</h3>
+<p><strong>商业版：</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.heweather.net/s6/map/cloudmap?{parameters}
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">parameters</code>代表请求参数，包括必选和可选参数。所有请求参数均使用<code class="language-plaintext highlighter-rouge">&amp;</code>进行分隔，参数值存在中文或特殊字符的情况，需要对参数进行 <strong>url encode</strong>。</p>
+
+<h3 class="no_toc">请求参数</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>参数</th>
+      <th>描述</th>
+      <th>选择</th>
+      <th>示例值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>key</td>
+      <td>用户认证key，请参考<a href="https://dev.heweather.com/docs/start/get-api-key">如何获取你的KEY</a><br />支持<a href="https://dev.heweather.com/docs/faq/technical#signature-authentication">数字签名</a>方式进行认证，推荐使用</td>
+      <td>必选</td>
+      <td>key=xxxxxxxxxxxxxx</td>
+    </tr>
+  </tbody>
+</table>
+
+                </article>
+            </div>
+        </section>
+                
+        <section class="col-md-2 col-lg-2 hidden-sm hidden-xs">
+            <div class="region-doc-toc">
+                <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h2"><a href="#status-code">Status Code</a></li>
+<li class="toc-entry toc-h2"><a href="#常规天气接口">常规天气接口</a></li>
+<li class="toc-entry toc-h2"><a href="#1公里格点天气数据">1公里格点天气数据</a></li>
+<li class="toc-entry toc-h2"><a href="#分钟降水数据">分钟降水数据</a></li>
+<li class="toc-entry toc-h2"><a href="#中国景点天气预报">中国景点天气预报</a></li>
+<li class="toc-entry toc-h2"><a href="#历史前一天天气">历史前一天天气</a></li>
+<li class="toc-entry toc-h2"><a href="#中国极端天气灾害预警">中国极端天气灾害预警</a></li>
+<li class="toc-entry toc-h2"><a href="#中国空气质量数据">中国空气质量数据</a></li>
+<li class="toc-entry toc-h2"><a href="#全球太阳高度数据">全球太阳高度数据</a></li>
+<li class="toc-entry toc-h2"><a href="#风云二号卫星云图">风云二号卫星云图</a></li>
+</ul>
+            </div>
+        </section>
+        
+            </div>
+        </section>
+    </div>
+</div>
+<script src="/assets/js/bootstrap-3.3.7.min.js"></script>
+<script src="/assets/js/cookie.min.js?v=202009082"></script>
+<!-- <script src="/assets/js/baidu-analysis.js?v=202009082"></script> -->
+
+
+</body>
+</html>
