@@ -2,7 +2,6 @@
   .homepage {
     .content {
       width: 900px;
-      height: 500px;
       margin: 200px auto 0 auto;
       border-radius: 10px;
     }
@@ -13,13 +12,11 @@
   .homepage {
     .content {
       width: 768px;
-      height: 500px;
       margin: 150px auto 0 auto;
+      padding-bottom: 100px;
       border-radius: 10px;
       background-color: rgba(236, 236, 236, 0.59);
       transition: all 1.0s;
-
-      /*box-shadow: 0px 0px 20px rgba(0,0,0,0.3);*/
       .avatar {
         float: left;
         width: 150px;
@@ -69,8 +66,8 @@
   .homepage {
     .content {
       width: 556px;
-      height: 500px;
       margin: 180px auto 0 auto;
+      padding-bottom: 80px;
       border-radius: 10px;
       background-color: rgba(236, 236, 236, 0.59);
       transition: all 1.0s;
@@ -124,7 +121,7 @@
 @media (max-width: 555px) {
   .homepage {
     .content {
-      width: 414px;
+      width: 95%;
       border-radius: 10px;
       background-color: rgba(236, 236, 236, 0.59);
       transition: all 1.0s;
@@ -142,7 +139,7 @@
 
       .content_r {
         float: none;
-        width: 400px;
+        width: 90%;
         margin: 90px auto 0;
         /*	background-color: pink;*/
       }
@@ -177,10 +174,9 @@
 @media (max-width: 413px) {
   .homepage {
     .content {
-      width: 375px;
+      width: 90%;
       .content_r {
         float: none;
-        width: 90%;
         margin: 90px auto 0;
       }
     }
@@ -191,7 +187,6 @@
 @media (max-width: 374px) {
   .homepage {
     .content {
-      width: 90%;
       margin: 150px auto 0 auto;
 
       .link-list {
