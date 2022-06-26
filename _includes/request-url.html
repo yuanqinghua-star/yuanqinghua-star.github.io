@@ -3,6 +3,6 @@
 {% assign bizurl = "https://api.heweather.net" %}
 {% assign devurl = "https://devapi.heweather.net" %}
 {% assign dsurl = "https://datasetapi.heweather.net" %}
-* {{ site.data.t[page.lang].bizapi }} `{% if page.data == "historical" %}{{ dsurl }}{% else %}{{ bizurl }}{% endif %}/{{ page.version }}/{{ page.data }}/{{ data.path }}?{% raw %}{{% endraw %}{{ site.data.t[page.lang].rp }}{% raw %}}{% endraw %}`{: .requesturl }
-{% unless data.dev %}* {{ site.data.t[page.lang].devapi }} `{{ devurl }}/{{ page.version }}/{{ page.data }}/{{ data.path }}?{% raw %}{{% endraw %}{{ site.data.t[page.lang].rp }}{% raw %}}{% endraw %}`{: .requesturl }{% endunless %}
+* {{ site.data.t.bizapi }} `{% if page.data == "historical" %}{{ dsurl }}{% else %}{{ bizurl }}{% endif %}/{{ page.version }}/{{ page.data }}/{{ data.path }}?{% raw %}{{% endraw %}{{ site.data.t.rp }}{% raw %}}{% endraw %}`{: .requesturl }
+{% unless data.dev %}* {{ site.data.t.devapi }} `{{ devurl }}/{{ page.version }}/{{ page.data }}/{{ data.path }}?{% raw %}{{% endraw %}{{ site.data.t.rp }}{% raw %}}{% endraw %}`{: .requesturl }{% endunless %}
 {% endfor %}

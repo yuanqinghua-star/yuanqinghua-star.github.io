@@ -1,5 +1,5 @@
 {% if page.version == "s6" %}
-<a class="new-alart navbar-fixed-top" href="/docs/api/">{{ site.data.t[page.lang].s6warning }}</a>
+<a class="new-alart navbar-fixed-top" href="/docs/api/">{{ site.data.t.s6warning }}</a>
 {% else %}
 <header class="navbar-fixed-top">
   <nav class="container" id="header-nav">
@@ -10,10 +10,10 @@
       </a>
     </div>
     <ul class="nav navbar-nav navbar-left">
-      <li {% if page.url == "/" %}class="active"{% endif %}><a href="/">{{ site.data.t.zh.index }}</a></li>
-      <li {% if page.url == "/about" %}class="active"{% endif %}><a href="/about">{{ site.data.t.zh.about }}</a></li>
-      <li {% if page.collection == "docs" and page.tag[0] == "works" %}class="active"{% endif %}><a href="/works/tjxx/">{{ site.data.t.zh.workExperience }}</a></li>
-      <li {% if page.collection == "docs" and page.tag[0] != "works" %}class="active"{% endif %}><a href="/docs/javascript/">{{ site.data.t.zh.docs }}</a></li>
+      <li {% if page.url == "/" %}class="active"{% endif %}><a href="/">{{ site.data.t.index }}</a></li>
+      <li {% if page.url == "/about" %}class="active"{% endif %}><a href="/about">{{ site.data.t.about }}</a></li>
+      <li {% if page.collection == "docs" and page.tag[0] == "works" %}class="active"{% endif %}><a href="/works/tjxx/">{{ site.data.t.workExperience }}</a></li>
+      <li {% if page.collection == "docs" and page.tag[0] != "works" %}class="active"{% endif %}><a href="/docs/javascript/">{{ site.data.t.docs }}</a></li>
     </ul>
     {% include nav-widget.html %}
   </nav>
